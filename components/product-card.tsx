@@ -76,7 +76,7 @@ export function ProductCard({ product }: ProductCardProps) {
           className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold py-2 px-4 rounded-lg transition-all duration-300 shadow-lg shadow-purple-500/30 hover:shadow-purple-500/50"
         >
           <ShoppingCart className="h-4 w-4 mr-2" />
-          Agregar al Carrito
+          Add to Cart
         </Button>
       </CardFooter>
     </Card>

@@ -1,55 +1,79 @@
-"use client";
+"use client"
 
-import { useState } from "react";
-import { useCart } from "@/contexts/cart-context";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { ShoppingCart, X, Plus, Minus, MessageCircle } from "lucide-react";
-import Image from "next/image";
+import { useState } from "react"
+import { useCart } from "@/contexts/cart-context"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+import { ShoppingCart, X, Plus, Minus, MessageCircle } from "lucide-react"
+import Image from "next/image"
 
 export function Cart() {
-    const {
-    state,
-    removeItem,
-    updateQuantity,
-    clearCart,
-    generateDiscordMessage,
-    } = useCart();
-    const [isOpen, setIsOpen] = useState(false);
+    const { state, removeItem, updateQuantity, clearCart, generateDiscordMessage, sendOrderToDiscord } = useCart()
+    const [isOpen, setIsOpen] = useState(false)
 
-    const handleFinalizePurchase = () => {
-        const message = generateDiscordMessage();
-        const encodedMessage = encodeURIComponent(message);
+    const handleFinalizePurchase = async () => {
+        try {
+        // Mostrar loading
+        const loadingToast = document.createElement("div")
+        loadingToast.textContent = "Sending order to Discord..."
+        loadingToast.style.cssText =
+            "position:fixed;top:20px;right:20px;background:#8B5CF6;color:white;padding:12px;border-radius:8px;z-index:9999"
+        document.body.appendChild(loadingToast)
 
-    // Reemplaza 'YOUR_DISCORD_USERNAME' con tu nombre de usuario de Discord
-    const discordUrl = `https://discord.com/channels/@me`;
+        // Enviar mensaje a Discord
+        const success = await sendOrderToDiscord()
 
-    // Copia el mensaje al portapapeles
-    navigator.clipboard.writeText(message).then(() => {
-        alert("¡Mensaje copiado al portapapeles! Pégalo en Discord.");
-    });
+        // Remover loading toast
+        document.body.removeChild(loadingToast)
 
-    // Abre Discord
-    window.open(discordUrl, "_blank");
+        if (success) {
+            // Mensaje para el cliente
+            const customerMessage = generateDiscordMessage()
 
-    // Limpia el carrito después de finalizar
-    clearCart();
-    setIsOpen(false);
-    };
+            // Copiar mensaje del cliente al portapapeles
+            await navigator.clipboard.writeText(customerMessage)
+
+            // Mostrar confirmación
+            alert(
+            "✅ Order sent to PeachyPlatinums successfully!\n📋 Customer message copied to clipboard - paste it in your Discord chat.",
+            )
+
+            // Limpiar carrito
+            clearCart()
+            setIsOpen(false)
+        } else {
+            // Fallback: copiar mensaje al portapapeles
+            const customerMessage = generateDiscordMessage()
+            await navigator.clipboard.writeText(customerMessage)
+
+            alert(
+            "⚠️ Could not send automatically to Discord.\n📋 Message copied to clipboard - please paste it manually to @peachyplatinums",
+            )
+        }
+        } catch (error) {
+        console.error("Error processing order:", error)
+
+        // Fallback: copiar mensaje al portapapeles
+        const customerMessage = generateDiscordMessage()
+        await navigator.clipboard.writeText(customerMessage)
+
+        alert("❌ Error sending order.\n📋 Message copied to clipboard - please send manually.")
+        }
+    }
 
     if (state.itemCount === 0 && !isOpen) {
-    return (
+        return (
         <Button
-        onClick={() => setIsOpen(true)}
-        className="fixed bottom-6 right-6 z-50 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white rounded-full p-4 shadow-2xl shadow-purple-500/50"
+            onClick={() => setIsOpen(true)}
+            className="fixed bottom-6 right-6 z-50 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white rounded-full p-4 shadow-2xl shadow-purple-500/50"
         >
-        <ShoppingCart className="h-6 w-6" />
-        <Badge className="absolute -top-2 -right-2 bg-red-500 text-white border-0 min-w-[20px] h-5 flex items-center justify-center text-xs">
+            <ShoppingCart className="h-6 w-6" />
+            <Badge className="absolute -top-2 -right-2 bg-red-500 text-white border-0 min-w-[20px] h-5 flex items-center justify-center text-xs">
             0
-        </Badge>
+            </Badge>
         </Button>
-    );
+    )
     }
 
     return (
@@ -71,19 +95,14 @@ export function Cart() {
         {isOpen && (
         <div className="fixed inset-0 z-50 flex">
           {/* Overlay */}
-            <div
-            className="absolute inset-0 bg-black/50 backdrop-blur-sm"
-            onClick={() => setIsOpen(false)}
-            />
+            <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" onClick={() => setIsOpen(false)} />
 
           {/* Cart Panel */}
             <div className="ml-auto w-full max-w-md bg-gray-900/95 backdrop-blur-md border-l border-purple-500/30 shadow-2xl">
             <Card className="h-full bg-transparent border-0 rounded-none">
                 <CardHeader className="border-b border-purple-500/30">
                 <div className="flex items-center justify-between">
-                    <CardTitle className="text-xl font-bold text-purple-100">
-                    Carrito de Compras
-                    </CardTitle>
+                    <CardTitle className="text-xl font-bold text-purple-100">Shopping Cart</CardTitle>
                     <Button
                     variant="ghost"
                     size="icon"
@@ -99,15 +118,12 @@ export function Cart() {
                 {state.items.length === 0 ? (
                     <div className="text-center py-8">
                     <ShoppingCart className="h-12 w-12 text-purple-400 mx-auto mb-4" />
-                    <p className="text-purple-300">Tu carrito está vacío</p>
+                    <p className="text-purple-300">Your cart is empty</p>
                     </div>
                 ) : (
                     <div className="space-y-4">
                     {state.items.map((item) => (
-                        <div
-                        key={item.id}
-                        className="bg-gray-800/50 rounded-lg p-4 border border-purple-500/20"
-                        >
+                        <div key={item.id} className="bg-gray-800/50 rounded-lg p-4 border border-purple-500/20">
                         <div className="flex items-start space-x-3">
                             <Image
                             src={item.image || "/placeholder.svg"}
@@ -117,12 +133,8 @@ export function Cart() {
                             className="rounded-lg object-cover"
                             />
                             <div className="flex-1 min-w-0">
-                            <h4 className="text-sm font-semibold text-purple-100 line-clamp-2">
-                                {item.name}
-                            </h4>
-                            <p className="text-xs text-purple-300 mt-1">
-                                ${item.price.toFixed(2)} c/u
-                            </p>
+                            <h4 className="text-sm font-semibold text-purple-100 line-clamp-2">{item.name}</h4>
+                            <p className="text-xs text-purple-300 mt-1">${item.price.toFixed(2)} c/u</p>
 
                             {/* Quantity Controls */}
                             <div className="flex items-center justify-between mt-3">
@@ -131,9 +143,7 @@ export function Cart() {
                                     size="icon"
                                     variant="outline"
                                     className="h-6 w-6 border-purple-500/50 text-purple-300 bg-transparent"
-                                    onClick={() =>
-                                    updateQuantity(item.id, item.quantity - 1)
-                                    }
+                                    onClick={() => updateQuantity(item.id, item.quantity - 1)}
                                 >
                                     <Minus className="h-3 w-3" />
                                 </Button>
@@ -144,9 +154,7 @@ export function Cart() {
                                     size="icon"
                                     variant="outline"
                                     className="h-6 w-6 border-purple-500/50 text-purple-300 bg-transparent"
-                                    onClick={() =>
-                                    updateQuantity(item.id, item.quantity + 1)
-                                    }
+                                    onClick={() => updateQuantity(item.id, item.quantity + 1)}
                                 >
                                     <Plus className="h-3 w-3" />
                                 </Button>
@@ -165,7 +173,7 @@ export function Cart() {
                                     <X className="h-3 w-3" />
                                 </Button>
                                 </div>
-                            </div>
+                                </div>
                             </div>
                         </div>
                         </div>
@@ -177,10 +185,8 @@ export function Cart() {
                 {state.items.length > 0 && (
                 <div className="border-t border-purple-500/30 p-4 space-y-4">
                     <div className="flex justify-between items-center">
-                    <span className="text-lg font-bold text-purple-100">
-                        Total:
-                    </span>
-                    <span className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                        <span className="text-lg font-bold text-purple-100">Total:</span>
+                        <span className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
                         ${state.total.toFixed(2)}
                     </span>
                     </div>
@@ -191,7 +197,7 @@ export function Cart() {
                         className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold py-3"
                     >
                         <MessageCircle className="h-4 w-4 mr-2" />
-                        Finalizar Compra en Discord
+                        Complete Purchase on Discord
                     </Button>
 
                     <Button
@@ -199,7 +205,7 @@ export function Cart() {
                         variant="outline"
                         className="w-full border-purple-500/50 text-purple-300 hover:bg-purple-500/20 bg-transparent"
                     >
-                        Limpiar Carrito
+                        Clear Cart
                     </Button>
                     </div>
                 </div>
@@ -208,6 +214,6 @@ export function Cart() {
             </div>
         </div>
         )}
-        </>
-    );
+    </>
+    )
 }

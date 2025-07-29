@@ -4,8 +4,10 @@ import { useState, useMemo } from "react"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { ProductCard } from "@/components/product-card"
+import { SearchBar } from "@/components/search-bar"
 import { Button } from "@/components/ui/button"
 import { Cart } from "@/components/cart"
+import { ContactButtons } from "@/components/contact-buttons"
 
 const products = [
   {
@@ -1164,34 +1166,57 @@ const products = [
 
 export default function HomePage() {
   const [selectedCategory, setSelectedCategory] = useState<string>("all")
+  const [searchTerm, setSearchTerm] = useState<string>("")
 
   const filteredProducts = useMemo(() => {
-    if (selectedCategory === "all") return products
-    return products.filter((product) => product.category === selectedCategory)
-  }, [selectedCategory])
+    let filtered = products
+
+    // Filter by category
+    if (selectedCategory !== "all") {
+      filtered = filtered.filter((product) => product.category === selectedCategory)
+    }
+
+    // Filter by search term
+    if (searchTerm) {
+      filtered = filtered.filter(
+        (product) =>
+          product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          product.description.toLowerCase().includes(searchTerm.toLowerCase()),
+      )
+    }
+
+    return filtered
+  }, [selectedCategory, searchTerm])
 
   const categories = [
-    { id: "all", name: "Todos los Juegos", count: products.length },
+    { id: "all", name: "All Games", count: products.length },
     { id: "ps3", name: "PlayStation 3", count: products.filter((p) => p.category === "ps3").length },
     { id: "ps4", name: "PlayStation 4", count: products.filter((p) => p.category === "ps4").length },
     { id: "ps5", name: "PlayStation 5", count: products.filter((p) => p.category === "ps5").length },
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-purple-900">
+    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-purple-900 dark:from-black dark:via-gray-900 dark:to-purple-900 from-purple-50 via-pink-50 to-purple-100">
       <Header />
 
       {/* Hero Section */}
       <section className="relative py-20 px-4 text-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-pink-600/20 blur-3xl"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-pink-600/20 dark:from-purple-600/20 dark:to-pink-600/20 from-purple-200/40 to-pink-200/40 blur-3xl"></div>
         <div className="relative z-10 max-w-4xl mx-auto">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-purple-400 via-pink-400 to-purple-600 bg-clip-text text-transparent">
             PeachyPlatinums
           </h1>
-          <p className="text-xl md:text-2xl text-purple-200 mb-8 font-light">
-            Servicios profesionales de trofeos platino para PlayStation
+          <p className="text-xl md:text-2xl text-purple-200 dark:text-purple-200 text-purple-700 mb-8 font-light">
+            Professional PlayStation Platinum Trophy Services
           </p>
           <div className="w-32 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto rounded-full shadow-lg shadow-purple-500/50"></div>
+        </div>
+      </section>
+
+      {/* Search Bar */}
+      <section className="py-8 px-4">
+        <div className="max-w-6xl mx-auto">
+          <SearchBar searchTerm={searchTerm} onSearchChange={setSearchTerm} placeholder="Search for games..." />
         </div>
       </section>
 
@@ -1209,7 +1234,7 @@ export default function HomePage() {
                   ${
                     selectedCategory === category.id
                       ? "bg-gradient-to-r from-purple-600 to-pink-600 border-purple-500 text-white shadow-lg shadow-purple-500/50"
-                      : "border-purple-500/50 text-purple-300 hover:border-purple-400 hover:text-purple-200 hover:shadow-md hover:shadow-purple-500/25"
+                      : "border-purple-500/50 text-purple-300 dark:text-purple-300 text-purple-700 hover:border-purple-400 hover:text-purple-200 dark:hover:text-purple-200 hover:text-purple-600 hover:shadow-md hover:shadow-purple-500/25"
                   }
                 `}
               >
@@ -1221,18 +1246,55 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Results Info */}
+      {(searchTerm || selectedCategory !== "all") && (
+        <section className="px-4 pb-4">
+          <div className="max-w-7xl mx-auto">
+            <p className="text-center text-purple-300 dark:text-purple-300 text-purple-600">
+              {filteredProducts.length === 0
+                ? "No games found matching your criteria"
+                : `Showing ${filteredProducts.length} game${filteredProducts.length !== 1 ? "s" : ""}`}
+              {searchTerm && ` for "${searchTerm}"`}
+              {selectedCategory !== "all" && ` in ${categories.find((c) => c.id === selectedCategory)?.name}`}
+            </p>
+          </div>
+        </section>
+      )}
+
       {/* Products Grid */}
       <section className="py-8 px-4">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {filteredProducts.map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
-          </div>
+          {filteredProducts.length === 0 ? (
+            <div className="text-center py-16">
+              <div className="text-6xl mb-4">🎮</div>
+              <h3 className="text-2xl font-bold text-purple-200 dark:text-purple-200 text-purple-700 mb-2">
+                No games found
+              </h3>
+              <p className="text-purple-300 dark:text-purple-300 text-purple-600 mb-6">
+                Try adjusting your search or category filter
+              </p>
+              <Button
+                onClick={() => {
+                  setSearchTerm("")
+                  setSelectedCategory("all")
+                }}
+                className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white"
+              >
+                Clear Filters
+              </Button>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              {filteredProducts.map((product) => (
+                <ProductCard key={product.id} product={product} />
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
       <Footer />
+      <ContactButtons />
       <Cart />
     </div>
   )

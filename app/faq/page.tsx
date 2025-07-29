@@ -1,86 +1,91 @@
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
+import { ContactButtons } from "@/components/contact-buttons"
 
 const faqs = [
   {
-    question: "¿Qué es un servicio de trofeo platino?",
+    question: "What is a platinum trophy service?",
     answer:
-      "Un servicio de trofeo platino es cuando nuestros expertos jugadores completan todos los trofeos de un videojuego en tu cuenta de PlayStation para que obtengas el codiciado trofeo platino sin tener que invertir cientos de horas.",
+      "A platinum trophy service is when our expert gamers complete all trophies in a video game on your PlayStation account so you can obtain the coveted platinum trophy without having to invest hundreds of hours.",
   },
   {
-    question: "¿Es seguro usar sus servicios?",
+    question: "Is it safe to use your services?",
     answer:
-      "Sí, completamente seguro. Utilizamos métodos legítimos de juego, nunca usamos hacks o cheats. Nuestros jugadores son expertos que completan los juegos de forma natural. Además, nunca compartimos tu información personal.",
+      "Yes, completely safe. We use legitimate gameplay methods, never hacks or cheats. Our gamers are experts who complete games naturally. Additionally, we never share your personal information.",
   },
   {
-    question: "¿Cuánto tiempo toma completar un platino?",
+    question: "How long does it take to complete a platinum?",
     answer:
-      "El tiempo varía según el juego. Juegos simples pueden tomar 1-3 días, mientras que juegos más complejos como Dark Souls pueden tomar 1-2 semanas. Te proporcionamos un estimado de tiempo antes de comenzar.",
+      "Time varies depending on the game. Simple games can take 1-3 days, while more complex games like Dark Souls can take 1-2 weeks. We provide you with a time estimate before starting.",
   },
   {
-    question: "¿Qué necesito proporcionar?",
+    question: "What do I need to provide?",
     answer:
-      "Solo necesitas proporcionar las credenciales de tu cuenta de PlayStation (email y contraseña) y asegurarte de que el juego esté instalado en tu consola o disponible en tu biblioteca digital.",
+      "You only need to provide your PlayStation account credentials (email and password) and ensure the game is installed on your console or available in your digital library.",
   },
   {
-    question: "¿Puedo seguir el progreso?",
+    question: "Can I track the progress?",
     answer:
-      "¡Por supuesto! Te mantenemos actualizado con capturas de pantalla y actualizaciones regulares del progreso. También puedes contactarnos en cualquier momento para verificar el estado.",
+      "Of course! We keep you updated with screenshots and regular progress updates. You can also contact us anytime to check the status.",
   },
   {
-    question: "¿Qué pasa si algo sale mal?",
+    question: "What happens if something goes wrong?",
     answer:
-      "Ofrecemos garantía completa. Si por alguna razón no podemos completar el platino, te devolvemos el 100% de tu dinero. También nos hacemos responsables de cualquier problema técnico.",
+      "We offer a complete guarantee. If for any reason we cannot complete the platinum, we refund 100% of your money. We also take responsibility for any technical issues.",
   },
   {
-    question: "¿Aceptan pagos internacionales?",
+    question: "Do you accept international payments?",
     answer:
-      "Sí, aceptamos pagos de todo el mundo a través de PayPal, tarjetas de crédito/débito y criptomonedas. Los precios están en USD pero se pueden convertir automáticamente.",
+      "Yes, we accept payments from around the world through PayPal, credit/debit cards, and cryptocurrencies. Prices are in USD but can be automatically converted.",
   },
   {
-    question: "¿Trabajan con cuentas de todas las regiones?",
+    question: "Do you work with accounts from all regions?",
     answer:
-      "Trabajamos con cuentas de todas las regiones (NA, EU, Asia, etc.). Solo asegúrate de especificar tu región al hacer el pedido para evitar problemas de compatibilidad.",
+      "We work with accounts from all regions (NA, EU, Asia, etc.). Just make sure to specify your region when placing the order to avoid compatibility issues.",
   },
   {
-    question: "¿Puedo solicitar un juego que no está en la lista?",
+    question: "Can I request a game that's not on the list?",
     answer:
-      "¡Sí! Si no ves el juego que buscas en nuestra lista, contáctanos por Discord o WhatsApp. Podemos hacer una cotización personalizada para prácticamente cualquier juego de PlayStation.",
+      "Yes! If you don't see the game you're looking for in our list, contact us via Discord or WhatsApp. We can make a custom quote for virtually any PlayStation game.",
   },
   {
-    question: "¿Ofrecen descuentos por múltiples servicios?",
+    question: "Do you offer discounts for multiple services?",
     answer:
-      "Sí, ofrecemos descuentos progresivos: 5% de descuento en 2-3 servicios, 10% en 4-5 servicios, y 15% en 6 o más servicios. Los descuentos se aplican automáticamente en el checkout.",
+      "Yes, we offer progressive discounts: 5% off for 2-3 services, 10% for 4-5 services, and 15% for 6 or more services. Discounts are automatically applied at checkout.",
   },
 ]
 
 export default function FAQPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-purple-900">
+    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-purple-900 dark:from-black dark:via-gray-900 dark:to-purple-900 from-purple-50 via-pink-50 to-purple-100">
       <Header />
 
       <section className="py-20 px-4">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-purple-400 via-pink-400 to-purple-600 bg-clip-text text-transparent">
-              Preguntas Frecuentes
+              Frequently Asked Questions
             </h1>
-            <p className="text-xl text-purple-200 font-light">Todo lo que necesitas saber sobre nuestros servicios</p>
+            <p className="text-xl text-purple-200 dark:text-purple-200 text-purple-700 font-light">
+              Everything you need to know about our services
+            </p>
           </div>
 
-          <div className="bg-gray-900/50 backdrop-blur-sm rounded-2xl border border-purple-500/30 p-8 shadow-2xl shadow-purple-500/10">
+          <div className="bg-gray-900/50 dark:bg-gray-900/50 bg-white/80 backdrop-blur-sm rounded-2xl border border-purple-500/30 p-8 shadow-2xl shadow-purple-500/10">
             <Accordion type="single" collapsible className="space-y-4">
               {faqs.map((faq, index) => (
                 <AccordionItem
                   key={index}
                   value={`item-${index}`}
-                  className="border border-purple-500/20 rounded-lg px-6 py-2 bg-gray-800/30 backdrop-blur-sm"
+                  className="border border-purple-500/20 rounded-lg px-6 py-2 bg-gray-800/30 dark:bg-gray-800/30 bg-purple-50/50 backdrop-blur-sm"
                 >
-                  <AccordionTrigger className="text-left text-purple-200 hover:text-purple-100 font-semibold text-lg">
+                  <AccordionTrigger className="text-left text-purple-200 dark:text-purple-200 text-purple-800 hover:text-purple-100 dark:hover:text-purple-100 hover:text-purple-700 font-semibold text-lg">
                     {faq.question}
                   </AccordionTrigger>
-                  <AccordionContent className="text-purple-300 leading-relaxed pt-4">{faq.answer}</AccordionContent>
+                  <AccordionContent className="text-purple-300 dark:text-purple-300 text-purple-600 leading-relaxed pt-4">
+                    {faq.answer}
+                  </AccordionContent>
                 </AccordionItem>
               ))}
             </Accordion>
@@ -89,6 +94,8 @@ export default function FAQPage() {
       </section>
 
       <Footer />
+      <ContactButtons />
     </div>
   )
 }
+

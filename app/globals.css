@@ -4,25 +4,25 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
-    --primary: 262 83% 58%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 262 83% 58%;
+    --background: 255 250 255;
+    --foreground: 88 28 135;
+    --card: 255 250 255;
+    --card-foreground: 88 28 135;
+    --popover: 255 250 255;
+    --popover-foreground: 88 28 135;
+    --primary: 168 85 247;
+    --primary-foreground: 255 255 255;
+    --secondary: 248 237 255;
+    --secondary-foreground: 88 28 135;
+    --muted: 248 237 255;
+    --muted-foreground: 124 58 237;
+    --accent: 248 237 255;
+    --accent-foreground: 88 28 135;
+    --destructive: 239 68 68;
+    --destructive-foreground: 255 255 255;
+    --border: 233 213 255;
+    --input: 233 213 255;
+    --ring: 168 85 247;
     --radius: 0.5rem;
   }
 
@@ -63,8 +63,45 @@
   box-shadow: 0 0 20px rgba(168, 85, 247, 0.5);
 }
 
+.cyberpunk-glow-light {
+  box-shadow: 0 0 15px rgba(168, 85, 247, 0.3);
+}
+
 .neon-text {
   text-shadow: 0 0 10px rgba(168, 85, 247, 0.8);
+}
+
+.neon-text-light {
+  text-shadow: 0 0 5px rgba(168, 85, 247, 0.4);
+}
+
+/* Light mode specific styles */
+.light .bg-gradient-to-br {
+  background: linear-gradient(to bottom right, #faf7ff, #f4edff, #fef7f7);
+}
+
+.light .bg-gray-900\/50 {
+  background: rgba(248, 237, 255, 0.8);
+}
+
+.light .bg-gray-800\/50 {
+  background: rgba(233, 213, 255, 0.6);
+}
+
+.light .border-purple-500\/30 {
+  border-color: rgba(168, 85, 247, 0.4);
+}
+
+.light .text-purple-100 {
+  color: rgb(88, 28, 135);
+}
+
+.light .text-purple-200 {
+  color: rgb(124, 58, 237);
+}
+
+.light .text-purple-300 {
+  color: rgb(147, 51, 234);
 }
 
 /* Scrollbar styling */

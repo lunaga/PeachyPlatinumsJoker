@@ -8,9 +8,9 @@ import { CartProvider } from "@/contexts/cart-context"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "PeachyPlatinums - Servicios de Trofeos Platino PlayStation",
+  title: "PeachyPlatinums - Professional PlayStation Platinum Trophy Services",
   description:
-    "Servicios profesionales de trofeos platino para PlayStation 3, 4 y 5. Expertos en completar los desafíos más difíciles.",
+    "Professional platinum trophy services for PlayStation 3, 4 and 5. Experts in completing the most difficult challenges.",
 }
 
 export default function RootLayout({
@@ -19,7 +19,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="es" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
           <CartProvider>{children}</CartProvider>
