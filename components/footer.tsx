@@ -92,7 +92,7 @@ export function Footer() {
 
         <div className="mt-8 pt-8 border-t border-purple-500/30 text-center">
           <p className="text-purple-400 dark:text-purple-400 text-purple-600 text-sm">
-            © 2024 PeachyPlatinums. All rights reserved.
+            © 2025 PeachyPlatinums. All rights reserved.
           </p>
         </div>
       </div>
