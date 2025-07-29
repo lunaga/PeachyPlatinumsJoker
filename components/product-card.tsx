@@ -1,8 +1,11 @@
+"use client"
+
 import Image from "next/image"
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Trophy, ShoppingCart } from "lucide-react"
+import { useCart } from "@/contexts/cart-context"
 
 interface Product {
   id: string
@@ -18,6 +21,12 @@ interface ProductCardProps {
 }
 
 export function ProductCard({ product }: ProductCardProps) {
+  const { addItem } = useCart()
+
+  const handleAddToCart = () => {
+    addItem(product)
+  }
+
   const getCategoryBadge = (category: string) => {
     const badges = {
       ps3: { label: "PS3", color: "bg-blue-600/80 text-blue-100" },
@@ -62,9 +71,12 @@ export function ProductCard({ product }: ProductCardProps) {
       </CardContent>
 
       <CardFooter className="p-4 pt-0">
-        <Button className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold py-2 px-4 rounded-lg transition-all duration-300 shadow-lg shadow-purple-500/30 hover:shadow-purple-500/50">
+        <Button
+          onClick={handleAddToCart}
+          className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold py-2 px-4 rounded-lg transition-all duration-300 shadow-lg shadow-purple-500/30 hover:shadow-purple-500/50"
+        >
           <ShoppingCart className="h-4 w-4 mr-2" />
-          Solicitar Servicio
+          Agregar al Carrito
         </Button>
       </CardFooter>
     </Card>
