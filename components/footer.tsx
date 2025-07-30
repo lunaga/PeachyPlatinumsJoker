@@ -1,6 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
-import { MessageCircle, Phone, ShoppingBag } from "lucide-react"
+import { MessageCircle, Phone, ShoppingBag, Mail, Gamepad2 } from "lucide-react"
 
 export function Footer() {
   return (
@@ -69,6 +69,13 @@ export function Footer() {
                 <span>Discord: @peachyplatinums</span>
               </a>
               <a
+                href="mailto:Peachyplatinums@hotmail.com"
+                className="flex items-center justify-center md:justify-end space-x-2 text-purple-300 dark:text-purple-300 text-purple-700 hover:text-purple-100 dark:hover:text-purple-100 hover:text-purple-600 transition-colors duration-300 group"
+              >
+                <Mail className="h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
+                <span>Peachyplatinums@hotmail.com</span>
+              </a>
+              <a
                 href="https://wa.me/5491164716955"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -76,6 +83,15 @@ export function Footer() {
               >
                 <Phone className="h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
                 <span>WhatsApp</span>
+              </a>
+              <a
+                href="https://psnprofiles.com/PeachyPlatinums"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center md:justify-end space-x-2 text-purple-300 dark:text-purple-300 text-purple-700 hover:text-purple-100 dark:hover:text-purple-100 hover:text-purple-600 transition-colors duration-300 group"
+              >
+                <Gamepad2 className="h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
+                <span>PSN Profile</span>
               </a>
               <a
                 href="https://www.ebay.com/str/peachyplatinums?mkcid=16&mkevt=1&mkrid=711-127632-2357-0&ssspo=YiIVhmFMRyC&sssrc=3418065&ssuid=v792cyonree&stype=1&widget_ver=artemis&media=WHATS_APP"
@@ -99,4 +115,6 @@ export function Footer() {
     </footer>
   )
 }
+
+
 

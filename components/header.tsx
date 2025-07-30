@@ -12,11 +12,11 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 bg-black/80 dark:bg-black/80 bg-white/80 backdrop-blur-md border-b border-purple-500/30">
-      <div className="max-w-7xl mx-auto px-4 py-4">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 py-3 sm:py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-3 group">
-            <div className="relative w-12 h-12 rounded-full overflow-hidden shadow-lg shadow-purple-500/50 group-hover:shadow-purple-500/70 transition-all duration-300 ring-2 ring-purple-500/30 group-hover:ring-purple-400/50">
+          <Link href="/" className="flex items-center space-x-2 sm:space-x-3 group min-w-0 flex-shrink-0">
+            <div className="relative w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden shadow-lg shadow-purple-500/50 group-hover:shadow-purple-500/70 transition-all duration-300 ring-2 ring-purple-500/30 group-hover:ring-purple-400/50 flex-shrink-0">
               <Image
                 src="/images/games/logo.webp"
                 alt="PeachyPlatinums Logo"
@@ -25,13 +25,13 @@ export function Header() {
                 className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
               />
             </div>
-            <span className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+            <span className="text-lg sm:text-xl md:text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent truncate">
               PeachyPlatinums
             </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center space-x-6 lg:space-x-8">
             <Link
               href="/"
               className="text-purple-200 dark:text-purple-200 text-purple-700 hover:text-purple-100 dark:hover:text-purple-100 hover:text-purple-600 transition-colors duration-300 font-medium"
@@ -54,15 +54,15 @@ export function Header() {
           </nav>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center space-x-4">
+          <div className="md:hidden flex items-center space-x-2 sm:space-x-4 flex-shrink-0">
             <ThemeToggle />
             <Button
               variant="ghost"
               size="icon"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-purple-200 dark:text-purple-200 text-purple-700 hover:text-purple-100 dark:hover:text-purple-100 hover:text-purple-600"
+              className="text-purple-200 dark:text-purple-200 text-purple-700 hover:text-purple-100 dark:hover:text-purple-100 hover:text-purple-600 h-8 w-8 sm:h-10 sm:w-10"
             >
-              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isMenuOpen ? <X className="h-5 w-5 sm:h-6 sm:w-6" /> : <Menu className="h-5 w-5 sm:h-6 sm:w-6" />}
             </Button>
           </div>
         </div>

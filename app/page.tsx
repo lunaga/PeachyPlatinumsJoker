@@ -1165,136 +1165,140 @@ const products = [
 ]
 
 export default function HomePage() {
-  const [selectedCategory, setSelectedCategory] = useState<string>("all")
-  const [searchTerm, setSearchTerm] = useState<string>("")
+    const [selectedCategory, setSelectedCategory] = useState<string>("all")
+    const [searchTerm, setSearchTerm] = useState<string>("")
 
-  const filteredProducts = useMemo(() => {
-    let filtered = products
+    const filteredProducts = useMemo(() => {
+        let filtered = products
 
-    // Filter by category
-    if (selectedCategory !== "all") {
-      filtered = filtered.filter((product) => product.category === selectedCategory)
-    }
+        // Filter by category
+        if (selectedCategory !== "all") {
+        filtered = filtered.filter((product) => product.category === selectedCategory)
+        }
 
-    // Filter by search term
-    if (searchTerm) {
-      filtered = filtered.filter(
-        (product) =>
-          product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          product.description.toLowerCase().includes(searchTerm.toLowerCase()),
-      )
-    }
+        // Filter by search term
+        if (searchTerm) {
+        filtered = filtered.filter(
+            (product) =>
+            product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            product.description.toLowerCase().includes(searchTerm.toLowerCase()),
+        )
+        }
 
-    return filtered
-  }, [selectedCategory, searchTerm])
+        return filtered
+    }, [selectedCategory, searchTerm])
 
-  const categories = [
-    { id: "all", name: "All Games", count: products.length },
-    { id: "ps3", name: "PlayStation 3", count: products.filter((p) => p.category === "ps3").length },
-    { id: "ps4", name: "PlayStation 4", count: products.filter((p) => p.category === "ps4").length },
-    { id: "ps5", name: "PlayStation 5", count: products.filter((p) => p.category === "ps5").length },
-  ]
+    const categories = [
+        { id: "all", name: "All Games", count: products.length },
+        { id: "ps3", name: "PlayStation 3", count: products.filter((p) => p.category === "ps3").length },
+        { id: "ps4", name: "PlayStation 4", count: products.filter((p) => p.category === "ps4").length },
+        { id: "ps5", name: "PlayStation 5", count: products.filter((p) => p.category === "ps5").length },
+    ]
 
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-purple-900 dark:from-black dark:via-gray-900 dark:to-purple-900 from-purple-50 via-pink-50 to-purple-100">
-      <Header />
+    return (
+        <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-purple-900 dark:from-black dark:via-gray-900 dark:to-purple-900 from-purple-50 via-pink-50 to-purple-100 overflow-x-hidden">
+        <Header />
 
-      {/* Hero Section with Banner */}
-      <section className="hero-banner relative py-20 px-4 text-center overflow-hidden min-h-[60vh] flex items-center justify-center">
-        <div className="hero-content max-w-4xl mx-auto">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-purple-400 via-pink-400 to-purple-600 bg-clip-text text-transparent drop-shadow-2xl">
-            PeachyPlatinums
-          </h1>
-          <p className="text-xl md:text-2xl text-white dark:text-white text-purple-100 mb-8 font-light drop-shadow-lg">
-            Professional PlayStation Platinum Trophy Services
-          </p>
-          <div className="w-32 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto rounded-full shadow-lg shadow-purple-500/50"></div>
-        </div>
-      </section>
-
-      {/* Search Bar */}
-      <section className="py-8 px-4">
-        <div className="max-w-6xl mx-auto">
-          <SearchBar searchTerm={searchTerm} onSearchChange={setSearchTerm} placeholder="Search for games..." />
-        </div>
-      </section>
-
-      {/* Category Filter */}
-      <section className="py-8 px-4">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
-            {categories.map((category) => (
-              <Button
-                key={category.id}
-                onClick={() => setSelectedCategory(category.id)}
-                variant={selectedCategory === category.id ? "default" : "outline"}
-                className={`
-                  px-6 py-3 rounded-lg font-semibold transition-all duration-300 border-2
-                  ${
-                    selectedCategory === category.id
-                      ? "bg-gradient-to-r from-purple-600 to-pink-600 border-purple-500 text-white shadow-lg shadow-purple-500/50"
-                      : "border-purple-500/50 text-purple-300 dark:text-purple-300 text-purple-700 hover:border-purple-400 hover:text-purple-200 dark:hover:text-purple-200 hover:text-purple-600 hover:shadow-md hover:shadow-purple-500/25"
-                  }
-                `}
-              >
-                {category.name}
-                <span className="ml-2 px-2 py-1 text-xs rounded-full bg-purple-500/30">{category.count}</span>
-              </Button>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Results Info */}
-      {(searchTerm || selectedCategory !== "all") && (
-        <section className="px-4 pb-4">
-          <div className="max-w-7xl mx-auto">
-            <p className="text-center text-purple-300 dark:text-purple-300 text-purple-600">
-              {filteredProducts.length === 0
-                ? "No games found matching your criteria"
-                : `Showing ${filteredProducts.length} game${filteredProducts.length !== 1 ? "s" : ""}`}
-              {searchTerm && ` for "${searchTerm}"`}
-              {selectedCategory !== "all" && ` in ${categories.find((c) => c.id === selectedCategory)?.name}`}
+        {/* Hero Section - Back to original */}
+        <section className="relative py-12 sm:py-16 md:py-20 px-3 sm:px-4 text-center overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-pink-600/20 dark:from-purple-600/20 dark:to-pink-600/20 from-purple-200/40 to-pink-200/40 blur-3xl"></div>
+            <div className="relative z-10 max-w-4xl mx-auto">
+            <h1 className="hero-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-purple-400 via-pink-400 to-purple-600 bg-clip-text text-transparent px-2">
+                PeachyPlatinums
+            </h1>
+            <p className="hero-subtitle text-base sm:text-lg md:text-xl lg:text-2xl text-purple-200 dark:text-purple-200 text-purple-700 mb-6 sm:mb-8 font-light px-4">
+                Professional PlayStation Platinum Trophy Services
             </p>
-          </div>
+            <div className="w-24 sm:w-32 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto rounded-full shadow-lg shadow-purple-500/50"></div>
+            </div>
         </section>
-      )}
 
-      {/* Products Grid */}
-      <section className="py-8 px-4">
-        <div className="max-w-7xl mx-auto">
-          {filteredProducts.length === 0 ? (
-            <div className="text-center py-16">
-              <div className="text-6xl mb-4">🎮</div>
-              <h3 className="text-2xl font-bold text-purple-200 dark:text-purple-200 text-purple-700 mb-2">
-                No games found
-              </h3>
-              <p className="text-purple-300 dark:text-purple-300 text-purple-600 mb-6">
-                Try adjusting your search or category filter
-              </p>
-              <Button
-                onClick={() => {
-                  setSearchTerm("")
-                  setSelectedCategory("all")
-                }}
-                className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white"
-              >
-                Clear Filters
-              </Button>
+        {/* Search Bar */}
+        <section className="py-6 sm:py-8 px-3 sm:px-4">
+            <div className="max-w-6xl mx-auto">
+            <SearchBar searchTerm={searchTerm} onSearchChange={setSearchTerm} placeholder="Search for games..." />
             </div>
-          ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {filteredProducts.map((product) => (
-                <ProductCard key={product.id} product={product} />
-              ))}
+        </section>
+
+        {/* Category Filter */}
+        <section className="py-6 sm:py-8 px-3 sm:px-4">
+            <div className="max-w-6xl mx-auto">
+            <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-8 sm:mb-12">
+                {categories.map((category) => (
+                <Button
+                    key={category.id}
+                    onClick={() => setSelectedCategory(category.id)}
+                    variant={selectedCategory === category.id ? "default" : "outline"}
+                    className={`
+                    px-3 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold transition-all duration-300 border-2 text-xs sm:text-sm
+                    ${
+                        selectedCategory === category.id
+                        ? "bg-gradient-to-r from-purple-600 to-pink-600 border-purple-500 text-white shadow-lg shadow-purple-500/50"
+                        : "border-purple-500/50 text-purple-300 dark:text-purple-300 text-purple-700 hover:border-purple-400 hover:text-purple-200 dark:hover:text-purple-200 hover:text-purple-600 hover:shadow-md hover:shadow-purple-500/25"
+                    }
+                    `}
+                >
+                    <span className="hidden sm:inline">{category.name}</span>
+                    <span className="sm:hidden">{category.name.replace("PlayStation ", "PS")}</span>
+                    <span className="ml-1 sm:ml-2 px-1 sm:px-2 py-0.5 sm:py-1 text-xs rounded-full bg-purple-500/30">
+                    {category.count}
+                    </span>
+                </Button>
+                ))}
             </div>
-          )}
+            </div>
+        </section>
+
+        {/* Results Info */}
+        {(searchTerm || selectedCategory !== "all") && (
+            <section className="px-3 sm:px-4 pb-4">
+            <div className="max-w-7xl mx-auto">
+                <p className="text-center text-purple-300 dark:text-purple-300 text-purple-600 text-sm sm:text-base">
+                {filteredProducts.length === 0
+                    ? "No games found matching your criteria"
+                    : `Showing ${filteredProducts.length} game${filteredProducts.length !== 1 ? "s" : ""}`}
+                {searchTerm && ` for "${searchTerm}"`}
+                {selectedCategory !== "all" && ` in ${categories.find((c) => c.id === selectedCategory)?.name}`}
+                </p>
+            </div>
+            </section>
+        )}
+
+        {/* Products Grid */}
+        <section className="py-6 sm:py-8 px-3 sm:px-4">
+            <div className="max-w-7xl mx-auto">
+            {filteredProducts.length === 0 ? (
+                <div className="text-center py-12 sm:py-16">
+                <div className="text-4xl sm:text-6xl mb-4">🎮</div>
+                <h3 className="text-xl sm:text-2xl font-bold text-purple-200 dark:text-purple-200 text-purple-700 mb-2">
+                    No games found
+                </h3>
+                <p className="text-purple-300 dark:text-purple-300 text-purple-600 mb-6 text-sm sm:text-base px-4">
+                    Try adjusting your search or category filter
+                </p>
+                <Button
+                    onClick={() => {
+                    setSearchTerm("")
+                    setSelectedCategory("all")
+                    }}
+                    className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white"
+                >
+                    Clear Filters
+                </Button>
+                </div>
+            ) : (
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
+                {filteredProducts.map((product) => (
+                    <ProductCard key={product.id} product={product} />
+                ))}
+                </div>
+            )}
+            </div>
+        </section>
+
+        <Footer />
+        <ContactButtons />
+        <Cart />
         </div>
-      </section>
-
-      <Footer />
-      <ContactButtons />
-      <Cart />
-    </div>
-  )
+    )
 }

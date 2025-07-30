@@ -1,10 +1,10 @@
-    "use client"
+"use client"
 
-    import { useState } from "react"
-    import { Button } from "@/components/ui/button"
-    import { MessageCircle, Phone, X, MessageSquare, ShoppingBag } from "lucide-react"
+import { useState } from "react"
+import { Button } from "@/components/ui/button"
+import { MessageCircle, Phone, X, MessageSquare, ShoppingBag, Mail, Gamepad2 } from "lucide-react"
 
-    export function ContactButtons() {
+export function ContactButtons() {
     const [isOpen, setIsOpen] = useState(false)
 
     return (
@@ -23,6 +23,15 @@
                 <span className="font-medium">Discord</span>
             </a>
 
+            {/* Email */}
+            <a
+                href="mailto:Peachyplatinums@hotmail.com"
+                className="flex items-center space-x-3 bg-purple-600 hover:bg-purple-700 text-white px-4 py-3 rounded-full shadow-lg transition-all duration-300 hover:scale-105"
+            >
+                <Mail className="h-5 w-5" />
+                <span className="font-medium">Email</span>
+            </a>
+
             {/* WhatsApp */}
             <a
                 href="https://wa.me/5491164716955"
@@ -32,6 +41,17 @@
             >
                 <Phone className="h-5 w-5" />
                 <span className="font-medium">WhatsApp</span>
+            </a>
+
+            {/* PSN Profile */}
+            <a
+                href="https://psnprofiles.com/PeachyPlatinums"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center space-x-3 bg-cyan-600 hover:bg-cyan-700 text-white px-4 py-3 rounded-full shadow-lg transition-all duration-300 hover:scale-105"
+            >
+                <Gamepad2 className="h-5 w-5" />
+                <span className="font-medium">PSN Profile</span>
             </a>
 
             {/* eBay */}
@@ -60,4 +80,6 @@
         </Button>
         </div>
     )
-    }
+}
+
+

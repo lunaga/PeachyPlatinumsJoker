@@ -1,8 +1,8 @@
-    "use client"
+"use client"
 
-    import { createContext, useContext, useReducer, type ReactNode } from "react"
+import { createContext, useContext, useReducer, type ReactNode } from "react"
 
-    interface Product {
+interface Product {
     id: string
     name: string
     description: string
@@ -176,4 +176,5 @@
         throw new Error("useCart must be used within a CartProvider")
     }
     return context
-    }
+}
+
