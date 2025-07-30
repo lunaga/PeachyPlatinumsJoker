@@ -96,7 +96,7 @@ const products = [
 },
 {
     id: "12",
-    name: "*Not The Game* Tomb Raider: Legend PS4 Platinum Trophy Service",
+    name: "Tomb Raider: Legend PS4 Platinum Trophy Service",
     description: "Action / adventure",
     price: 40.07,
     category: "ps4",
@@ -104,7 +104,7 @@ const products = [
 },
 {
     id: "13",
-    name: "*Not The Game* Bully PS4 Platinum Trophy Service",
+    name: "Bully PS4 Platinum Trophy Service",
     description: "Action / school life",
     price: 66.78,
     category: "ps4",
@@ -184,7 +184,7 @@ const products = [
 },
 {
     id: "23",
-    name: "*Not The Game* Castlevania Dominus Collection PS5 Platinum Trophy Service",
+    name: "Castlevania Dominus Collection PS5 Platinum Trophy Service",
     description: "Action / metroidvania collection",
     price: 80.14,
     category: "ps5",
@@ -448,7 +448,7 @@ const products = [
 },
 {
     id: "56",
-    name: "*Not The Game* Tomb Raider: Legend PS5 Platinum Trophy Service",
+    name: "Tomb Raider: Legend PS5 Platinum Trophy Service",
     description: "Action / adventure",
     price: 40.07,
     category: "ps5",
@@ -464,7 +464,7 @@ const products = [
 },
 {
     id: "58",
-    name: "*Not The Game* Undertale PS4 Platinum Trophy Service",
+    name: "Undertale PS4 Platinum Trophy Service",
     description: "Indie RPG",
     price: 26.71,
     category: "ps4",
@@ -472,7 +472,7 @@ const products = [
 },
 {
     id: "59",
-    name: "*Not the game* The Wolf Among Us PS4 Platinum Trophy Service",
+    name: "The Wolf Among Us PS4 Platinum Trophy Service",
     description: "Narrative / episodic adventure",
     price: 40.07,
     category: "ps4",
@@ -632,7 +632,7 @@ const products = [
 },
 {
     id: "79",
-    name: "*Not The Game* Resident Evil 4 (2005) PS3 Trophy Service",
+    name: "Resident Evil 4 (2005) PS3 Trophy Service",
     description: "Classic horror trophy service",
     price: 66.78,
     category: "ps3",
@@ -1072,7 +1072,7 @@ const products = [
 },
 {
     id: "134",
-    name: "*Not The Game* Ratchet & Clank: Rift Apart PS5 Platinum Trophy Service",
+    name: "Ratchet & Clank: Rift Apart PS5 Platinum Trophy Service",
     description: "Interdimensional platform shooter trophy service",
     price: 46.75,
     category: "ps5",
@@ -1165,105 +1165,146 @@ const sortedProducts = [...products].sort((a, b) => a.name.localeCompare(b.name)
 
 function getCategoryBadge(category: string) {
     const badges = {
-    ps3: {
+        ps3: {
         label: "PS3",
         color: "bg-blue-600/80 text-blue-100 dark:bg-blue-600/80 dark:text-blue-100 bg-blue-200 text-blue-800",
-    },
-    ps4: {
+        },
+        ps4: {
         label: "PS4",
         color:
-        "bg-purple-600/80 text-purple-100 dark:bg-purple-600/80 dark:text-purple-100 bg-purple-200 text-purple-800",
-    },
-    ps5: {
+            "bg-purple-600/80 text-purple-100 dark:bg-purple-600/80 dark:text-purple-100 bg-purple-200 text-purple-800",
+        },
+        ps5: {
         label: "PS5",
         color: "bg-pink-600/80 text-pink-100 dark:bg-pink-600/80 dark:text-pink-100 bg-pink-200 text-pink-800",
-    },
+        },
     }
     return badges[category as keyof typeof badges] || badges.ps4
-}
+    }
 
-export default function GamesListPage() {
+    export default function GamesListPage() {
     return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-purple-900 dark:from-black dark:via-gray-900 dark:to-purple-900 from-purple-50 via-pink-50 to-purple-100">
+        <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-purple-900 dark:from-black dark:via-gray-900 dark:to-purple-900 from-purple-50 via-pink-50 to-purple-100">
         <Header />
 
-        <section className="py-20 px-4">
-        <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-purple-400 via-pink-400 to-purple-600 bg-clip-text text-transparent">
+        <section className="py-12 md:py-20 px-4">
+            <div className="max-w-6xl mx-auto">
+            {/* Header Section */}
+            <div className="text-center mb-8 md:mb-12">
+                <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-purple-400 via-pink-400 to-purple-600 bg-clip-text text-transparent">
                 Games List
-            </h1>
-            <p className="text-xl text-purple-200 dark:text-purple-200 text-purple-700 font-light mb-8">
+                </h1>
+                <p className="text-lg md:text-xl text-purple-200 dark:text-purple-200 text-purple-700 font-light mb-6 md:mb-8 px-4">
                 Complete alphabetical list of all available platinum trophy services
-            </p>
-            <div className="w-32 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto rounded-full shadow-lg shadow-purple-500/50"></div>
+                </p>
+                <div className="w-24 md:w-32 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto rounded-full shadow-lg shadow-purple-500/50"></div>
             </div>
 
+            {/* Games Container */}
             <div className="bg-gray-900/50 dark:bg-gray-900/50 bg-white/80 backdrop-blur-sm rounded-2xl border border-purple-500/30 shadow-2xl shadow-purple-500/10">
-            <div className="p-6">
+                <div className="p-4 md:p-6">
+                {/* Stats Header */}
                 <div className="mb-6">
-                <h2 className="text-2xl font-bold text-purple-100 dark:text-purple-100 text-purple-800 mb-2">
+                    <h2 className="text-xl md:text-2xl font-bold text-purple-100 dark:text-purple-100 text-purple-800 mb-2">
                     Available Games ({sortedProducts.length})
-                </h2>
-                <p className="text-purple-300 dark:text-purple-300 text-purple-600 text-sm">
+                    </h2>
+                    <p className="text-purple-300 dark:text-purple-300 text-purple-600 text-sm">
                     Click on any game to view details and add to cart
-                </p>
+                    </p>
                 </div>
 
+                {/* Games List */}
                 <div className="space-y-3">
-                {sortedProducts.map((product, index) => {
+                    {sortedProducts.map((product, index) => {
                     const categoryBadge = getCategoryBadge(product.category)
 
                     return (
-                    <Link key={product.id} href={`/?game=${product.id}`} className="block group">
-                        <div className="flex items-center justify-between p-4 rounded-lg border border-purple-500/20 bg-gray-800/30 dark:bg-gray-800/30 bg-purple-50/50 hover:border-purple-400/40 hover:bg-gray-700/40 dark:hover:bg-gray-700/40 hover:bg-purple-100/70 transition-all duration-300">
-                        <div className="flex items-center space-x-4 flex-1 min-w-0">
-                            <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 flex items-center justify-center text-white text-sm font-bold">
-                            {index + 1}
+                        <Link key={product.id} href={`/?game=${product.id}`} className="block group">
+                        {/* Mobile Layout (< md) */}
+                        <div className="md:hidden">
+                            <div className="p-4 rounded-lg border border-purple-500/20 bg-gray-800/30 dark:bg-gray-800/30 bg-purple-50/50 hover:border-purple-400/40 hover:bg-gray-700/40 dark:hover:bg-gray-700/40 hover:bg-purple-100/70 transition-all duration-300">
+                            {/* Mobile Header */}
+                            <div className="flex items-start justify-between mb-3">
+                                <div className="flex items-center space-x-3 flex-1 min-w-0">
+                                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 flex items-center justify-center text-white text-sm font-bold">
+                                    {index + 1}
+                                </div>
+                                <Badge className={`${categoryBadge.color} border-0 shadow-sm text-xs`}>
+                                    {categoryBadge.label}
+                                </Badge>
+                                </div>
+                                <ExternalLink className="h-4 w-4 text-purple-400 dark:text-purple-400 text-purple-600 group-hover:text-purple-300 dark:group-hover:text-purple-300 group-hover:text-purple-700 transition-colors duration-300 flex-shrink-0" />
                             </div>
 
-                            <div className="flex-1 min-w-0">
-                            <h3 className="font-semibold text-purple-100 dark:text-purple-100 text-purple-800 group-hover:text-purple-50 dark:group-hover:text-purple-50 group-hover:text-purple-700 transition-colors duration-300 line-clamp-1">
+                            {/* Mobile Content */}
+                            <div className="space-y-2">
+                                <h3 className="font-semibold text-purple-100 dark:text-purple-100 text-purple-800 group-hover:text-purple-50 dark:group-hover:text-purple-50 group-hover:text-purple-700 transition-colors duration-300 leading-tight">
                                 {product.name}
-                            </h3>
-                            <p className="text-sm text-purple-300 dark:text-purple-300 text-purple-600 line-clamp-1">
+                                </h3>
+                                <p className="text-sm text-purple-300 dark:text-purple-300 text-purple-600 leading-relaxed">
                                 {product.description}
-                            </p>
+                                </p>
+                                <div className="flex justify-between items-center pt-2">
+                                <div className="text-lg font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                                    ${product.price.toFixed(2)}
+                                </div>
+                                </div>
+                            </div>
                             </div>
                         </div>
 
-                        <div className="flex items-center space-x-3 flex-shrink-0">
-                            <Badge className={`${categoryBadge.color} border-0 shadow-sm`}>{categoryBadge.label}</Badge>
+                        {/* Desktop Layout (>= md) */}
+                        <div className="hidden md:block">
+                            <div className="flex items-center justify-between p-4 rounded-lg border border-purple-500/20 bg-gray-800/30 dark:bg-gray-800/30 bg-purple-50/50 hover:border-purple-400/40 hover:bg-gray-700/40 dark:hover:bg-gray-700/40 hover:bg-purple-100/70 transition-all duration-300">
+                            <div className="flex items-center space-x-4 flex-1 min-w-0">
+                                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 flex items-center justify-center text-white text-sm font-bold">
+                                {index + 1}
+                                </div>
 
-                            <div className="text-right">
-                            <div className="text-lg font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                                ${product.price.toFixed(2)}
+                                <div className="flex-1 min-w-0">
+                                <h3 className="font-semibold text-purple-100 dark:text-purple-100 text-purple-800 group-hover:text-purple-50 dark:group-hover:text-purple-50 group-hover:text-purple-700 transition-colors duration-300 truncate">
+                                    {product.name}
+                                </h3>
+                                <p className="text-sm text-purple-300 dark:text-purple-300 text-purple-600 truncate">
+                                    {product.description}
+                                </p>
+                                </div>
+                            </div>
+
+                            <div className="flex items-center space-x-3 flex-shrink-0">
+                                <Badge className={`${categoryBadge.color} border-0 shadow-sm`}>{categoryBadge.label}</Badge>
+
+                                <div className="text-right">
+                                <div className="text-lg font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                                    ${product.price.toFixed(2)}
+                                </div>
+                                </div>
+
+                                <ExternalLink className="h-4 w-4 text-purple-400 dark:text-purple-400 text-purple-600 group-hover:text-purple-300 dark:group-hover:text-purple-300 group-hover:text-purple-700 transition-colors duration-300" />
                             </div>
                             </div>
-
-                            <ExternalLink className="h-4 w-4 text-purple-400 dark:text-purple-400 text-purple-600 group-hover:text-purple-300 dark:group-hover:text-purple-300 group-hover:text-purple-700 transition-colors duration-300" />
                         </div>
-                        </div>
-                    </Link>
+                        </Link>
                     )
-                })}
+                    })}
+                </div>
                 </div>
             </div>
-            </div>
 
-            <div className="text-center mt-8">
-            <Link
+            {/* Back Button */}
+            <div className="text-center mt-6 md:mt-8">
+                <Link
                 href="/"
                 className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold rounded-lg transition-all duration-300 shadow-lg shadow-purple-500/30 hover:shadow-purple-500/50"
-            >
+                >
                 Back to Store
-            </Link>
+                </Link>
             </div>
-        </div>
+            </div>
         </section>
 
         <Footer />
         <ContactButtons />
-    </div>
+        </div>
     )
 }

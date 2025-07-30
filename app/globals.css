@@ -75,7 +75,7 @@
   text-shadow: 0 0 5px rgba(168, 85, 247, 0.4);
 }
 
-/* Light mode specific styles */
+/* Light mode specific styles - Improved color palette */
 .light .bg-gradient-to-br {
   background: linear-gradient(to bottom right, #faf7ff, #f4edff, #fef7f7);
 }
@@ -104,6 +104,69 @@
   color: rgb(147, 51, 234);
 }
 
+/* Light mode button improvements - No yellow, only purple/pink */
+.light .bg-gradient-to-r.from-purple-600.to-pink-600 {
+  background: linear-gradient(to right, rgb(147, 51, 234), rgb(219, 39, 119));
+}
+
+.light .hover\:from-purple-700.hover\:to-pink-700:hover {
+  background: linear-gradient(to right, rgb(126, 34, 206), rgb(190, 24, 93));
+}
+
+.light .bg-gradient-to-r.from-green-600.to-green-700 {
+  background: linear-gradient(to right, rgb(147, 51, 234), rgb(168, 85, 247));
+}
+
+.light .hover\:from-green-700.hover\:to-green-800:hover {
+  background: linear-gradient(to right, rgb(126, 34, 206), rgb(147, 51, 234));
+}
+
+/* Light mode category buttons */
+.light .border-purple-500\/50 {
+  border-color: rgba(147, 51, 234, 0.5);
+}
+
+.light .text-purple-700 {
+  color: rgb(126, 34, 206);
+}
+
+.light .hover\:text-purple-600:hover {
+  color: rgb(147, 51, 234);
+}
+
+.light .hover\:border-purple-400:hover {
+  border-color: rgb(168, 85, 247);
+}
+
+/* Hero banner styles */
+.hero-banner {
+  position: relative;
+  background-image: url("/images/games/banner.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-banner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.light .hero-banner::before {
+  background: rgba(147, 51, 234, 0.2);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
 /* Scrollbar styling */
 ::-webkit-scrollbar {
   width: 8px;
@@ -129,3 +192,38 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+/* Light mode improvements for better contrast */
+.light .shadow-purple-500\/50 {
+  box-shadow: 0 10px 15px -3px rgba(147, 51, 234, 0.3), 0 4px 6px -2px rgba(147, 51, 234, 0.1);
+}
+
+.light .shadow-purple-500\/30 {
+  box-shadow: 0 10px 15px -3px rgba(147, 51, 234, 0.2), 0 4px 6px -2px rgba(147, 51, 234, 0.05);
+}
+
+/* Light mode badge improvements */
+.light .bg-blue-200 {
+  background-color: rgb(191, 219, 254);
+}
+
+.light .text-blue-800 {
+  color: rgb(30, 64, 175);
+}
+
+.light .bg-purple-200 {
+  background-color: rgb(233, 213, 255);
+}
+
+.light .text-purple-800 {
+  color: rgb(88, 28, 135);
+}
+
+.light .bg-pink-200 {
+  background-color: rgb(251, 207, 232);
+}
+
+.light .text-pink-800 {
+  color: rgb(157, 23, 77);
+}
+

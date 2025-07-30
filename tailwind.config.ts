@@ -78,7 +78,7 @@ const config: Config = {
           800: "#9d174d",
           900: "#831843",
         },
-        // Light mode pastel colors
+        // Light mode pastel colors - improved palette
         "pastel-purple": {
           50: "#faf7ff",
           100: "#f4edff",
@@ -103,6 +103,31 @@ const config: Config = {
           800: "#9d174d",
           900: "#831843",
         },
+        // Light mode specific colors
+        "light-purple": {
+          50: "#faf5ff",
+          100: "#f3e8ff",
+          200: "#e9d5ff",
+          300: "#d8b4fe",
+          400: "#c084fc",
+          500: "#9333ea",
+          600: "#7c3aed",
+          700: "#6b21a8",
+          800: "#581c87",
+          900: "#4c1d95",
+        },
+        "light-pink": {
+          50: "#fdf2f8",
+          100: "#fce7f3",
+          200: "#fbcfe8",
+          300: "#f9a8d4",
+          400: "#f472b6",
+          500: "#db2777",
+          600: "#be185d",
+          700: "#9d174d",
+          800: "#831843",
+          900: "#701a75",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -123,8 +148,8 @@ const config: Config = {
           "50%": { boxShadow: "0 0 30px rgba(168, 85, 247, 0.8)" },
         },
         "glow-light": {
-          "0%, 100%": { boxShadow: "0 0 15px rgba(168, 85, 247, 0.3)" },
-          "50%": { boxShadow: "0 0 25px rgba(168, 85, 247, 0.5)" },
+          "0%, 100%": { boxShadow: "0 0 15px rgba(147, 51, 234, 0.3)" },
+          "50%": { boxShadow: "0 0 25px rgba(147, 51, 234, 0.5)" },
         },
       },
       animation: {
@@ -137,6 +162,11 @@ const config: Config = {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "cyber-gradient": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
         "pastel-gradient": "linear-gradient(135deg, #e8d9ff 0%, #fbd9de 100%)",
+        "hero-banner": "url('/images/hero-banner.png')",
+      },
+      dropShadow: {
+        "text-lg": "0 4px 8px rgba(0, 0, 0, 0.5)",
+        "text-xl": "0 6px 12px rgba(0, 0, 0, 0.6)",
       },
     },
   },
