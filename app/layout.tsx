@@ -69,7 +69,7 @@ export const metadata: Metadata = {
     canonical: "https://peachy-platinums.vercel.app",
   },
   verification: {
-    google: "googled0ebe4a9a03bbf66.html", // Reemplaza con tu código de Google Search Console
+    google: "WQGds-b01AEwrzjV6q-YWOtjo_7S128SLqZqCbj342M", // Reemplaza con tu código de Google Search Console
   },
 }
 
@@ -149,3 +149,4 @@ export default function RootLayout({
     </html>
   )
 }
+
