@@ -4,6 +4,7 @@ import { Inter } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { CartProvider } from "@/contexts/cart-context"
+import Script from "next/script"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -63,15 +64,18 @@ export const metadata: Metadata = {
     title: "PeachyPlatinums - Professional PlayStation Trophy Services",
     description:
       "Expert PlayStation trophy services for PS3, PS4, and PS5. Fast, safe, and reliable trophy completion.",
-    images: ["/images/games/logo.webp"],
+    images: ["/images/games/logo.web"],
   },
   alternates: {
     canonical: "https://peachy-platinums.vercel.app",
   },
   verification: {
-    google: "WQGds-b01AEwrzjV6q-YWOtjo_7S128SLqZqCbj342M", // Reemplaza con tu código de Google Search Console
+    google: "WQGds-b01AEwrzjV6q-YWOtjo_7S128SLqZqCbj342M", // 👈 Reemplaza con tu código de Search Console
   },
 }
+
+// Reemplaza con tu Measurement ID de Google Analytics
+const GA_MEASUREMENT_ID = "G-T9TESKJTMB" // 👈 Reemplaza con tu ID real
 
 export default function RootLayout({
   children,
@@ -85,7 +89,7 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#9333ea" />
         <link rel="icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" href="/images/games/logo.webp" />
+        <link rel="apple-touch-icon" href="/images/games/logo.web" />
 
         {/* Schema.org structured data */}
         <script
@@ -97,8 +101,8 @@ export default function RootLayout({
               name: "PeachyPlatinums",
               description: "Professional PlayStation platinum trophy services for PS3, PS4, and PS5",
               url: "https://peachy-platinums.vercel.app",
-              logo: "https://peachy-platinums.vercel.app/images/peachy-logo.png",
-              image: "https://peachy-platinums.vercel.app/images/peachy-logo.png",
+              logo: "https://peachy-platinums.vercel.app/images/games/logo.web",
+              image: "https://peachy-platinums.vercel.app/images/games/logo.web",
               email: "Peachyplatinums@hotmail.com",
               sameAs: [
                 "https://discord.com/users/peachyplatinums",
@@ -142,6 +146,20 @@ export default function RootLayout({
         />
       </head>
       <body className={inter.className}>
+        {/* Google Analytics */}
+        <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`} strategy="afterInteractive" />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_MEASUREMENT_ID}', {
+              page_title: document.title,
+              page_location: window.location.href,
+            });
+          `}
+        </Script>
+
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
           <CartProvider>{children}</CartProvider>
         </ThemeProvider>
@@ -149,4 +167,3 @@ export default function RootLayout({
     </html>
   )
 }
-
