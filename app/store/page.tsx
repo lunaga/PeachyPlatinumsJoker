@@ -1,8 +1,12 @@
-import Link from "next/link"
+"use client"
+
+import { useState, useMemo } from "react"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-import { Badge } from "@/components/ui/badge"
-import { ExternalLink } from "lucide-react"
+import { ProductCard } from "@/components/product-card"
+import { SearchBar } from "@/components/search-bar"
+import { Button } from "@/components/ui/button"
+import { Cart } from "@/components/cart"
 import { ContactButtons } from "@/components/contact-buttons"
 
 const products = [
@@ -1160,151 +1164,157 @@ const products = [
 }
 ]
 
-// Sort products alphabetically
-const sortedProducts = [...products].sort((a, b) => a.name.localeCompare(b.name))
+    export default function StorePage() {
+    const [selectedCategory, setSelectedCategory] = useState<string>("all")
+    const [searchTerm, setSearchTerm] = useState<string>("")
 
-function getCategoryBadge(category: string) {
-    const badges = {
-        ps3: {
-        label: "PS3",
-        color: "bg-blue-600/80 text-blue-100 dark:bg-blue-600/80 dark:text-blue-100 bg-blue-200 text-blue-800",
-        },
-        ps4: {
-        label: "PS4",
-        color:
-            "bg-purple-600/80 text-purple-100 dark:bg-purple-600/80 dark:text-purple-100 bg-purple-200 text-purple-800",
-        },
-        ps5: {
-        label: "PS5",
-        color: "bg-pink-600/80 text-pink-100 dark:bg-pink-600/80 dark:text-pink-100 bg-pink-200 text-pink-800",
-        },
-    }
-    return badges[category as keyof typeof badges] || badges.ps4
-    }
+    const filteredProducts = useMemo(() => {
+        let filtered = products
 
-    export default function GamesListPage() {
+        // Filter by category
+        if (selectedCategory !== "all") {
+        filtered = filtered.filter((product) => product.category === selectedCategory)
+        }
+
+        // Filter by search term
+        if (searchTerm) {
+        filtered = filtered.filter(
+            (product) =>
+            product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            product.description.toLowerCase().includes(searchTerm.toLowerCase()),
+        )
+        }
+
+        return filtered
+    }, [selectedCategory, searchTerm])
+
+    const categories = [
+        { id: "all", name: "All Games", count: products.length },
+        { id: "ps3", name: "PlayStation 3", count: products.filter((p) => p.category === "ps3").length },
+        { id: "ps4", name: "PlayStation 4", count: products.filter((p) => p.category === "ps4").length },
+        { id: "ps5", name: "PlayStation 5", count: products.filter((p) => p.category === "ps5").length },
+    ]
+
     return (
-        <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-purple-900 dark:from-black dark:via-gray-900 dark:to-purple-900 from-purple-50 via-pink-50 to-purple-100">
+        <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-purple-900 dark:from-black dark:via-gray-900 dark:to-purple-900 from-purple-50 via-pink-50 to-purple-100 overflow-x-hidden">
         <Header />
 
-        <section className="py-12 md:py-20 px-4">
-            <div className="max-w-6xl mx-auto">
-            {/* Header Section */}
-            <div className="text-center mb-8 md:mb-12">
-                <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-purple-400 via-pink-400 to-purple-600 bg-clip-text text-transparent">
-                Games List
+        <main>
+            {/* Hero Section */}
+            <section className="relative py-12 sm:py-16 md:py-20 px-3 sm:px-4 text-center overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-pink-600/20 dark:from-purple-600/20 dark:to-pink-600/20 from-purple-200/40 to-pink-200/40 blur-3xl"></div>
+            <div className="relative z-10 max-w-4xl mx-auto">
+                <h1 className="hero-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-purple-400 via-pink-400 to-purple-600 bg-clip-text text-transparent px-2">
+                PeachyPlatinums
                 </h1>
-                <p className="text-lg md:text-xl text-purple-200 dark:text-purple-200 text-purple-700 font-light mb-6 md:mb-8 px-4">
-                Complete alphabetical list of all available platinum trophy services
+                <div className="w-24 sm:w-32 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto rounded-full shadow-lg shadow-purple-500/50"></div>
+
+                {/* SEO Content */}
+                <div className="mt-8 max-w-3xl mx-auto text-center">
+                <h2 className="text-lg sm:text-xl font-semibold text-purple-200 dark:text-purple-200 text-purple-700 mb-4">
+                    Welcome to PeachyPlatinums, where passion meets purpose! 
+                </h2>
+                <p className="text-sm sm:text-base text-purple-300 dark:text-purple-300 text-purple-600 leading-relaxed">
+                    Our Platinum trophy Services are designed to help make your gaming achievement goals a reality. With our safe, reliable and stress free services, you can add another coveted Platinum Trophy to your collection.
+                    Thanks for stopping by. We are Peachy Keen to share our journey with you! 
                 </p>
-                <div className="w-24 md:w-32 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto rounded-full shadow-lg shadow-purple-500/50"></div>
+                </div>
             </div>
+            </section>
 
-            {/* Games Container */}
-            <div className="bg-gray-900/50 dark:bg-gray-900/50 bg-white/80 backdrop-blur-sm rounded-2xl border border-purple-500/30 shadow-2xl shadow-purple-500/10">
-                <div className="p-4 md:p-6">
-                {/* Stats Header */}
-                <div className="mb-6">
-                    <h2 className="text-xl md:text-2xl font-bold text-purple-100 dark:text-purple-100 text-purple-800 mb-2">
-                    Available Games ({sortedProducts.length})
-                    </h2>
-                    <p className="text-purple-300 dark:text-purple-300 text-purple-600 text-sm">
-                    Click on any game to view details and add to cart
+            {/* Search Bar */}
+            <section className="py-6 sm:py-8 px-3 sm:px-4" aria-label="Game Search">
+            <div className="max-w-6xl mx-auto">
+                <SearchBar searchTerm={searchTerm} onSearchChange={setSearchTerm} placeholder="Search for games..." />
+            </div>
+            </section>
+
+            {/* Category Filter */}
+            <section className="py-6 sm:py-8 px-3 sm:px-4" aria-label="Game Categories">
+            <div className="max-w-6xl mx-auto">
+                <h2 className="text-2xl font-bold text-center text-purple-200 dark:text-purple-200 text-purple-700 mb-6">
+                Choose Your PlayStation Console
+                </h2>
+                <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-8 sm:mb-12">
+                {categories.map((category) => (
+                    <Button
+                    key={category.id}
+                    onClick={() => setSelectedCategory(category.id)}
+                    variant={selectedCategory === category.id ? "default" : "outline"}
+                    className={`
+                        px-3 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold transition-all duration-300 border-2 text-xs sm:text-sm
+                        ${
+                        selectedCategory === category.id
+                            ? "bg-gradient-to-r from-purple-600 to-pink-600 border-purple-500 text-white shadow-lg shadow-purple-500/50"
+                            : "border-purple-500/50 text-purple-300 dark:text-purple-300 text-purple-700 hover:border-purple-400 hover:text-purple-200 dark:hover:text-purple-200 hover:text-purple-600 hover:shadow-md hover:shadow-purple-500/25"
+                        }
+                    `}
+                    >
+                    <span className="hidden sm:inline">{category.name}</span>
+                    <span className="sm:hidden">{category.name.replace("PlayStation ", "PS")}</span>
+                    <span className="ml-1 sm:ml-2 px-1 sm:px-2 py-0.5 sm:py-1 text-xs rounded-full bg-purple-500/30">
+                        {category.count}
+                    </span>
+                    </Button>
+                ))}
+                </div>
+            </div>
+            </section>
+
+            {/* Results Info */}
+            {(searchTerm || selectedCategory !== "all") && (
+            <section className="px-3 sm:px-4 pb-4" aria-label="Search Results">
+                <div className="max-w-7xl mx-auto">
+                <p className="text-center text-purple-300 dark:text-purple-300 text-purple-600 text-sm sm:text-base">
+                    {filteredProducts.length === 0
+                    ? "No games found matching your criteria"
+                    : `Showing ${filteredProducts.length} game${filteredProducts.length !== 1 ? "s" : ""}`}
+                    {searchTerm && ` for "${searchTerm}"`}
+                    {selectedCategory !== "all" && ` in ${categories.find((c) => c.id === selectedCategory)?.name}`}
+                </p>
+                </div>
+            </section>
+            )}
+
+            {/* Products Grid */}
+            <section className="py-6 sm:py-8 px-3 sm:px-4" aria-label="Available Trophy Services">
+            <div className="max-w-7xl mx-auto">
+                <h2 className="text-2xl sm:text-3xl font-bold text-center text-purple-200 dark:text-purple-200 text-purple-700 mb-8">
+                Available PlayStation Trophy Services
+                </h2>
+                {filteredProducts.length === 0 ? (
+                <div className="text-center py-12 sm:py-16">
+                    <div className="text-4xl sm:text-6xl mb-4">🎮</div>
+                    <h3 className="text-xl sm:text-2xl font-bold text-purple-200 dark:text-purple-200 text-purple-700 mb-2">
+                    No games found
+                    </h3>
+                    <p className="text-purple-300 dark:text-purple-300 text-purple-600 mb-6 text-sm sm:text-base px-4">
+                    Try adjusting your search or category filter
                     </p>
+                    <Button
+                    onClick={() => {
+                        setSearchTerm("")
+                        setSelectedCategory("all")
+                    }}
+                    className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white"
+                    >
+                    Clear Filters
+                    </Button>
                 </div>
-
-                {/* Games List */}
-                <div className="space-y-3">
-                    {sortedProducts.map((product, index) => {
-                    const categoryBadge = getCategoryBadge(product.category)
-
-                    return (
-                        <Link key={product.id} href={`/?game=${product.id}`} className="block group">
-                        {/* Mobile Layout (< md) */}
-                        <div className="md:hidden">
-                            <div className="p-4 rounded-lg border border-purple-500/20 bg-gray-800/30 dark:bg-gray-800/30 bg-purple-50/50 hover:border-purple-400/40 hover:bg-gray-700/40 dark:hover:bg-gray-700/40 hover:bg-purple-100/70 transition-all duration-300">
-                            {/* Mobile Header */}
-                            <div className="flex items-start justify-between mb-3">
-                                <div className="flex items-center space-x-3 flex-1 min-w-0">
-                                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 flex items-center justify-center text-white text-sm font-bold">
-                                    {index + 1}
-                                </div>
-                                <Badge className={`${categoryBadge.color} border-0 shadow-sm text-xs`}>
-                                    {categoryBadge.label}
-                                </Badge>
-                                </div>
-                                <ExternalLink className="h-4 w-4 text-purple-400 dark:text-purple-400 text-purple-600 group-hover:text-purple-300 dark:group-hover:text-purple-300 group-hover:text-purple-700 transition-colors duration-300 flex-shrink-0" />
-                            </div>
-
-                            {/* Mobile Content */}
-                            <div className="space-y-2">
-                                <h3 className="font-semibold text-purple-100 dark:text-purple-100 text-purple-800 group-hover:text-purple-50 dark:group-hover:text-purple-50 group-hover:text-purple-700 transition-colors duration-300 leading-tight">
-                                {product.name}
-                                </h3>
-                                <p className="text-sm text-purple-300 dark:text-purple-300 text-purple-600 leading-relaxed">
-                                {product.description}
-                                </p>
-                                <div className="flex justify-between items-center pt-2">
-                                <div className="text-lg font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                                    ${product.price.toFixed(2)}
-                                </div>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-
-                        {/* Desktop Layout (>= md) */}
-                        <div className="hidden md:block">
-                            <div className="flex items-center justify-between p-4 rounded-lg border border-purple-500/20 bg-gray-800/30 dark:bg-gray-800/30 bg-purple-50/50 hover:border-purple-400/40 hover:bg-gray-700/40 dark:hover:bg-gray-700/40 hover:bg-purple-100/70 transition-all duration-300">
-                            <div className="flex items-center space-x-4 flex-1 min-w-0">
-                                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 flex items-center justify-center text-white text-sm font-bold">
-                                {index + 1}
-                                </div>
-
-                                <div className="flex-1 min-w-0">
-                                <h3 className="font-semibold text-purple-100 dark:text-purple-100 text-purple-800 group-hover:text-purple-50 dark:group-hover:text-purple-50 group-hover:text-purple-700 transition-colors duration-300 truncate">
-                                    {product.name}
-                                </h3>
-                                <p className="text-sm text-purple-300 dark:text-purple-300 text-purple-600 truncate">
-                                    {product.description}
-                                </p>
-                                </div>
-                            </div>
-
-                            <div className="flex items-center space-x-3 flex-shrink-0">
-                                <Badge className={`${categoryBadge.color} border-0 shadow-sm`}>{categoryBadge.label}</Badge>
-
-                                <div className="text-right">
-                                <div className="text-lg font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                                    ${product.price.toFixed(2)}
-                                </div>
-                                </div>
-
-                                <ExternalLink className="h-4 w-4 text-purple-400 dark:text-purple-400 text-purple-600 group-hover:text-purple-300 dark:group-hover:text-purple-300 group-hover:text-purple-700 transition-colors duration-300" />
-                            </div>
-                            </div>
-                        </div>
-                        </Link>
-                    )
-                    })}
+                ) : (
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
+                    {filteredProducts.map((product) => (
+                    <ProductCard key={product.id} product={product} />
+                    ))}
                 </div>
-                </div>
+                )}
             </div>
-
-            {/* Back Button */}
-            <div className="text-center mt-6 md:mt-8">
-                <Link
-                href="/"
-                className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold rounded-lg transition-all duration-300 shadow-lg shadow-purple-500/30 hover:shadow-purple-500/50"
-                >
-                Back to Store
-                </Link>
-            </div>
-            </div>
-        </section>
+            </section>
+        </main>
 
         <Footer />
         <ContactButtons />
+        <Cart />
         </div>
     )
-}
+    }
