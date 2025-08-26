@@ -129,7 +129,7 @@ export default function LandingPage() {
                 }`}
             >
                 <p className="text-sm sm:text-base md:text-lg text-purple-300 dark:text-purple-300 text-purple-600 font-medium px-4 max-w-2xl mx-auto">
-                🏆 Trophy Hunters • 🎮 PS3, PS4 & PS5 • ⚡ Fast & Secure • 💯 Guaranteed Results
+                🏆 Expert Trophy Hunters • 🎮 PS3, PS4 & PS5 • ⚡ Fast & Secure • 💯 Guaranteed Results
                 </p>
             </div>
             </div>
@@ -228,3 +228,4 @@ export default function LandingPage() {
         </div>
     )
 }
+

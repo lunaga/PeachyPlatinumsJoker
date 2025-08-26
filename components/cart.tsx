@@ -7,7 +7,6 @@ import { CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { ShoppingCart, X, Plus, Minus, Phone } from "lucide-react"
 import Image from "next/image"
-
 // Importar el componente OrderPreview
 import { OrderPreview } from "@/components/order-preview"
 
