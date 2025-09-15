@@ -11,14 +11,14 @@ export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-50 bg-black/80 dark:bg-black/80 bg-white/80 backdrop-blur-md border-b border-purple-500/30">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-black/90 dark:bg-black/90 bg-white/90 backdrop-blur-md border-b border-purple-500/30 shadow-lg">
       <div className="max-w-7xl mx-auto px-3 sm:px-4 py-3 sm:py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2 sm:space-x-3 group min-w-0 flex-shrink-0">
+          <Link href="/home" className="flex items-center space-x-2 sm:space-x-3 group min-w-0 flex-shrink-0">
             <div className="relative w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden shadow-lg shadow-purple-500/50 group-hover:shadow-purple-500/70 transition-all duration-300 ring-2 ring-purple-500/30 group-hover:ring-purple-400/50 flex-shrink-0">
               <Image
-                src="/images/games/logo.webp"
+                src="/images/peachy-logo.webp"
                 alt="PeachyPlatinums Logo"
                 width={48}
                 height={48}
@@ -33,16 +33,16 @@ export function Header() {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-6 lg:space-x-8">
             <Link
-              href="/"
+              href="/home"
               className="text-purple-200 dark:text-purple-200 text-purple-700 hover:text-purple-100 dark:hover:text-purple-100 hover:text-purple-600 transition-colors duration-300 font-medium"
             >
               Home
             </Link>
             <Link
-              href="/games"
+              href="/store"
               className="text-purple-200 dark:text-purple-200 text-purple-700 hover:text-purple-100 dark:hover:text-purple-100 hover:text-purple-600 transition-colors duration-300 font-medium"
             >
-              Games List
+              Store
             </Link>
             <Link
               href="/faq"
@@ -72,18 +72,18 @@ export function Header() {
           <nav className="md:hidden mt-4 py-4 border-t border-purple-500/30">
             <div className="flex flex-col space-y-4">
               <Link
-                href="/"
+                href="/home"
                 className="text-purple-200 dark:text-purple-200 text-purple-700 hover:text-purple-100 dark:hover:text-purple-100 hover:text-purple-600 transition-colors duration-300 font-medium"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Home
               </Link>
               <Link
-                href="/games"
+                href="/store"
                 className="text-purple-200 dark:text-purple-200 text-purple-700 hover:text-purple-100 dark:hover:text-purple-100 hover:text-purple-600 transition-colors duration-300 font-medium"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Games List
+                Store
               </Link>
               <Link
                 href="/faq"
@@ -99,3 +99,4 @@ export function Header() {
     </header>
   )
 }
+

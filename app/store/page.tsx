@@ -4,11 +4,13 @@ import { useState, useMemo } from "react"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { ProductCard } from "@/components/product-card"
+import { ProductCardMobile } from "@/components/product-card-mobile"
 import { SearchBar } from "@/components/search-bar"
 import { Button } from "@/components/ui/button"
 import { Cart } from "@/components/cart"
 import { ContactButtons } from "@/components/contact-buttons"
 
+// Move all the products array here
 const products = [
     // PS5 Games (31 games)
     {
@@ -260,7 +262,7 @@ const products = [
         image: "images/games/144.webp",
     },
 
-    // PS4 Games (85 games)
+    // PS4 Games (85 games) - Include all PS4 games from the original list
     {
         id: "2",
         name: "Final Fantasy 7 Remake PS4 Platinum Trophy Service",
@@ -1207,177 +1209,195 @@ const products = [
         <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-purple-900 dark:from-black dark:via-gray-900 dark:to-purple-900 from-purple-50 via-pink-50 to-purple-100 overflow-x-hidden">
         <Header />
 
-        <main>
+        {/* Add padding-top to account for fixed header */}
+        <div className="pt-20">
+            <main>
             {/* Hero Section */}
-            <section className="relative py-12 sm:py-16 md:py-20 px-3 sm:px-4 text-center overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-pink-600/20 dark:from-purple-600/20 dark:to-pink-600/20 from-purple-200/40 to-pink-200/40 blur-3xl"></div>
-            <div className="relative z-10 max-w-4xl mx-auto">
+            <section className="relative py-12 sm:py-16 md:py-20 px-3 sm:px-4 md:px-6 text-center overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-pink-600/20 dark:from-purple-600/20 dark:to-pink-600/20 from-purple-200/40 to-pink-200/40 blur-3xl"></div>
+                <div className="relative z-10 max-w-4xl mx-auto">
                 <h1 className="hero-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-purple-400 via-pink-400 to-purple-600 bg-clip-text text-transparent px-2">
-                PeachyPlatinums
+                    Trophy Store
                 </h1>
+                <p className="hero-subtitle text-base sm:text-lg md:text-xl lg:text-2xl text-purple-200 dark:text-purple-200 text-purple-700 mb-6 sm:mb-8 font-light px-4">
+                    Professional PlayStation Platinum Trophy Services
+                </p>
                 <div className="w-24 sm:w-32 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto rounded-full shadow-lg shadow-purple-500/50"></div>
 
                 {/* SEO Content */}
                 <div className="mt-8 max-w-3xl mx-auto text-center">
-                <h2 className="text-lg sm:text-xl font-semibold text-purple-200 dark:text-purple-200 text-purple-700 mb-4">
-                    Welcome to PeachyPlatinums, where passion meets purpose!
-                </h2>
-                <p className="text-sm sm:text-base text-purple-300 dark:text-purple-300 text-purple-600 leading-relaxed">
-                    Our Platinum trophy Services are designed to help make your gaming achievement goals a reality. With our safe, reliable and stress free services, you can add another coveted Platinum Trophy to your collection.
-                    Thanks for stopping by.
-                    We are Peachy Keen to share our journey with you! 
-                </p>
+                    <h2 className="text-lg sm:text-xl font-semibold text-purple-200 dark:text-purple-200 text-purple-700 mb-4">
+                    Expert PlayStation Trophy Completion Services
+                    </h2>
+                    <p className="text-sm sm:text-base text-purple-300 dark:text-purple-300 text-purple-600 leading-relaxed">
+                    Get your PlayStation platinum trophies completed by professional gamers. We specialize in PS3, PS4,
+                    and PS5 trophy services including the most challenging games like Dark Souls, Sekiro, Elden Ring, and
+                    more. Fast, safe, and reliable trophy boosting with 100% completion guarantee.
+                    </p>
                 </div>
-            </div>
+                </div>
             </section>
 
             {/* Search Bar */}
             <section className="py-6 sm:py-8 px-3 sm:px-4" aria-label="Game Search">
-            <div className="max-w-6xl mx-auto">
+                <div className="max-w-6xl mx-auto">
                 <SearchBar searchTerm={searchTerm} onSearchChange={setSearchTerm} placeholder="Search for games..." />
-            </div>
+                </div>
             </section>
 
             {/* Category Filter */}
             <section className="py-6 sm:py-8 px-3 sm:px-4" aria-label="Game Categories">
-            <div className="max-w-6xl mx-auto">
+                <div className="max-w-6xl mx-auto">
                 <h2 className="text-2xl font-bold text-center text-purple-200 dark:text-purple-200 text-purple-700 mb-6">
-                Choose Your Category
+                    Choose Your Category
                 </h2>
                 <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-8 sm:mb-12">
-                {categories.map((category) => (
+                    {categories.map((category) => (
                     <Button
-                    key={category.id}
-                    onClick={() => setSelectedCategory(category.id)}
-                    variant={selectedCategory === category.id ? "default" : "outline"}
-                    className={`
+                        key={category.id}
+                        onClick={() => setSelectedCategory(category.id)}
+                        variant={selectedCategory === category.id ? "default" : "outline"}
+                        className={`
                         px-3 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold transition-all duration-300 border-2 text-xs sm:text-sm
                         ${
-                        selectedCategory === category.id
+                            selectedCategory === category.id
                             ? "bg-gradient-to-r from-purple-600 to-pink-600 border-purple-500 text-white shadow-lg shadow-purple-500/50"
                             : "border-purple-500/50 text-purple-300 dark:text-purple-300 text-purple-700 hover:border-purple-400 hover:text-purple-200 dark:hover:text-purple-200 hover:text-purple-600 hover:shadow-md hover:shadow-purple-500/25"
                         }
-                    `}
+                        `}
                     >
-                    <span className="mr-1 sm:mr-2">{category.icon}</span>
-                    <span className="hidden sm:inline">{category.name}</span>
-                    <span className="sm:hidden">{category.name.replace("PlayStation ", "PS").replace("Game ", "")}</span>
-                    <span className="ml-1 sm:ml-2 px-1 sm:px-2 py-0.5 sm:py-1 text-xs rounded-full bg-purple-500/30">
+                        <span className="mr-1 sm:mr-2">{category.icon}</span>
+                        <span className="hidden sm:inline">{category.name}</span>
+                        <span className="sm:hidden">
+                        {category.name.replace("PlayStation ", "PS").replace("Game ", "")}
+                        </span>
+                        <span className="ml-1 sm:ml-2 px-1 sm:px-2 py-0.5 sm:py-1 text-xs rounded-full bg-purple-500/30">
                         {category.count}
-                    </span>
+                        </span>
                     </Button>
-                ))}
+                    ))}
                 </div>
-            </div>
+                </div>
             </section>
 
             {/* Results Info */}
             {(searchTerm || selectedCategory !== "all") && (
-            <section className="px-3 sm:px-4 pb-4" aria-label="Search Results">
+                <section className="px-3 sm:px-4 pb-4" aria-label="Search Results">
                 <div className="max-w-7xl mx-auto">
-                <p className="text-center text-purple-300 dark:text-purple-300 text-purple-600 text-sm sm:text-base">
+                    <p className="text-center text-purple-300 dark:text-purple-300 text-purple-600 text-sm sm:text-base">
                     {filteredProducts.length === 0
-                    ? "No games found matching your criteria"
-                    : `Showing ${filteredProducts.length} game${filteredProducts.length !== 1 ? "s" : ""}`}
+                        ? "No games found matching your criteria"
+                        : `Showing ${filteredProducts.length} game${filteredProducts.length !== 1 ? "s" : ""}`}
                     {searchTerm && ` for "${searchTerm}"`}
                     {selectedCategory !== "all" && ` in ${categories.find((c) => c.id === selectedCategory)?.name}`}
-                </p>
+                    </p>
                 </div>
-            </section>
+                </section>
             )}
 
             {/* Products Grid */}
             <section className="py-6 sm:py-8 px-3 sm:px-4" aria-label="Available Trophy Services">
-            <div className="max-w-7xl mx-auto">
+                <div className="max-w-7xl mx-auto">
                 {/* Category-specific titles */}
                 {selectedCategory !== "all" && filteredProducts.length > 0 && (
-                <div className="text-center mb-8">
+                    <div className="text-center mb-8">
                     <h2 className="text-2xl sm:text-3xl font-bold text-purple-200 dark:text-purple-200 text-purple-700 mb-4">
-                    {selectedCategory === "bundles" && "🎁 Special Game Bundles"}
-                    {selectedCategory === "ps5" && "🎮 PlayStation 5 Trophy Services"}
-                    {selectedCategory === "ps4" && "🎮 PlayStation 4 Trophy Services"}
-                    {selectedCategory === "ps3" && "🎮 PlayStation 3 Trophy Services"}
+                        {selectedCategory === "bundles" && "🎁 Special Game Bundles"}
+                        {selectedCategory === "ps5" && "🎮 PlayStation 5 Trophy Services"}
+                        {selectedCategory === "ps4" && "🎮 PlayStation 4 Trophy Services"}
+                        {selectedCategory === "ps3" && "🎮 PlayStation 3 Trophy Services"}
                     </h2>
                     {selectedCategory === "bundles" && (
-                    <p className="text-purple-300 dark:text-purple-300 text-purple-600 text-sm sm:text-base max-w-2xl mx-auto">
+                        <p className="text-purple-300 dark:text-purple-300 text-purple-600 text-sm sm:text-base max-w-2xl mx-auto">
                         Save money with our specially curated game bundles! Get multiple platinum trophies at discounted
                         prices.
-                    </p>
+                        </p>
                     )}
-                </div>
+                    </div>
                 )}
 
                 {filteredProducts.length === 0 ? (
-                <div className="text-center py-12 sm:py-16">
+                    <div className="text-center py-12 sm:py-16">
                     <div className="text-4xl sm:text-6xl mb-4">🎮</div>
                     <h3 className="text-xl sm:text-2xl font-bold text-purple-200 dark:text-purple-200 text-purple-700 mb-2">
-                    No games found
+                        No games found
                     </h3>
                     <p className="text-purple-300 dark:text-purple-300 text-purple-600 mb-6 text-sm sm:text-base px-4">
-                    Try adjusting your search or category filter
+                        Try adjusting your search or category filter
                     </p>
                     <Button
-                    onClick={() => {
+                        onClick={() => {
                         setSearchTerm("")
                         setSelectedCategory("all")
-                    }}
-                    className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white"
+                        }}
+                        className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white"
                     >
-                    Clear Filters
+                        Clear Filters
                     </Button>
-                </div>
+                    </div>
                 ) : (
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
-                    {filteredProducts.map((product) => (
-                    <ProductCard key={product.id} product={product} />
-                    ))}
-                </div>
+                    <>
+                    {/* Mobile Grid (2x2) */}
+                    <div className="grid grid-cols-2 gap-3 sm:hidden">
+                        {filteredProducts.map((product) => (
+                        <ProductCardMobile key={product.id} product={product} />
+                        ))}
+                    </div>
+
+                    {/* Desktop Grid */}
+                    <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
+                        {filteredProducts.map((product) => (
+                        <ProductCard key={product.id} product={product} />
+                        ))}
+                    </div>
+                    </>
                 )}
-            </div>
+                </div>
             </section>
 
             {/* Bundle Benefits Section */}
             {selectedCategory === "bundles" && filteredProducts.length > 0 && (
-            <section className="py-8 px-3 sm:px-4">
+                <section className="py-8 px-3 sm:px-4">
                 <div className="max-w-4xl mx-auto">
-                <div className="bg-gray-900/50 dark:bg-gray-900/50 bg-white/80 backdrop-blur-sm rounded-2xl border border-purple-500/30 p-6 sm:p-8">
+                    <div className="bg-gray-900/50 dark:bg-gray-900/50 bg-white/80 backdrop-blur-sm rounded-2xl border border-purple-500/30 p-6 sm:p-8">
                     <h3 className="text-2xl font-bold text-purple-200 dark:text-purple-200 text-purple-700 mb-6 text-center">
-                    🎁 Why Choose Game Bundles?
+                        🎁 Why Choose Game Bundles?
                     </h3>
                     <div className="grid md:grid-cols-3 gap-6">
-                    <div className="text-center">
+                        <div className="text-center">
                         <div className="text-3xl mb-3">💰</div>
                         <h4 className="font-semibold text-purple-200 dark:text-purple-200 text-purple-700 mb-2">
-                        Save Money
+                            Save Money
                         </h4>
                         <p className="text-purple-300 dark:text-purple-300 text-purple-600 text-sm">
-                        Get multiple games at discounted bundle prices
+                            Get multiple games at discounted bundle prices
                         </p>
-                    </div>
-                    <div className="text-center">
+                        </div>
+                        <div className="text-center">
                         <div className="text-3xl mb-3">⚡</div>
                         <h4 className="font-semibold text-purple-200 dark:text-purple-200 text-purple-700 mb-2">
-                        Faster Service
+                            Faster Service
                         </h4>
                         <p className="text-purple-300 dark:text-purple-300 text-purple-600 text-sm">
-                        Optimized completion order for maximum efficiency
+                            Optimized completion order for maximum efficiency
                         </p>
-                    </div>
-                    <div className="text-center">
+                        </div>
+                        <div className="text-center">
                         <div className="text-3xl mb-3">🏆</div>
                         <h4 className="font-semibold text-purple-200 dark:text-purple-200 text-purple-700 mb-2">
-                        Complete Series
+                            Complete Series
                         </h4>
                         <p className="text-purple-300 dark:text-purple-300 text-purple-600 text-sm">
-                        Get entire game series or themed collections
+                            Get entire game series or themed collections
                         </p>
+                        </div>
                     </div>
                     </div>
                 </div>
-                </div>
-            </section>
+                </section>
             )}
-        </main>
+            </main>
+        </div>
 
         <Footer />
         <ContactButtons />

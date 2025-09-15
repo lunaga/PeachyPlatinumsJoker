@@ -1,27 +1,16 @@
-import Link from "next/link"
+"use client"
+
+import { useState, useMemo } from "react"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-import { Badge } from "@/components/ui/badge"
-import { ExternalLink, Package, Trophy } from "lucide-react"
+import { ProductCard } from "@/components/product-card"
+import { ProductCardMobile } from "@/components/product-card-mobile"
+import { SearchBar } from "@/components/search-bar"
+import { Button } from "@/components/ui/button"
+import { Cart } from "@/components/cart"
 import { ContactButtons } from "@/components/contact-buttons"
-import type { Metadata } from "next"
 
-export const metadata: Metadata = {
-    title: "Complete Games List - All Available Trophy Services | PeachyPlatinums",
-    description:
-        "Complete alphabetical list of all 144+ PlayStation trophy services available for PS3, PS4, PS5, and special bundles. Professional trophy completion by expert gamers.",
-    keywords: [
-        "PlayStation games list",
-        "trophy services",
-        "PS4 games",
-        "PS5 games",
-        "PS3 games",
-        "game bundles",
-        "trophy completion",
-        "platinum trophies",
-    ],
-    }
-
+// Move all the products array from store/page.tsx here
     const products = [
     // PS5 Games (31 games)
     {
@@ -30,6 +19,7 @@ export const metadata: Metadata = {
         description: "RPG game",
         price: 181,
         category: "ps5",
+        image: "images/games/1.webp",
     },
     {
         id: "5",
@@ -37,6 +27,7 @@ export const metadata: Metadata = {
         description: "Fighting game",
         price: 147,
         category: "ps5",
+        image: "images/games/5.webp",
     },
     {
         id: "8",
@@ -44,6 +35,7 @@ export const metadata: Metadata = {
         description: "Action / fighting game",
         price: 161,
         category: "ps5",
+        image: "images/games/8.webp",
     },
     {
         id: "9",
@@ -51,6 +43,7 @@ export const metadata: Metadata = {
         description: "Survival horror",
         price: 107,
         category: "ps5",
+        image: "images/games/9.webp",
     },
     {
         id: "14",
@@ -58,6 +51,7 @@ export const metadata: Metadata = {
         description: "Survival horror",
         price: 147,
         category: "ps5",
+        image: "images/games/14.webp",
     },
     {
         id: "19",
@@ -65,6 +59,7 @@ export const metadata: Metadata = {
         description: "Souls-like / open-world RPG",
         price: 101,
         category: "ps5",
+        image: "images/games/19.webp",
     },
     {
         id: "23",
@@ -72,6 +67,7 @@ export const metadata: Metadata = {
         description: "Action / metroidvania collection",
         price: 81,
         category: "ps5",
+        image: "images/games/23.webp",
     },
     {
         id: "29",
@@ -79,6 +75,7 @@ export const metadata: Metadata = {
         description: "Survival horror",
         price: 94,
         category: "ps5",
+        image: "images/games/29.webp",
     },
     {
         id: "30",
@@ -86,13 +83,15 @@ export const metadata: Metadata = {
         description: "Hack and slash",
         price: 248,
         category: "ps5",
+        image: "images/games/30.webp",
     },
     {
         id: "41",
         name: "Resident Evil 3 Remake PS5 Platinum Trophy Service",
         description: "Survival horror",
-        price: 47,
+        price: 34,
         category: "ps5",
+        image: "images/games/41.webp",
     },
     {
         id: "50",
@@ -100,6 +99,7 @@ export const metadata: Metadata = {
         description: "Physics puzzle platformer",
         price: 114,
         category: "ps5",
+        image: "images/games/50.webp",
     },
     {
         id: "56",
@@ -107,6 +107,7 @@ export const metadata: Metadata = {
         description: "Action / adventure",
         price: 41,
         category: "ps5",
+        image: "images/games/56.webp",
     },
     {
         id: "66",
@@ -114,6 +115,7 @@ export const metadata: Metadata = {
         description: "Martial arts action, roguelike",
         price: 161,
         category: "ps5",
+        image: "images/games/66.webp",
     },
     {
         id: "68",
@@ -121,6 +123,7 @@ export const metadata: Metadata = {
         description: "Horror FPS, Resident Evil franchise",
         price: 147,
         category: "ps5",
+        image: "images/games/68.webp",
     },
     {
         id: "74",
@@ -128,6 +131,7 @@ export const metadata: Metadata = {
         description: "Stylish action, demon slaying",
         price: 248,
         category: "ps5",
+        image: "images/games/74.webp",
     },
     {
         id: "81",
@@ -135,6 +139,7 @@ export const metadata: Metadata = {
         description: "Puzzle platformer, DLC included",
         price: 114,
         category: "ps5",
+        image: "images/games/81.webp",
     },
     {
         id: "82",
@@ -142,6 +147,7 @@ export const metadata: Metadata = {
         description: "Boss-rush action game, indie",
         price: 81,
         category: "ps5",
+        image: "images/games/82.webp",
     },
     {
         id: "95",
@@ -149,6 +155,7 @@ export const metadata: Metadata = {
         description: "Anime JRPG, crafting and alchemy",
         price: 101,
         category: "ps5",
+        image: "images/games/95.webp",
     },
     {
         id: "101",
@@ -156,6 +163,7 @@ export const metadata: Metadata = {
         description: "Dragon Ball arena fighter",
         price: 134,
         category: "ps5",
+        image: "images/games/101.webp",
     },
     {
         id: "102",
@@ -163,13 +171,15 @@ export const metadata: Metadata = {
         description: "Anime-style JRPG, crafting & alchemy",
         price: 101,
         category: "ps5",
+        image: "images/games/102.webp",
     },
     {
         id: "107",
         name: "Superliminal (+DLC) PS5 Platinum Trophy Service",
         description: "First-person puzzle, perspective-based gameplay",
-        price: 47,
+        price: 34,
         category: "ps5",
+        image: "images/games/107.webp",
     },
     {
         id: "121",
@@ -177,6 +187,7 @@ export const metadata: Metadata = {
         description: "First-person shooter, fast-paced action",
         price: 34,
         category: "ps5",
+        image: "images/games/121.webp",
     },
     {
         id: "122",
@@ -184,6 +195,7 @@ export const metadata: Metadata = {
         description: "Co-op puzzle postal adventure",
         price: 87,
         category: "ps5",
+        image: "images/games/122.webp",
     },
     {
         id: "128",
@@ -191,20 +203,23 @@ export const metadata: Metadata = {
         description: "Supervillain action, DC universe",
         price: 181,
         category: "ps5",
+        image: "images/games/128.webp",
     },
     {
         id: "130",
         name: "Overcooked! All You Can Eat PS5 Platinum Trophy Service",
         description: "Chaotic co-op cooking game bundle",
-        price: 47,
+        price: 34,
         category: "ps5",
+        image: "images/games/130.webp",
     },
     {
         id: "134",
         name: "Ratchet & Clank: Rift Apart PS5 Platinum Trophy Service",
         description: "Interdimensional platform shooter",
-        price: 47,
+        price: 34,
         category: "ps5",
+        image: "images/games/134.webp",
     },
     {
         id: "138",
@@ -212,6 +227,7 @@ export const metadata: Metadata = {
         description: "Platformer classic, modern remaster",
         price: 27,
         category: "ps5",
+        image: "images/games/138.webp",
     },
     {
         id: "139",
@@ -219,13 +235,15 @@ export const metadata: Metadata = {
         description: "Anime RPG retelling of DBZ saga",
         price: 61,
         category: "ps5",
+        image: "images/games/139.webp",
     },
     {
         id: "140",
         name: "Spongebob Squarepants: The Cosmic Shake PS5 Platinum Trophy Service",
         description: "3D platformer in Bikini Bottom",
-        price: 47,
+        price: 34,
         category: "ps5",
+        image: "images/games/140.webp",
     },
     {
         id: "143",
@@ -233,6 +251,7 @@ export const metadata: Metadata = {
         description: "Fantasy feline RPG, third entry",
         price: 34,
         category: "ps5",
+        image: "images/games/143.webp",
     },
     {
         id: "144",
@@ -240,15 +259,17 @@ export const metadata: Metadata = {
         description: "Cinematic shooter as Robocop",
         price: 54,
         category: "ps5",
+        image: "images/games/144.webp",
     },
 
-    // PS4 Games (85 games)
+    // PS4 Games (85 games) - Include all PS4 games from the original list
     {
         id: "2",
         name: "Final Fantasy 7 Remake PS4 Platinum Trophy Service",
         description: "RPG game",
         price: 134,
         category: "ps4",
+        image: "images/games/2.webp",
     },
     {
         id: "3",
@@ -256,6 +277,7 @@ export const metadata: Metadata = {
         description: "Survival horror",
         price: 167,
         category: "ps4",
+        image: "images/games/3.webp",
     },
     {
         id: "4",
@@ -263,6 +285,7 @@ export const metadata: Metadata = {
         description: "Survival horror",
         price: 94,
         category: "ps4",
+        image: "images/games/4.webp",
     },
     {
         id: "6",
@@ -270,6 +293,7 @@ export const metadata: Metadata = {
         description: "Souls-like / action RPG",
         price: 101,
         category: "ps4",
+        image: "images/games/6.webp",
     },
     {
         id: "7",
@@ -277,6 +301,7 @@ export const metadata: Metadata = {
         description: "Metroidvania game",
         price: 114,
         category: "ps4",
+        image: "images/games/7.webp",
     },
     {
         id: "10",
@@ -284,6 +309,7 @@ export const metadata: Metadata = {
         description: "Hack and slash",
         price: 248,
         category: "ps4",
+        image: "images/games/10.webp",
     },
     {
         id: "11",
@@ -291,6 +317,7 @@ export const metadata: Metadata = {
         description: "Action adventure",
         price: 161,
         category: "ps4",
+        image: "images/games/11.webp",
     },
     {
         id: "12",
@@ -298,6 +325,7 @@ export const metadata: Metadata = {
         description: "Action / adventure",
         price: 41,
         category: "ps4",
+        image: "images/games/12.webp",
     },
     {
         id: "13",
@@ -305,6 +333,7 @@ export const metadata: Metadata = {
         description: "Action / school life",
         price: 67,
         category: "ps4",
+        image: "images/games/13.webp",
     },
     {
         id: "15",
@@ -312,6 +341,7 @@ export const metadata: Metadata = {
         description: "Platformer",
         price: 201,
         category: "ps4",
+        image: "images/games/15.webp",
     },
     {
         id: "16",
@@ -319,6 +349,7 @@ export const metadata: Metadata = {
         description: "Souls-like / open-world RPG",
         price: 101,
         category: "ps4",
+        image: "images/games/16.webp",
     },
     {
         id: "17",
@@ -326,6 +357,7 @@ export const metadata: Metadata = {
         description: "Survival horror",
         price: 107,
         category: "ps4",
+        image: "images/games/17.webp",
     },
     {
         id: "18",
@@ -333,6 +365,7 @@ export const metadata: Metadata = {
         description: "Metroidvania / indie action",
         price: 81,
         category: "ps4",
+        image: "images/games/18.webp",
     },
     {
         id: "21",
@@ -340,6 +373,7 @@ export const metadata: Metadata = {
         description: "Anime / action RPG",
         price: 61,
         category: "ps4",
+        image: "images/games/21.webp",
     },
     {
         id: "22",
@@ -347,6 +381,7 @@ export const metadata: Metadata = {
         description: "Action adventure",
         price: 147,
         category: "ps4",
+        image: "images/games/22.webp",
     },
     {
         id: "25",
@@ -354,6 +389,7 @@ export const metadata: Metadata = {
         description: "Simulation / renovation game",
         price: 121,
         category: "ps4",
+        image: "images/games/25.webp",
     },
     {
         id: "26",
@@ -361,6 +397,7 @@ export const metadata: Metadata = {
         description: "Fighting game",
         price: 147,
         category: "ps4",
+        image: "images/games/26.webp",
     },
     {
         id: "27",
@@ -368,6 +405,7 @@ export const metadata: Metadata = {
         description: "Adventure / story-driven",
         price: 107,
         category: "ps4",
+        image: "images/games/27.webp",
     },
     {
         id: "28",
@@ -375,6 +413,7 @@ export const metadata: Metadata = {
         description: "Arcade racing",
         price: 107,
         category: "ps4",
+        image: "images/games/28.webp",
     },
     {
         id: "31",
@@ -382,6 +421,7 @@ export const metadata: Metadata = {
         description: "Survival horror",
         price: 47,
         category: "ps4",
+        image: "images/games/31.webp",
     },
     {
         id: "32",
@@ -389,6 +429,7 @@ export const metadata: Metadata = {
         description: "JRPG / anime-style",
         price: 107,
         category: "ps4",
+        image: "images/games/32.webp",
     },
     {
         id: "33",
@@ -396,6 +437,7 @@ export const metadata: Metadata = {
         description: "Classic survival horror remaster",
         price: 67,
         category: "ps4",
+        image: "images/games/33.webp",
     },
     {
         id: "34",
@@ -403,6 +445,7 @@ export const metadata: Metadata = {
         description: "Souls-like / action RPG",
         price: 121,
         category: "ps4",
+        image: "images/games/34.webp",
     },
     {
         id: "35",
@@ -410,6 +453,7 @@ export const metadata: Metadata = {
         description: "Co-op / cooking game",
         price: 87,
         category: "ps4",
+        image: "images/games/35.webp",
     },
     {
         id: "36",
@@ -417,6 +461,7 @@ export const metadata: Metadata = {
         description: "Hack and slash",
         price: 107,
         category: "ps4",
+        image: "images/games/36.webp",
     },
     {
         id: "37",
@@ -424,6 +469,7 @@ export const metadata: Metadata = {
         description: "Action / fighting game",
         price: 161,
         category: "ps4",
+        image: "images/games/37.webp",
     },
     {
         id: "42",
@@ -431,6 +477,7 @@ export const metadata: Metadata = {
         description: "Action / survival horror",
         price: 167,
         category: "ps4",
+        image: "images/games/42.webp",
     },
     {
         id: "43",
@@ -438,6 +485,7 @@ export const metadata: Metadata = {
         description: "JRPG / anime-style",
         price: 94,
         category: "ps4",
+        image: "images/games/43.webp",
     },
     {
         id: "47",
@@ -445,6 +493,7 @@ export const metadata: Metadata = {
         description: "Card battle game",
         price: 134,
         category: "ps4",
+        image: "images/games/47.webp",
     },
     {
         id: "48",
@@ -452,6 +501,7 @@ export const metadata: Metadata = {
         description: "Detective / noir game",
         price: 83,
         category: "ps4",
+        image: "images/games/48.webp",
     },
     {
         id: "49",
@@ -459,6 +509,7 @@ export const metadata: Metadata = {
         description: "2D fighting game",
         price: 87,
         category: "ps4",
+        image: "images/games/49.webp",
     },
     {
         id: "51",
@@ -466,6 +517,7 @@ export const metadata: Metadata = {
         description: "Visual novel / mystery",
         price: 134,
         category: "ps4",
+        image: "images/games/51.webp",
     },
     {
         id: "52",
@@ -473,6 +525,7 @@ export const metadata: Metadata = {
         description: "Kart racing",
         price: 101,
         category: "ps4",
+        image: "images/games/52.webp",
     },
     {
         id: "53",
@@ -480,6 +533,7 @@ export const metadata: Metadata = {
         description: "Hack and slash",
         price: 101,
         category: "ps4",
+        image: "images/games/53.webp",
     },
     {
         id: "54",
@@ -487,6 +541,7 @@ export const metadata: Metadata = {
         description: "Survival horror",
         price: 107,
         category: "ps4",
+        image: "images/games/54.webp",
     },
     {
         id: "55",
@@ -494,6 +549,7 @@ export const metadata: Metadata = {
         description: "Hack and slash",
         price: 174,
         category: "ps4",
+        image: "images/games/55.webp",
     },
     {
         id: "57",
@@ -501,6 +557,7 @@ export const metadata: Metadata = {
         description: "Physics puzzle platformer",
         price: 107,
         category: "ps4",
+        image: "images/games/57.webp",
     },
     {
         id: "58",
@@ -508,6 +565,7 @@ export const metadata: Metadata = {
         description: "Indie RPG",
         price: 27,
         category: "ps4",
+        image: "images/games/58.webp",
     },
     {
         id: "59",
@@ -515,6 +573,7 @@ export const metadata: Metadata = {
         description: "Narrative / episodic adventure",
         price: 41,
         category: "ps4",
+        image: "images/games/59.webp",
     },
     {
         id: "60",
@@ -522,6 +581,7 @@ export const metadata: Metadata = {
         description: "Puzzle / perspective-based game",
         price: 47,
         category: "ps4",
+        image: "images/games/60.webp",
     },
     {
         id: "62",
@@ -529,6 +589,7 @@ export const metadata: Metadata = {
         description: "Puzzle platformer, DLC included",
         price: 107,
         category: "ps4",
+        image: "images/games/62.webp",
     },
     {
         id: "65",
@@ -536,6 +597,7 @@ export const metadata: Metadata = {
         description: "Action-adventure, apocalyptic world",
         price: 81,
         category: "ps4",
+        image: "images/games/65.webp",
     },
     {
         id: "69",
@@ -543,6 +605,7 @@ export const metadata: Metadata = {
         description: "Survival horror, co-op action",
         price: 167,
         category: "ps4",
+        image: "images/games/69.webp",
     },
     {
         id: "72",
@@ -550,6 +613,7 @@ export const metadata: Metadata = {
         description: "Soulslike, action RPG",
         price: 67,
         category: "ps4",
+        image: "images/games/72.webp",
     },
     {
         id: "73",
@@ -557,6 +621,7 @@ export const metadata: Metadata = {
         description: "Adventure game, SoulsLike game",
         price: 101,
         category: "ps4",
+        image: "images/games/73.webp",
     },
     {
         id: "76",
@@ -564,6 +629,7 @@ export const metadata: Metadata = {
         description: "Visual novel, mystery game",
         price: 134,
         category: "ps4",
+        image: "images/games/76.webp",
     },
     {
         id: "77",
@@ -571,6 +637,7 @@ export const metadata: Metadata = {
         description: "Anime fighting game",
         price: 87,
         category: "ps4",
+        image: "images/games/77.webp",
     },
     {
         id: "78",
@@ -578,6 +645,7 @@ export const metadata: Metadata = {
         description: "Open world, action-adventure",
         price: 67,
         category: "ps4",
+        image: "images/games/78.webp",
     },
     {
         id: "83",
@@ -585,6 +653,7 @@ export const metadata: Metadata = {
         description: "Anime-style RPG, Neptunia series",
         price: 81,
         category: "ps4",
+        image: "images/games/83.webp",
     },
     {
         id: "84",
@@ -592,6 +661,7 @@ export const metadata: Metadata = {
         description: "Narrative adventure, Telltale series",
         price: 41,
         category: "ps4",
+        image: "images/games/84.webp",
     },
     {
         id: "85",
@@ -599,6 +669,7 @@ export const metadata: Metadata = {
         description: "Open-world superhero action",
         price: 47,
         category: "ps4",
+        image: "images/games/85.webp",
     },
     {
         id: "88",
@@ -606,6 +677,7 @@ export const metadata: Metadata = {
         description: "Stylized hack-and-slash action",
         price: 61,
         category: "ps4",
+        image: "images/games/88.webp",
     },
     {
         id: "89",
@@ -613,6 +685,7 @@ export const metadata: Metadata = {
         description: "Building RPG, Dragon Quest spin-off",
         price: 114,
         category: "ps4",
+        image: "images/games/89.webp",
     },
     {
         id: "90",
@@ -620,6 +693,7 @@ export const metadata: Metadata = {
         description: "Remastered classic platformers",
         price: 81,
         category: "ps4",
+        image: "images/games/90.webp",
     },
     {
         id: "93",
@@ -627,6 +701,7 @@ export const metadata: Metadata = {
         description: "Kung fu action roguelike",
         price: 161,
         category: "ps4",
+        image: "images/games/93.webp",
     },
     {
         id: "94",
@@ -634,6 +709,7 @@ export const metadata: Metadata = {
         description: "Hack-and-slash action sequel",
         price: 174,
         category: "ps4",
+        image: "images/games/94.webp",
     },
     {
         id: "96",
@@ -641,6 +717,7 @@ export const metadata: Metadata = {
         description: "Puzzle-platformer with co-op",
         price: 87,
         category: "ps4",
+        image: "images/games/96.webp",
     },
     {
         id: "97",
@@ -648,6 +725,7 @@ export const metadata: Metadata = {
         description: "Rhythm strategy remaster",
         price: 67,
         category: "ps4",
+        image: "images/games/97.webp",
     },
     {
         id: "98",
@@ -655,6 +733,7 @@ export const metadata: Metadata = {
         description: "Side-scrolling JRPG, anime-style",
         price: 81,
         category: "ps4",
+        image: "images/games/98.webp",
     },
     {
         id: "99",
@@ -662,6 +741,7 @@ export const metadata: Metadata = {
         description: "Sandbox building RPG",
         price: 67,
         category: "ps4",
+        image: "images/games/99.webp",
     },
     {
         id: "103",
@@ -669,6 +749,7 @@ export const metadata: Metadata = {
         description: "Co-op puzzle postal adventure",
         price: 87,
         category: "ps4",
+        image: "images/games/103.webp",
     },
     {
         id: "108",
@@ -676,6 +757,7 @@ export const metadata: Metadata = {
         description: "Anime crossover, action RPG",
         price: 67,
         category: "ps4",
+        image: "images/games/108.webp",
     },
     {
         id: "109",
@@ -683,6 +765,7 @@ export const metadata: Metadata = {
         description: "Interactive narrative, futuristic thriller",
         price: 61,
         category: "ps4",
+        image: "images/games/109.webp",
     },
     {
         id: "110",
@@ -690,6 +773,7 @@ export const metadata: Metadata = {
         description: "Standalone superhero expansion, open-world",
         price: 41,
         category: "ps4",
+        image: "images/games/110.webp",
     },
     {
         id: "111",
@@ -697,6 +781,7 @@ export const metadata: Metadata = {
         description: "JRPG, crafting, slice-of-life fantasy",
         price: 101,
         category: "ps4",
+        image: "images/games/111.webp",
     },
     {
         id: "112",
@@ -704,6 +789,7 @@ export const metadata: Metadata = {
         description: "Epic action-adventure, Greek mythology",
         price: 41,
         category: "ps4",
+        image: "images/games/112.webp",
     },
     {
         id: "115",
@@ -711,6 +797,7 @@ export const metadata: Metadata = {
         description: "Survival horror classic, third-person shooter",
         price: 67,
         category: "ps4",
+        image: "images/games/115.webp",
     },
     {
         id: "117",
@@ -718,6 +805,7 @@ export const metadata: Metadata = {
         description: "Action RPG with cats and dogs",
         price: 41,
         category: "ps4",
+        image: "images/games/117.webp",
     },
     {
         id: "123",
@@ -725,6 +813,7 @@ export const metadata: Metadata = {
         description: "Rhythm strategy, stylized 2D visuals",
         price: 67,
         category: "ps4",
+        image: "images/games/123.webp",
     },
     {
         id: "125",
@@ -732,6 +821,7 @@ export const metadata: Metadata = {
         description: "Open-world action RPG with cats",
         price: 34,
         category: "ps4",
+        image: "images/games/125.webp",
     },
     {
         id: "126",
@@ -739,6 +829,7 @@ export const metadata: Metadata = {
         description: "Charming feline-themed RPG",
         price: 34,
         category: "ps4",
+        image: "images/games/126.webp",
     },
     {
         id: "127",
@@ -746,6 +837,7 @@ export const metadata: Metadata = {
         description: "Classic platformer remastered",
         price: 27,
         category: "ps4",
+        image: "images/games/127.webp",
     },
     {
         id: "131",
@@ -753,6 +845,7 @@ export const metadata: Metadata = {
         description: "Crime drama, beat-em-up remake",
         price: 161,
         category: "ps4",
+        image: "images/games/131.webp",
     },
     {
         id: "133",
@@ -760,6 +853,7 @@ export const metadata: Metadata = {
         description: "Fast-paced FPS, demon-slaying chaos",
         price: 34,
         category: "ps4",
+        image: "images/games/133.webp",
     },
     {
         id: "135",
@@ -767,6 +861,7 @@ export const metadata: Metadata = {
         description: "Telltale narrative zombie drama",
         price: 34,
         category: "ps4",
+        image: "images/games/135.webp",
     },
     {
         id: "136",
@@ -774,6 +869,7 @@ export const metadata: Metadata = {
         description: "Remake of classic PSP platformer",
         price: 41,
         category: "ps4",
+        image: "images/games/136.webp",
     },
     {
         id: "137",
@@ -781,6 +877,7 @@ export const metadata: Metadata = {
         description: "Cartoon platforming with Spongebob",
         price: 47,
         category: "ps4",
+        image: "images/games/137.webp",
     },
     {
         id: "141",
@@ -788,15 +885,17 @@ export const metadata: Metadata = {
         description: "Retro first-person platforming action",
         price: 21,
         category: "ps4",
+        image: "images/games/141.webp",
     },
 
-    // PS3 Games (25 games)
+    // PS3 Games (25 games) - Include all PS3 games from the original list
     {
         id: "40",
         name: "Resident Evil: Revelations 2 PS3 Platinum Trophy Service",
         description: "Survival horror",
         price: 107,
         category: "ps3",
+        image: "images/games/40.webp",
     },
     {
         id: "44",
@@ -804,6 +903,7 @@ export const metadata: Metadata = {
         description: "Action adventure",
         price: 161,
         category: "ps3",
+        image: "images/games/44.webp",
     },
     {
         id: "61",
@@ -811,6 +911,7 @@ export const metadata: Metadata = {
         description: "Horror game, PS3 service",
         price: 87,
         category: "ps3",
+        image: "images/games/61.webp",
     },
     {
         id: "63",
@@ -818,6 +919,7 @@ export const metadata: Metadata = {
         description: "Action RPG, Soulslike",
         price: 81,
         category: "ps3",
+        image: "images/games/63.webp",
     },
     {
         id: "64",
@@ -825,6 +927,7 @@ export const metadata: Metadata = {
         description: "Action adventure, God of War series",
         price: 101,
         category: "ps3",
+        image: "images/games/64.webp",
     },
     {
         id: "70",
@@ -832,6 +935,7 @@ export const metadata: Metadata = {
         description: "Survival horror, PS3 edition",
         price: 81,
         category: "ps3",
+        image: "images/games/70.webp",
     },
     {
         id: "79",
@@ -839,6 +943,7 @@ export const metadata: Metadata = {
         description: "Classic horror trophy service",
         price: 67,
         category: "ps3",
+        image: "images/games/79.webp",
     },
     {
         id: "80",
@@ -846,6 +951,7 @@ export const metadata: Metadata = {
         description: "Reboot action game with DLC",
         price: 127,
         category: "ps3",
+        image: "images/games/80.webp",
     },
     {
         id: "86",
@@ -853,6 +959,7 @@ export const metadata: Metadata = {
         description: "Action horror, Resident Evil franchise",
         price: 67,
         category: "ps3",
+        image: "images/games/86.webp",
     },
     {
         id: "87",
@@ -860,6 +967,7 @@ export const metadata: Metadata = {
         description: "LEGO adventure, co-op",
         price: 67,
         category: "ps3",
+        image: "images/games/87.webp",
     },
     {
         id: "91",
@@ -867,6 +975,7 @@ export const metadata: Metadata = {
         description: "Superpowered open world",
         price: 67,
         category: "ps3",
+        image: "images/games/91.webp",
     },
     {
         id: "92",
@@ -874,6 +983,7 @@ export const metadata: Metadata = {
         description: "Classic Lara Croft action-adventure",
         price: 67,
         category: "ps3",
+        image: "images/games/92.webp",
     },
     {
         id: "100",
@@ -881,6 +991,7 @@ export const metadata: Metadata = {
         description: "Lara Croft classic platform adventure",
         price: 47,
         category: "ps3",
+        image: "images/games/100.webp",
     },
     {
         id: "104",
@@ -888,6 +999,7 @@ export const metadata: Metadata = {
         description: "Action-adventure, apocalyptic hack and slash",
         price: 101,
         category: "ps3",
+        image: "images/games/104.webp",
     },
     {
         id: "105",
@@ -895,6 +1007,7 @@ export const metadata: Metadata = {
         description: "Challenging action RPG, Souls-like",
         price: 81,
         category: "ps3",
+        image: "images/games/105.webp",
     },
     {
         id: "106",
@@ -902,6 +1015,7 @@ export const metadata: Metadata = {
         description: "Detective thriller, open world, Rockstar Games",
         price: 83,
         category: "ps3",
+        image: "images/games/106.webp",
     },
     {
         id: "113",
@@ -909,6 +1023,7 @@ export const metadata: Metadata = {
         description: "Fast-paced hack and slash, prequel",
         price: 101,
         category: "ps3",
+        image: "images/games/113.webp",
     },
     {
         id: "114",
@@ -916,6 +1031,7 @@ export const metadata: Metadata = {
         description: "Anime action, Saint Seiya franchise",
         price: 107,
         category: "ps3",
+        image: "images/games/114.webp",
     },
     {
         id: "116",
@@ -923,6 +1039,7 @@ export const metadata: Metadata = {
         description: "Stylish demon-slaying action",
         price: 61,
         category: "ps3",
+        image: "images/games/116.webp",
     },
     {
         id: "118",
@@ -930,6 +1047,7 @@ export const metadata: Metadata = {
         description: "Telltale adventure, zombie survival",
         price: 41,
         category: "ps3",
+        image: "images/games/118.webp",
     },
     {
         id: "119",
@@ -937,6 +1055,7 @@ export const metadata: Metadata = {
         description: "Superhero stealth-action, Arkham series",
         price: 41,
         category: "ps3",
+        image: "images/games/119.webp",
     },
     {
         id: "120",
@@ -944,6 +1063,7 @@ export const metadata: Metadata = {
         description: "Original demon hunter action game",
         price: 94,
         category: "ps3",
+        image: "images/games/120.webp",
     },
     {
         id: "124",
@@ -951,6 +1071,7 @@ export const metadata: Metadata = {
         description: "Epic action-adventure, Greek mythology",
         price: 41,
         category: "ps3",
+        image: "images/games/124.webp",
     },
     {
         id: "129",
@@ -958,6 +1079,7 @@ export const metadata: Metadata = {
         description: "Classic 3D platformer adventure",
         price: 41,
         category: "ps3",
+        image: "images/games/129.webp",
     },
     {
         id: "132",
@@ -965,6 +1087,7 @@ export const metadata: Metadata = {
         description: "Lara Croft action-adventure reboot",
         price: 47,
         category: "ps3",
+        image: "images/games/132.webp",
     },
     {
         id: "142",
@@ -972,15 +1095,17 @@ export const metadata: Metadata = {
         description: "Gritty fairy tale noir by Telltale",
         price: 41,
         category: "ps3",
+        image: "images/games/142.webp",
     },
 
-    // Bundles (9 bundles)
+    // Bundles (9 bundles) - Include all bundles from the original list
     {
         id: "20",
         name: "Devil May Cry Trilogy Bundle PS3 or PS4 Platinum Trophy Service",
         description: "Hack and slash bundle",
         price: 214,
         category: "bundles",
+        image: "images/games/20.webp",
     },
     {
         id: "24",
@@ -988,6 +1113,7 @@ export const metadata: Metadata = {
         description: "Horror remake bundle",
         price: 241,
         category: "bundles",
+        image: "images/games/24.webp",
     },
     {
         id: "38",
@@ -995,6 +1121,7 @@ export const metadata: Metadata = {
         description: "Action adventure trilogy",
         price: 134,
         category: "bundles",
+        image: "images/games/38.webp",
     },
     {
         id: "39",
@@ -1002,6 +1129,7 @@ export const metadata: Metadata = {
         description: "Souls-like trilogy",
         price: 228,
         category: "bundles",
+        image: "images/games/39.webp",
     },
     {
         id: "45",
@@ -1009,6 +1137,7 @@ export const metadata: Metadata = {
         description: "Action adventure bundle",
         price: 294,
         category: "bundles",
+        image: "images/games/45.webp",
     },
     {
         id: "46",
@@ -1016,6 +1145,7 @@ export const metadata: Metadata = {
         description: "Platformer bundle",
         price: 241,
         category: "bundles",
+        image: "images/games/46.webp",
     },
     {
         id: "67",
@@ -1023,6 +1153,7 @@ export const metadata: Metadata = {
         description: "Full Soulsborne experience",
         price: 228,
         category: "bundles",
+        image: "images/games/67.webp",
     },
     {
         id: "71",
@@ -1030,6 +1161,7 @@ export const metadata: Metadata = {
         description: "Remastered Resident Evil classics",
         price: 241,
         category: "bundles",
+        image: "images/games/71.webp",
     },
     {
         id: "75",
@@ -1037,217 +1169,234 @@ export const metadata: Metadata = {
         description: "Classic platformers remastered",
         price: 241,
         category: "bundles",
+        image: "images/games/75.webp",
     },
     ]
 
-    // Sort products alphabetically
-    const sortedProducts = [...products].sort((a, b) => a.name.localeCompare(b.name))
-
-    function getCategoryBadge(category: string) {
-    const badges = {
-        ps3: {
-        label: "PS3",
-        color: "bg-blue-600/80 text-blue-100 dark:bg-blue-600/80 dark:text-blue-100 bg-blue-200 text-blue-800",
-        icon: Trophy,
-        },
-        ps4: {
-        label: "PS4",
-        color:
-            "bg-purple-600/80 text-purple-100 dark:bg-purple-600/80 dark:text-purple-100 bg-purple-200 text-purple-800",
-        icon: Trophy,
-        },
-        ps5: {
-        label: "PS5",
-        color: "bg-pink-600/80 text-pink-100 dark:bg-pink-600/80 dark:text-pink-100 bg-pink-200 text-pink-800",
-        icon: Trophy,
-        },
-        bundles: {
-        label: "BUNDLE",
-        color:
-            "bg-orange-600/80 text-orange-100 dark:bg-orange-600/80 dark:text-orange-100 bg-orange-200 text-orange-800",
-        icon: Package,
-        },
-    }
-    return badges[category as keyof typeof badges] || badges.ps4
-    }
-
     export default function GamesListPage() {
+    const [selectedCategory, setSelectedCategory] = useState<string>("all")
+    const [searchTerm, setSearchTerm] = useState<string>("")
+
+    const filteredProducts = useMemo(() => {
+        let filtered = products
+
+        // Filter by category
+        if (selectedCategory !== "all") {
+        filtered = filtered.filter((product) => product.category === selectedCategory)
+        }
+
+        // Filter by search term
+        if (searchTerm) {
+        filtered = filtered.filter(
+            (product) =>
+            product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            product.description.toLowerCase().includes(searchTerm.toLowerCase()),
+        )
+        }
+
+        return filtered
+    }, [selectedCategory, searchTerm])
+
+    const categories = [
+        { id: "all", name: "All Games", count: products.length, icon: "🎮" },
+        { id: "ps5", name: "PlayStation 5", count: products.filter((p) => p.category === "ps5").length, icon: "🎮" },
+        { id: "ps4", name: "PlayStation 4", count: products.filter((p) => p.category === "ps4").length, icon: "🎮" },
+        { id: "ps3", name: "PlayStation 3", count: products.filter((p) => p.category === "ps3").length, icon: "🎮" },
+        { id: "bundles", name: "Game Bundles", count: products.filter((p) => p.category === "bundles").length, icon: "📦" },
+    ]
+
     return (
-        <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-purple-900 dark:from-black dark:via-gray-900 dark:to-purple-900 from-purple-50 via-pink-50 to-purple-100">
+        <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-purple-900 dark:from-black dark:via-gray-900 dark:to-purple-900 from-purple-50 via-pink-50 to-purple-100 overflow-x-hidden">
         <Header />
 
-        <section className="py-12 md:py-20 px-4">
-            <div className="max-w-6xl mx-auto">
-            {/* Header Section */}
-            <div className="text-center mb-8 md:mb-12">
-                <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-purple-400 via-pink-400 to-purple-600 bg-clip-text text-transparent">
-                Complete Games List
+        <main>
+            {/* Hero Section */}
+            <section className="relative py-12 sm:py-16 md:py-20 px-3 sm:px-4 md:px-6 text-center overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-pink-600/20 dark:from-purple-600/20 dark:to-pink-600/20 from-purple-200/40 to-pink-200/40 blur-3xl"></div>
+            <div className="relative z-10 max-w-4xl mx-auto">
+                <h1 className="hero-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-purple-400 via-pink-400 to-purple-600 bg-clip-text text-transparent px-2">
+                Trophy Services
                 </h1>
-                <p className="text-lg md:text-xl text-purple-200 dark:text-purple-200 text-purple-700 font-light mb-6 md:mb-8 px-4">
-                Alphabetical list of all 150+ available trophy services including special bundles
+                <p className="hero-subtitle text-base sm:text-lg md:text-xl lg:text-2xl text-purple-200 dark:text-purple-200 text-purple-700 mb-6 sm:mb-8 font-light px-4">
+                Professional PlayStation Platinum Trophy Services
                 </p>
-                <div className="w-24 md:w-32 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto rounded-full shadow-lg shadow-purple-500/50"></div>
-            </div>
+                <div className="w-24 sm:w-32 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto rounded-full shadow-lg shadow-purple-500/50"></div>
 
-            {/* Games Container */}
-            <div className="bg-gray-900/50 dark:bg-gray-900/50 bg-white/80 backdrop-blur-sm rounded-2xl border border-purple-500/30 shadow-2xl shadow-purple-500/10">
-                <div className="p-4 md:p-6">
-                {/* Stats Header */}
-                <div className="mb-6">
-                    <h2 className="text-xl md:text-2xl font-bold text-purple-100 dark:text-purple-100 text-purple-800 mb-2">
-                    Available Services ({sortedProducts.length})
+                {/* SEO Content */}
+                <div className="mt-8 max-w-3xl mx-auto text-center">
+                <h2 className="text-lg sm:text-xl font-semibold text-purple-200 dark:text-purple-200 text-purple-700 mb-4">
+                    Expert PlayStation Trophy Completion Services
+                </h2>
+                <p className="text-sm sm:text-base text-purple-300 dark:text-purple-300 text-purple-600 leading-relaxed">
+                    Get your PlayStation platinum trophies completed by professional gamers. We specialize in PS3, PS4, and
+                    PS5 trophy services including the most challenging games like Dark Souls, Sekiro, Elden Ring, and more.
+                    Fast, safe, and reliable trophy boosting with 100% completion guarantee.
+                </p>
+                </div>
+            </div>
+            </section>
+
+            {/* Search Bar */}
+            <section className="py-6 sm:py-8 px-3 sm:px-4" aria-label="Game Search">
+            <div className="max-w-6xl mx-auto">
+                <SearchBar searchTerm={searchTerm} onSearchChange={setSearchTerm} placeholder="Search for games..." />
+            </div>
+            </section>
+
+            {/* Category Filter */}
+            <section className="py-6 sm:py-8 px-3 sm:px-4" aria-label="Game Categories">
+            <div className="max-w-6xl mx-auto">
+                <h2 className="text-2xl font-bold text-center text-purple-200 dark:text-purple-200 text-purple-700 mb-6">
+                Choose Your Category
+                </h2>
+                <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-8 sm:mb-12">
+                {categories.map((category) => (
+                    <Button
+                    key={category.id}
+                    onClick={() => setSelectedCategory(category.id)}
+                    variant={selectedCategory === category.id ? "default" : "outline"}
+                    className={`
+                        px-3 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold transition-all duration-300 border-2 text-xs sm:text-sm
+                        ${
+                        selectedCategory === category.id
+                            ? "bg-gradient-to-r from-purple-600 to-pink-600 border-purple-500 text-white shadow-lg shadow-purple-500/50"
+                            : "border-purple-500/50 text-purple-300 dark:text-purple-300 text-purple-700 hover:border-purple-400 hover:text-purple-200 dark:hover:text-purple-200 hover:text-purple-600 hover:shadow-md hover:shadow-purple-500/25"
+                        }
+                    `}
+                    >
+                    <span className="mr-1 sm:mr-2">{category.icon}</span>
+                    <span className="hidden sm:inline">{category.name}</span>
+                    <span className="sm:hidden">{category.name.replace("PlayStation ", "PS").replace("Game ", "")}</span>
+                    <span className="ml-1 sm:ml-2 px-1 sm:px-2 py-0.5 sm:py-1 text-xs rounded-full bg-purple-500/30">
+                        {category.count}
+                    </span>
+                    </Button>
+                ))}
+                </div>
+            </div>
+            </section>
+
+            {/* Results Info */}
+            {(searchTerm || selectedCategory !== "all") && (
+            <section className="px-3 sm:px-4 pb-4" aria-label="Search Results">
+                <div className="max-w-7xl mx-auto">
+                <p className="text-center text-purple-300 dark:text-purple-300 text-purple-600 text-sm sm:text-base">
+                    {filteredProducts.length === 0
+                    ? "No games found matching your criteria"
+                    : `Showing ${filteredProducts.length} game${filteredProducts.length !== 1 ? "s" : ""}`}
+                    {searchTerm && ` for "${searchTerm}"`}
+                    {selectedCategory !== "all" && ` in ${categories.find((c) => c.id === selectedCategory)?.name}`}
+                </p>
+                </div>
+            </section>
+            )}
+
+            {/* Products Grid */}
+            <section className="py-6 sm:py-8 px-3 sm:px-4" aria-label="Available Trophy Services">
+            <div className="max-w-7xl mx-auto">
+                {/* Category-specific titles */}
+                {selectedCategory !== "all" && filteredProducts.length > 0 && (
+                <div className="text-center mb-8">
+                    <h2 className="text-2xl sm:text-3xl font-bold text-purple-200 dark:text-purple-200 text-purple-700 mb-4">
+                    {selectedCategory === "bundles" && "🎁 Special Game Bundles"}
+                    {selectedCategory === "ps5" && "🎮 PlayStation 5 Trophy Services"}
+                    {selectedCategory === "ps4" && "🎮 PlayStation 4 Trophy Services"}
+                    {selectedCategory === "ps3" && "🎮 PlayStation 3 Trophy Services"}
                     </h2>
-                    <div className="flex flex-wrap gap-2 text-sm text-purple-300 dark:text-purple-300 text-purple-600">
-                    <span>🎮 PS5: {products.filter((p) => p.category === "ps5").length}</span>
-                    <span>🎮 PS4: {products.filter((p) => p.category === "ps4").length}</span>
-                    <span>🎮 PS3: {products.filter((p) => p.category === "ps3").length}</span>
-                    <span>📦 Bundles: {products.filter((p) => p.category === "bundles").length}</span>
+                    {selectedCategory === "bundles" && (
+                    <p className="text-purple-300 dark:text-purple-300 text-purple-600 text-sm sm:text-base max-w-2xl mx-auto">
+                        Save money with our specially curated game bundles! Get multiple platinum trophies at discounted
+                        prices.
+                    </p>
+                    )}
+                </div>
+                )}
+
+                {filteredProducts.length === 0 ? (
+                <div className="text-center py-12 sm:py-16">
+                    <div className="text-4xl sm:text-6xl mb-4">🎮</div>
+                    <h3 className="text-xl sm:text-2xl font-bold text-purple-200 dark:text-purple-200 text-purple-700 mb-2">
+                    No games found
+                    </h3>
+                    <p className="text-purple-300 dark:text-purple-300 text-purple-600 mb-6 text-sm sm:text-base px-4">
+                    Try adjusting your search or category filter
+                    </p>
+                    <Button
+                    onClick={() => {
+                        setSearchTerm("")
+                        setSelectedCategory("all")
+                    }}
+                    className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white"
+                    >
+                    Clear Filters
+                    </Button>
+                </div>
+                ) : (
+                <>
+                    {/* Mobile Grid (2x2) */}
+                    <div className="grid grid-cols-2 gap-3 sm:hidden">
+                    {filteredProducts.map((product) => (
+                        <ProductCardMobile key={product.id} product={product} />
+                    ))}
+                    </div>
+
+                    {/* Desktop Grid */}
+                    <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
+                    {filteredProducts.map((product) => (
+                        <ProductCard key={product.id} product={product} />
+                    ))}
+                    </div>
+                </>
+                )}
+            </div>
+            </section>
+
+            {/* Bundle Benefits Section */}
+            {selectedCategory === "bundles" && filteredProducts.length > 0 && (
+            <section className="py-8 px-3 sm:px-4">
+                <div className="max-w-4xl mx-auto">
+                <div className="bg-gray-900/50 dark:bg-gray-900/50 bg-white/80 backdrop-blur-sm rounded-2xl border border-purple-500/30 p-6 sm:p-8">
+                    <h3 className="text-2xl font-bold text-purple-200 dark:text-purple-200 text-purple-700 mb-6 text-center">
+                    🎁 Why Choose Game Bundles?
+                    </h3>
+                    <div className="grid md:grid-cols-3 gap-6">
+                    <div className="text-center">
+                        <div className="text-3xl mb-3">💰</div>
+                        <h4 className="font-semibold text-purple-200 dark:text-purple-200 text-purple-700 mb-2">
+                        Save Money
+                        </h4>
+                        <p className="text-purple-300 dark:text-purple-300 text-purple-600 text-sm">
+                        Get multiple games at discounted bundle prices
+                        </p>
+                    </div>
+                    <div className="text-center">
+                        <div className="text-3xl mb-3">⚡</div>
+                        <h4 className="font-semibold text-purple-200 dark:text-purple-200 text-purple-700 mb-2">
+                        Faster Service
+                        </h4>
+                        <p className="text-purple-300 dark:text-purple-300 text-purple-600 text-sm">
+                        Optimized completion order for maximum efficiency
+                        </p>
+                    </div>
+                    <div className="text-center">
+                        <div className="text-3xl mb-3">🏆</div>
+                        <h4 className="font-semibold text-purple-200 dark:text-purple-200 text-purple-700 mb-2">
+                        Complete Series
+                        </h4>
+                        <p className="text-purple-300 dark:text-purple-300 text-purple-600 text-sm">
+                        Get entire game series or themed collections
+                        </p>
+                    </div>
                     </div>
                 </div>
-
-                {/* Games List */}
-                <div className="space-y-3">
-                    {sortedProducts.map((product, index) => {
-                    const categoryBadge = getCategoryBadge(product.category)
-                    const IconComponent = categoryBadge.icon
-
-                    return (
-                        <Link key={product.id} href={`/store?game=${product.id}`} className="block group">
-                        {/* Mobile Layout (< md) */}
-                        <div className="md:hidden">
-                            <div
-                            className={`p-4 rounded-lg border transition-all duration-300 ${
-                                product.category === "bundles"
-                                ? "border-orange-500/20 bg-orange-900/10 hover:border-orange-400/40 hover:bg-orange-800/20"
-                                : "border-purple-500/20 bg-gray-800/30 dark:bg-gray-800/30 bg-purple-50/50 hover:border-purple-400/40 hover:bg-gray-700/40 dark:hover:bg-gray-700/40 hover:bg-purple-100/70"
-                            }`}
-                            >
-                            {/* Mobile Header */}
-                            <div className="flex items-start justify-between mb-3">
-                                <div className="flex items-center space-x-3 flex-1 min-w-0">
-                                <div
-                                    className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-bold ${
-                                    product.category === "bundles"
-                                        ? "bg-gradient-to-r from-orange-600 to-red-600"
-                                        : "bg-gradient-to-r from-purple-600 to-pink-600"
-                                    }`}
-                                >
-                                    {index + 1}
-                                </div>
-                                <Badge
-                                    className={`${categoryBadge.color} border-0 shadow-sm text-xs flex items-center gap-1`}
-                                >
-                                    <IconComponent className="h-3 w-3" />
-                                    {categoryBadge.label}
-                                </Badge>
-                                </div>
-                                <ExternalLink className="h-4 w-4 text-purple-400 dark:text-purple-400 text-purple-600 group-hover:text-purple-300 dark:group-hover:text-purple-300 group-hover:text-purple-700 transition-colors duration-300 flex-shrink-0" />
-                            </div>
-
-                            {/* Mobile Content */}
-                            <div className="space-y-2">
-                                <h3 className="font-semibold text-purple-100 dark:text-purple-100 text-purple-800 group-hover:text-purple-50 dark:group-hover:text-purple-50 group-hover:text-purple-700 transition-colors duration-300 leading-tight">
-                                {product.name}
-                                </h3>
-                                <p className="text-sm text-purple-300 dark:text-purple-300 text-purple-600 leading-relaxed">
-                                {product.description}
-                                </p>
-                                <div className="flex justify-between items-center pt-2">
-                                <div
-                                    className={`text-lg font-bold bg-clip-text text-transparent ${
-                                    product.category === "bundles"
-                                        ? "bg-gradient-to-r from-orange-400 to-red-400"
-                                        : "bg-gradient-to-r from-purple-400 to-pink-400"
-                                    }`}
-                                >
-                                    ${product.price.toFixed(0)}
-                                </div>
-                                {product.category === "bundles" && (
-                                    <span className="text-xs text-orange-300 font-semibold bg-orange-500/20 px-2 py-1 rounded-full">
-                                    BUNDLE
-                                    </span>
-                                )}
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-
-                        {/* Desktop Layout (>= md) */}
-                        <div className="hidden md:block">
-                            <div
-                            className={`flex items-center justify-between p-4 rounded-lg border transition-all duration-300 ${
-                                product.category === "bundles"
-                                ? "border-orange-500/20 bg-orange-900/10 hover:border-orange-400/40 hover:bg-orange-800/20"
-                                : "border-purple-500/20 bg-gray-800/30 dark:bg-gray-800/30 bg-purple-50/50 hover:border-purple-400/40 hover:bg-gray-700/40 dark:hover:bg-gray-700/40 hover:bg-purple-100/70"
-                            }`}
-                            >
-                            <div className="flex items-center space-x-4 flex-1 min-w-0">
-                                <div
-                                className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-bold ${
-                                    product.category === "bundles"
-                                    ? "bg-gradient-to-r from-orange-600 to-red-600"
-                                    : "bg-gradient-to-r from-purple-600 to-pink-600"
-                                }`}
-                                >
-                                {index + 1}
-                                </div>
-
-                                <div className="flex-1 min-w-0">
-                                <h3 className="font-semibold text-purple-100 dark:text-purple-100 text-purple-800 group-hover:text-purple-50 dark:group-hover:text-purple-50 group-hover:text-purple-700 transition-colors duration-300 truncate">
-                                    {product.name}
-                                </h3>
-                                <p className="text-sm text-purple-300 dark:text-purple-300 text-purple-600 truncate">
-                                    {product.description}
-                                </p>
-                                </div>
-                            </div>
-
-                            <div className="flex items-center space-x-3 flex-shrink-0">
-                                <Badge className={`${categoryBadge.color} border-0 shadow-sm flex items-center gap-1`}>
-                                <IconComponent className="h-3 w-3" />
-                                {categoryBadge.label}
-                                </Badge>
-
-                                <div className="text-right">
-                                <div
-                                    className={`text-lg font-bold bg-clip-text text-transparent ${
-                                    product.category === "bundles"
-                                        ? "bg-gradient-to-r from-orange-400 to-red-400"
-                                        : "bg-gradient-to-r from-purple-400 to-pink-400"
-                                    }`}
-                                >
-                                    ${product.price.toFixed(0)}
-                                </div>
-                                {product.category === "bundles" && (
-                                    <span className="text-xs text-orange-300 font-semibold">BUNDLE PRICE</span>
-                                )}
-                                </div>
-
-                                <ExternalLink className="h-4 w-4 text-purple-400 dark:text-purple-400 text-purple-600 group-hover:text-purple-300 dark:group-hover:text-purple-300 group-hover:text-purple-700 transition-colors duration-300" />
-                            </div>
-                            </div>
-                        </div>
-                        </Link>
-                    )
-                    })}
                 </div>
-                </div>
-            </div>
-
-            {/* Back Button */}
-            <div className="text-center mt-6 md:mt-8">
-                <Link
-                href="/store"
-                className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold rounded-lg transition-all duration-300 shadow-lg shadow-purple-500/30 hover:shadow-purple-500/50"
-                >
-                Back to Store
-                </Link>
-            </div>
-            </div>
-        </section>
+            </section>
+            )}
+        </main>
 
         <Footer />
         <ContactButtons />
+        <Cart />
         </div>
     )
 }

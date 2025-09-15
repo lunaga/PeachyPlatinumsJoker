@@ -46,13 +46,13 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://peachy-platinums.vercel.app",
-    title: "PeachyPlatinums",
+    title: "PeachyPlatinums - Professional PlayStation Platinum Trophy Services",
     description:
       "Expert PlayStation trophy services for PS3, PS4, and PS5. Fast, safe, and reliable trophy completion by professional gamers.",
     siteName: "PeachyPlatinums",
     images: [
       {
-        url: "/images/games/logo.webp",
+        url: "/images/peachy-logo.png",
         width: 1200,
         height: 630,
         alt: "PeachyPlatinums - PlayStation Trophy Services",
@@ -167,3 +167,4 @@ export default function RootLayout({
     </html>
   )
 }
+

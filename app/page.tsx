@@ -140,7 +140,7 @@ export default function LandingPage() {
                 isLoaded ? "translate-y-0 opacity-100 scale-100" : "translate-y-10 opacity-0 scale-95"
             }`}
             >
-            <Link href="/store">
+            <Link href="/home">
                 <Button className="group relative overflow-hidden bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold py-4 sm:py-5 md:py-6 px-8 sm:px-10 md:px-12 text-lg sm:text-xl md:text-2xl rounded-xl sm:rounded-2xl shadow-2xl shadow-purple-500/50 hover:shadow-purple-500/70 transition-all duration-500 hover:scale-105 border-2 border-purple-400/30 hover:border-purple-300/50">
                 {/* Button Glow Effect */}
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-400 to-pink-400 opacity-0 group-hover:opacity-20 transition-opacity duration-500 rounded-xl sm:rounded-2xl"></div>
@@ -228,4 +228,3 @@ export default function LandingPage() {
         </div>
     )
 }
-

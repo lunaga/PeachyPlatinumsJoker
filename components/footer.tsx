@@ -12,7 +12,7 @@ export function Footer() {
             <div className="flex items-center justify-center md:justify-start space-x-3 mb-4">
               <div className="relative w-10 h-10 rounded-full overflow-hidden shadow-lg shadow-purple-500/30 ring-2 ring-purple-500/20">
                 <Image
-                  src="/images/games/logo.webp"
+                  src="/images/peachy-logo.png"
                   alt="PeachyPlatinums Logo"
                   width={40}
                   height={40}
@@ -115,6 +115,5 @@ export function Footer() {
     </footer>
   )
 }
-
 
 
