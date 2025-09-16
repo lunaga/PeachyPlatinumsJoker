@@ -1215,22 +1215,21 @@ import { ContactButtons } from "@/components/contact-buttons"
             <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-pink-600/20 dark:from-purple-600/20 dark:to-pink-600/20 from-purple-200/40 to-pink-200/40 blur-3xl"></div>
             <div className="relative z-10 max-w-4xl mx-auto">
                 <h1 className="hero-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-purple-400 via-pink-400 to-purple-600 bg-clip-text text-transparent px-2">
-                Trophy Services
+                PeachyPlatinums
                 </h1>
                 <p className="hero-subtitle text-base sm:text-lg md:text-xl lg:text-2xl text-purple-200 dark:text-purple-200 text-purple-700 mb-6 sm:mb-8 font-light px-4">
-                Professional PlayStation Platinum Trophy Services
+                PlayStation Platinum Trophy Services
                 </p>
                 <div className="w-24 sm:w-32 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto rounded-full shadow-lg shadow-purple-500/50"></div>
 
                 {/* SEO Content */}
                 <div className="mt-8 max-w-3xl mx-auto text-center">
                 <h2 className="text-lg sm:text-xl font-semibold text-purple-200 dark:text-purple-200 text-purple-700 mb-4">
-                    Expert PlayStation Trophy Completion Services
+                    Welcome to PeachyPlatinums, where passion meets purpose!
                 </h2>
                 <p className="text-sm sm:text-base text-purple-300 dark:text-purple-300 text-purple-600 leading-relaxed">
-                    Get your PlayStation platinum trophies completed by professional gamers. We specialize in PS3, PS4, and
-                    PS5 trophy services including the most challenging games like Dark Souls, Sekiro, Elden Ring, and more.
-                    Fast, safe, and reliable trophy boosting with 100% completion guarantee.
+                    
+Our Platinum trophy Services are designed to help make your gaming achievement goals a reality. With our safe, reliable and stress free services, you can add another coveted Platinum Trophy to your collection. Thanks for stopping by. We are Peachy Keen to share our journey with you!
                 </p>
                 </div>
             </div>

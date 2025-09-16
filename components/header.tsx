@@ -18,7 +18,7 @@ export function Header() {
           <Link href="/home" className="flex items-center space-x-2 sm:space-x-3 group min-w-0 flex-shrink-0">
             <div className="relative w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden shadow-lg shadow-purple-500/50 group-hover:shadow-purple-500/70 transition-all duration-300 ring-2 ring-purple-500/30 group-hover:ring-purple-400/50 flex-shrink-0">
               <Image
-                src="/images/peachy-logo.webp"
+                src="/images/games/logo.webp"
                 alt="PeachyPlatinums Logo"
                 width={48}
                 height={48}

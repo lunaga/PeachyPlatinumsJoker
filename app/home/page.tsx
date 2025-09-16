@@ -71,14 +71,10 @@ export default function HomePage() {
                     Who We Are
                     </h2>
                     <p className="text-purple-300 dark:text-purple-300 text-purple-600 text-lg leading-relaxed mb-6">
-                    PeachyPlatinums is a professional PlayStation trophy completion service founded by passionate gamers
-                    who understand the dedication required to achieve platinum trophies. With over 4 years of experience,
-                    we've helped thousands of gamers complete their most challenging trophy lists.
+                    At PeachyPlatinums, we're a couple passionate about video games and specialized in helping other players earn those hard-earned platinum trophies. With over four years of experience, we've helped hundreds of players complete their most challenging trophy lists.
                     </p>
                     <p className="text-purple-300 dark:text-purple-300 text-purple-600 text-lg leading-relaxed mb-6">
-                    Our team consists of expert trophy hunters who have mastered the most difficult PlayStation games
-                    across PS3, PS4, and PS5 platforms. From SoulsLike games to complex RPGs, we handle every challenge
-                    with professionalism and skill.
+                    Our adventure began as a shared hobby and is now our professional project: together we've mastered some of the most challenging PlayStation games on PS3, PS4, and PS5. From demanding Souls-like titles to complex RPGs, we approach every challenge with the same dedication and teamwork that characterizes us.
                     </p>
                     <Link href="/store">
                     <Button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold py-3 px-8 text-lg">
@@ -122,7 +118,7 @@ export default function HomePage() {
                         Fast Completion
                     </h3>
                     <p className="text-purple-300 dark:text-purple-300 text-purple-600">
-                        Most platinum trophies completed within 1-2 weeks with regular progress updates.
+                        Most platinum trophies completed within 2-3 weeks with regular progress updates.
                     </p>
                     </CardContent>
                 </Card>

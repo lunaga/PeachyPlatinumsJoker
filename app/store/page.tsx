@@ -81,7 +81,7 @@ const products = [
         id: "30",
         name: "Devil May Cry 5 PS5 Platinum Trophy Service",
         description: "Hack and slash",
-        price: 248,
+        price: 335,
         category: "ps5",
         image: "images/games/30.webp",
     },
@@ -89,7 +89,7 @@ const products = [
         id: "41",
         name: "Resident Evil 3 Remake PS5 Platinum Trophy Service",
         description: "Survival horror",
-        price: 34,
+        price: 50,
         category: "ps5",
         image: "images/games/41.webp",
     },
@@ -97,7 +97,7 @@ const products = [
         id: "50",
         name: "Human Fall Flat PS5 (+20 DLC) Platinum Trophy Service",
         description: "Physics puzzle platformer",
-        price: 114,
+        price: 135,
         category: "ps5",
         image: "images/games/50.webp",
     },
@@ -129,7 +129,7 @@ const products = [
         id: "74",
         name: "Devil May Cry 5 PS5 Platinum Trophy Service",
         description: "Stylish action, demon slaying",
-        price: 248,
+        price: 335,
         category: "ps5",
         image: "images/games/74.webp",
     },
@@ -137,7 +137,7 @@ const products = [
         id: "81",
         name: "Human Fall Flat PS5 (+20 DLC) Platinum Trophy Service",
         description: "Puzzle platformer, DLC included",
-        price: 114,
+        price: 135,
         category: "ps5",
         image: "images/games/81.webp",
     },
@@ -307,7 +307,7 @@ const products = [
         id: "10",
         name: "Devil May Cry 5 PS4 (+DLC) Platinum Trophy Service",
         description: "Hack and slash",
-        price: 248,
+        price: 335,
         category: "ps4",
         image: "images/games/10.webp",
     },
@@ -363,7 +363,7 @@ const products = [
         id: "18",
         name: "Hollow knight (EU/NA) PS4 Platinum Trophy Service",
         description: "Metroidvania / indie action",
-        price: 81,
+        price: 100,
         category: "ps4",
         image: "images/games/18.webp",
     },
@@ -419,7 +419,7 @@ const products = [
         id: "31",
         name: "Resident Evil 3 Remake PS4 Platinum Trophy Service",
         description: "Survival horror",
-        price: 34,
+        price: 50,
         category: "ps4",
         image: "images/games/31.webp",
     },
@@ -555,7 +555,7 @@ const products = [
         id: "57",
         name: "Human Fall Flat PS4 (+20 DLC) Platinum Trophy Service",
         description: "Physics puzzle platformer",
-        price: 107,
+        price: 135,
         category: "ps4",
         image: "images/games/57.webp",
     },
@@ -587,7 +587,7 @@ const products = [
         id: "62",
         name: "Human Fall Flat PS4 (+20 DLC) Platinum Trophy Service",
         description: "Puzzle platformer, DLC included",
-        price: 107,
+        price: 135,
         category: "ps4",
         image: "images/games/62.webp",
     },
@@ -643,7 +643,7 @@ const products = [
         id: "78",
         name: "Shenmue 1+2 PS4 Platinum Trophy Service",
         description: "Open world, action-adventure",
-        price: 67,
+        price: 80,
         category: "ps4",
         image: "images/games/78.webp",
     },
@@ -667,7 +667,7 @@ const products = [
         id: "85",
         name: "InFamous: Second Son PS4 Platinum Trophy Service",
         description: "Open-world superhero action",
-        price: 34,
+        price: 45,
         category: "ps4",
         image: "images/games/85.webp",
     },
@@ -677,23 +677,23 @@ const products = [
         description: "Stylized hack-and-slash action",
         price: 61,
         category: "ps4",
-        image: "images/games/88.webp",
+        image: "images/games/89.webp",
     },
     {
         id: "89",
         name: "Dragon Quest Builders 2 PS4 Platinum Trophy Service",
         description: "Building RPG, Dragon Quest spin-off",
-        price: 114,
+        price: 6,
         category: "ps4",
-        image: "images/games/89.webp",
+        image: "images/games/99.webp",
     },
     {
         id: "90",
         name: "Spyro Reignited Trilogy PS4 Platinum Trophy Service",
         description: "Remastered classic platformers",
-        price: 81,
+        price: 67,
         category: "ps4",
-        image: "images/games/90.webp",
+        image: "images/games/91.webp",
     },
     {
         id: "93",
@@ -715,7 +715,7 @@ const products = [
         id: "96",
         name: "Trine 2: Complete Story PS4 Platinum Trophy Service",
         description: "Puzzle-platformer with co-op",
-        price: 87,
+        price: 115,
         category: "ps4",
         image: "images/games/96.webp",
     },
@@ -787,7 +787,7 @@ const products = [
         id: "112",
         name: "God Of War III Remastered PS4 Platinum Trophy Service",
         description: "Epic action-adventure, Greek mythology",
-        price: 41,
+        price: 50,
         category: "ps4",
         image: "images/games/112.webp",
     },
@@ -925,7 +925,7 @@ const products = [
         id: "64",
         name: "God of War: Ascension PS3 Platinum Trophy Service",
         description: "Action adventure, God of War series",
-        price: 101,
+        price: 80,
         category: "ps3",
         image: "images/games/64.webp",
     },
@@ -971,7 +971,7 @@ const products = [
     },
     {
         id: "91",
-        name: "InFamous PS3 Platinum Trophy Service",
+        name: "Spyro Reignited Trilogy PS4 Platinum Trophy Service",
         description: "Superpowered open world",
         price: 67,
         category: "ps3",
@@ -979,9 +979,9 @@ const products = [
     },
     {
         id: "92",
-        name: "Tomb Raider: Anniversary PS3 Platinum Trophy Service",
+        name: "Infamous PS3 Platinum Trophy Service",
         description: "Classic Lara Croft action-adventure",
-        price: 67,
+        price: 85,
         category: "ps3",
         image: "images/games/92.webp",
     },
@@ -989,7 +989,7 @@ const products = [
         id: "100",
         name: "Tomb Raider: Underworld PS3 Platinum Trophy Service",
         description: "Lara Croft classic platform adventure",
-        price: 34,
+        price: 45,
         category: "ps3",
         image: "images/games/100.webp",
     },
@@ -1069,7 +1069,7 @@ const products = [
         id: "124",
         name: "God of War III PS3 Platinum Trophy Service",
         description: "Epic action-adventure, Greek mythology",
-        price: 41,
+        price: 50,
         category: "ps3",
         image: "images/games/124.webp",
     },
@@ -1217,22 +1217,20 @@ const products = [
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-pink-600/20 dark:from-purple-600/20 dark:to-pink-600/20 from-purple-200/40 to-pink-200/40 blur-3xl"></div>
                 <div className="relative z-10 max-w-4xl mx-auto">
                 <h1 className="hero-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-purple-400 via-pink-400 to-purple-600 bg-clip-text text-transparent px-2">
-                    Trophy Store
+                    PeachyPlatinums
                 </h1>
                 <p className="hero-subtitle text-base sm:text-lg md:text-xl lg:text-2xl text-purple-200 dark:text-purple-200 text-purple-700 mb-6 sm:mb-8 font-light px-4">
-                    Professional PlayStation Platinum Trophy Services
+                    PlayStation Platinum Trophy Services
                 </p>
                 <div className="w-24 sm:w-32 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto rounded-full shadow-lg shadow-purple-500/50"></div>
 
                 {/* SEO Content */}
                 <div className="mt-8 max-w-3xl mx-auto text-center">
                     <h2 className="text-lg sm:text-xl font-semibold text-purple-200 dark:text-purple-200 text-purple-700 mb-4">
-                    Expert PlayStation Trophy Completion Services
+                    Welcome to PeachyPlatinums, where passion meets purpose!
                     </h2>
                     <p className="text-sm sm:text-base text-purple-300 dark:text-purple-300 text-purple-600 leading-relaxed">
-                    Get your PlayStation platinum trophies completed by professional gamers. We specialize in PS3, PS4,
-                    and PS5 trophy services including the most challenging games like Dark Souls, Sekiro, Elden Ring, and
-                    more. Fast, safe, and reliable trophy boosting with 100% completion guarantee.
+                    Our Platinum trophy Services are designed to help make your gaming achievement goals a reality. With our safe, reliable and stress free services, you can add another coveted Platinum Trophy to your collection. Thanks for stopping by. We are Peachy Keen to share our journey with you!
                     </p>
                 </div>
                 </div>
