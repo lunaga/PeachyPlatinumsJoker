@@ -149,13 +149,13 @@ export default function HomePage() {
                     </div>
                     </div>
                     <div className="text-center">
-                    <div className="text-3xl font-bold text-purple-400 mb-2">1000+</div>
+                    <div className="text-3xl font-bold text-purple-400 mb-2">200+</div>
                     <div className="text-purple-300 dark:text-purple-300 text-purple-600 font-medium">
                         Happy Customers
                     </div>
                     </div>
                     <div className="text-center">
-                    <div className="text-3xl font-bold text-purple-400 mb-2">2500+</div>
+                    <div className="text-3xl font-bold text-purple-400 mb-2">500+</div>
                     <div className="text-purple-300 dark:text-purple-300 text-purple-600 font-medium">
                         Platinum Trophies
                     </div>
