@@ -87,7 +87,7 @@ export default function HomePage() {
                     <CardContent className="text-center">
                         <Trophy className="h-16 w-16 text-yellow-400 mx-auto mb-4" />
                         <h3 className="text-2xl font-bold text-purple-100 dark:text-purple-100 text-purple-800 mb-4">
-                        2500+ Platinum Trophies
+                        500+ Platinum Trophies
                         </h3>
                         <p className="text-purple-300 dark:text-purple-300 text-purple-600">
                         Successfully completed across all PlayStation platforms
