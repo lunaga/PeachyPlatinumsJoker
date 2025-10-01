@@ -110,8 +110,8 @@ export function Footer() {
           <p className="text-purple-400 dark:text-purple-400 text-purple-600 text-sm">
             &copy; 2025 PeachyPlatinums. All rights reserved.
           </p>
-          <p className="mt-1">
-            Sitio web creado por <span className="text-primary font-medium">LunagaDev</span>
+          <p className="text-purple-400 dark:text-purple-400 text-purple-600 text-sm">
+            Website created by <span className="text-primary font-medium">LunagaDev</span>
           </p>
         </div>
       </div>
