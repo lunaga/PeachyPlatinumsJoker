@@ -127,7 +127,7 @@ interface Product {
         const gamesList = state.items
         .map(
             (item) =>
-            `• ${item.name} ${item.quantity > 1 ? `(x${item.quantity})` : ""} - $${(item.price * item.quantity).toFixed(2)}`,
+            `• ${item.name} ${item.quantity > 1 ? `(x${item.quantity})` : ""} - £${(item.price * item.quantity).toFixed(2)}`,
         )
         .join("\n")
 
@@ -136,7 +136,7 @@ interface Product {
     📋 Your requests are:
     ${gamesList}
 
-    💰 Total: $${state.total.toFixed(2)}
+    💰 Total: £${state.total.toFixed(2)}
 
     ✨ We will now send you the payment link. Thank you for trusting PeachyPlatinums to get your platinum trophies!
 

@@ -90,7 +90,7 @@ export function ProductCard({ product }: ProductCardProps) {
                 : "bg-gradient-to-r from-purple-400 to-pink-400"
             }`}
           >
-            ${product.price.toFixed(2)}
+            £{product.price.toFixed(2)}
           </span>
           {product.category === "bundles" && (
             <span className="text-xs text-orange-300 font-semibold bg-orange-500/20 px-2 py-1 rounded-full">
@@ -116,3 +116,4 @@ export function ProductCard({ product }: ProductCardProps) {
     </Card>
   )
 }
+

@@ -13,8 +13,8 @@ const dealProducts = [
         id: "19",
         name: "Elden Ring PS5 Platinum Trophy Service",
         description: "Souls-like / open-world RPG",
-        originalPrice: 101,
-        salePrice: 81,
+        originalPrice: 80,
+        salePrice: 64,
         discount: 20,
         category: "ps5",
         image: "images/games/19.webp",
@@ -23,8 +23,8 @@ const dealProducts = [
         id: "6",
         name: "Bloodborne (+DLC) PS4 Platinum Trophy Service",
         description: "Souls-like / action RPG",
-        originalPrice: 101,
-        salePrice: 85,
+        originalPrice: 80,
+        salePrice: 67,
         discount: 16,
         category: "ps4",
         image: "images/games/6.webp",
@@ -33,8 +33,8 @@ const dealProducts = [
         id: "34",
         name: "Dark Souls III PS4 Platinum Trophy Service",
         description: "Souls-like / action RPG",
-        originalPrice: 121,
-        salePrice: 97,
+        originalPrice: 96,
+        salePrice: 77,
         discount: 20,
         category: "ps4",
         image: "images/games/34.webp",
@@ -43,8 +43,8 @@ const dealProducts = [
         id: "73",
         name: "Sekiro: Shadows Die Twice PS4 Platinum Trophy",
         description: "Adventure game, SoulsLike game",
-        originalPrice: 101,
-        salePrice: 81,
+        originalPrice: 80,
+        salePrice: 64,
         discount: 20,
         category: "ps4",
         image: "images/games/73.webp",
@@ -53,8 +53,8 @@ const dealProducts = [
         id: "39",
         name: "Dark Souls Trilogy Bundle PS4 Platinum Trophy Service",
         description: "Souls-like trilogy",
-        originalPrice: 228,
-        salePrice: 182,
+        originalPrice: 180,
+        salePrice: 144,
         discount: 20,
         category: "bundles",
         image: "images/games/39.webp",
@@ -189,14 +189,14 @@ const dealProducts = [
                 <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center space-x-3">
                     <span className="text-2xl font-bold bg-gradient-to-r from-orange-400 to-red-400 bg-clip-text text-transparent">
-                        ${currentProduct.salePrice.toFixed(2)}
+                        £{currentProduct.salePrice.toFixed(2)}
                     </span>
                     <span className="text-lg text-purple-400 dark:text-purple-400 text-purple-500 line-through">
-                        ${currentProduct.originalPrice.toFixed(2)}
+                        £{currentProduct.originalPrice.toFixed(2)}
                     </span>
                     </div>
                     <span className="text-sm text-orange-300 font-semibold bg-orange-500/20 px-3 py-1 rounded-full">
-                    SAVE ${(currentProduct.originalPrice - currentProduct.salePrice).toFixed(2)}
+                    SAVE £{(currentProduct.originalPrice - currentProduct.salePrice).toFixed(2)}
                     </span>
                 </div>
                 </CardContent>
@@ -231,4 +231,4 @@ const dealProducts = [
         </div>
         </section>
     )
-    }
+}

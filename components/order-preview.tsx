@@ -15,7 +15,7 @@ export function OrderPreview() {
 
     const handleCopyMessage = async () => {
         try {
-        await navigator.clipboard.writeText(generateWhatsAppMessage())
+        await navigator.clipboard.writeText(generateWhatsAppMessage().replace(/\$/g, "£"))
         setCopied(true)
         setTimeout(() => setCopied(false), 2000)
         } catch (error) {
@@ -61,7 +61,7 @@ export function OrderPreview() {
                 <CardContent className="p-4">
                 <div className="bg-gray-800/50 rounded-lg p-4 border border-purple-500/20 mb-4">
                     <pre className="text-sm text-purple-100 whitespace-pre-wrap font-mono leading-relaxed">
-                    {generateWhatsAppMessage()}
+                    {generateWhatsAppMessage().replace(/\$/g, "£")}
                     </pre>
                 </div>
 

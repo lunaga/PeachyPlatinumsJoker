@@ -111,7 +111,7 @@ export function Cart() {
                             />
                             <div className="flex-1 min-w-0">
                             <h4 className="text-sm font-semibold text-purple-100 line-clamp-2 mb-1">{item.name}</h4>
-                            <p className="text-xs text-purple-300 mb-3">${item.price.toFixed(2)} each</p>
+                            <p className="text-xs text-purple-300 mb-3">£{item.price.toFixed(2)} each</p>
 
                             {/* Quantity Controls */}
                             <div className="flex items-center justify-between">
@@ -139,7 +139,7 @@ export function Cart() {
 
                                 <div className="flex items-center space-x-2">
                                 <span className="text-sm font-bold text-purple-100">
-                                    ${(item.price * item.quantity).toFixed(2)}
+                                    £{(item.price * item.quantity).toFixed(2)}
                                 </span>
                                 <Button
                                     size="icon"
@@ -166,7 +166,7 @@ export function Cart() {
                     <div className="flex justify-between items-center">
                     <span className="text-lg font-bold text-purple-100">Total:</span>
                     <span className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                        ${state.total.toFixed(2)}
+                        £{state.total.toFixed(2)}
                     </span>
                     </div>
 
