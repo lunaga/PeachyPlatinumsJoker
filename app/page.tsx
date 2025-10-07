@@ -167,8 +167,8 @@ export default function LandingPage() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6 lg:gap-8 max-w-4xl mx-auto px-2">
                 {[
                 { label: "Games Completed", value: "500+", icon: "🎮" },
-                { label: "Happy Gamers", value: "200+", icon: "😊" },
-                { label: "Platinum Trophies", value: "500+", icon: "🏆" },
+                { label: "Happy Gamers", value: "1000+", icon: "😊" },
+                { label: "Platinum Trophies", value: "2500+", icon: "🏆" },
                 { label: "Success Rate", value: "100%", icon: "✅" },
                 ].map((stat, index) => (
                 <div

@@ -1,0 +1,16 @@
+{
+    "name": "PeachyPlatinums",
+    "short_name": "PeachyPlatinums",
+    "description": "Professional PlayStation Trophy Service",
+    "icons": [
+        {
+        "src": "/images/gambes/logo.webp",
+        "sizes": "512x512",
+        "type": "image/webp"
+        }
+    ],
+    "theme_color": "#9333ea",
+    "background_color": "#000000",
+    "display": "standalone",
+    "start_url": "/"
+}

@@ -9,24 +9,98 @@ import Script from "next/script"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "PeachyPlatinums - Professional PlayStation Platinum Trophy Services | PS3, PS4, PS5",
+  title: "PeachyPlatinums - Servicio Profesional de Trofeos Platino PlayStation | PS3, PS4, PS5 | Trophy Boosting",
   description:
-    "Professional PlayStation platinum trophy services for PS3, PS4, and PS5. Expert gamers complete the most difficult trophies and challenges. Fast, safe, and reliable trophy boosting services.",
+    "Servicio profesional de trofeos platino para PlayStation. Completamos trofeos de PS3, PS4 y PS5. Trophy boosting seguro y rápido. Dark Souls, Elden Ring, Bloodborne y más. 100% legítimo, sin hacks. Expertos en platinos difíciles. Trophy hunter profesional.",
   keywords: [
-    "PlayStation trophies",
-    "platinum trophy service",
-    "PS4 trophies",
-    "PS5 trophies",
-    "PS3 trophies",
+    // Español - Palabras clave principales
+    "trofeos platino PlayStation",
+    "servicio trofeos PS4",
+    "servicio trofeos PS5",
+    "comprar platinos PlayStation",
     "trophy boosting",
-    "PlayStation achievements",
-    "gaming services",
+    "completar trofeos PS4",
+    "platinos PS5",
+    "trofeos difíciles PlayStation",
+    "servicio platinos videojuegos",
     "PeachyPlatinums",
-    "trophy hunting",
-    "PlayStation completion",
-    "gaming help",
-    "trophy guide",
-    "PlayStation expert",
+    "comprar trofeos PlayStation",
+    "ayuda trofeos PS4",
+    "conseguir platinos rápido",
+
+    // Español - Juegos específicos
+    "platino Dark Souls",
+    "platino Elden Ring",
+    "platino Bloodborne",
+    "trofeos Resident Evil",
+    "platino Sekiro",
+    "trofeos Devil May Cry",
+    "completar Dark Souls",
+    "platino Final Fantasy",
+
+    // Español - Servicios
+    "servicio profesional trofeos",
+    "trophy hunter profesional",
+    "boosting trofeos seguro",
+    "completar juegos PlayStation",
+    "platino 100%",
+    "trofeos garantizados",
+    "servicio rápido trofeos",
+
+    // English - Main keywords
+    "PlayStation platinum trophy service",
+    "PS4 trophy service",
+    "PS5 trophy service",
+    "PS3 trophy service",
+    "buy platinum trophies",
+    "trophy boosting service",
+    "PlayStation achievements",
+    "gaming trophy service",
+    "trophy completion service",
+    "professional trophy hunter",
+    "platinum trophy help",
+    "trophy boosting PS4",
+    "trophy boosting PS5",
+    "get platinum trophies fast",
+
+    // English - Specific games
+    "Dark Souls platinum",
+    "Elden Ring platinum",
+    "Bloodborne platinum",
+    "Sekiro platinum trophy",
+    "Resident Evil trophies",
+    "Devil May Cry platinum",
+    "Final Fantasy platinum",
+    "difficult PlayStation trophies",
+
+    // English - Service types
+    "safe trophy boosting",
+    "legit trophy service",
+    "professional gamer service",
+    "trophy completion guaranteed",
+    "PlayStation trophy expert",
+    "trophy unlock service",
+    "PlayStation trophy help",
+    "complete PlayStation games",
+
+    // Long-tail keywords
+    "cómo conseguir platinos difíciles",
+    "servicio completar trofeos platino",
+    "comprar servicio trofeos PlayStation",
+    "trophy boosting sin hacks",
+    "servicio legítimo trofeos",
+    "how to get platinum trophies fast",
+    "professional PlayStation trophy service",
+    "buy platinum trophy completion",
+    "safe trophy boosting service",
+
+    // Location-based
+    "trophy service worldwide",
+    "servicio trofeos internacional",
+    "PlayStation trophy service UK",
+    "trophy boosting USA",
+    "servicio trofeos España",
+    "servicio trofeos Argentina",
   ],
   authors: [{ name: "PeachyPlatinums" }],
   creator: "PeachyPlatinums",
@@ -44,38 +118,47 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    locale: "en_US",
-    url: "https://peachy-platinums.vercel.app",
-    title: "PeachyPlatinums - Professional PlayStation Platinum Trophy Services",
+    locale: "es_ES",
+    alternateLocale: ["en_US", "en_GB"],
+    url: "https://www.peachyplatinums.com",
+    title: "PeachyPlatinums - Servicio Profesional de Trofeos Platino PlayStation | Trophy Boosting",
     description:
-      "Expert PlayStation trophy services for PS3, PS4, and PS5. Fast, safe, and reliable trophy completion by professional gamers.",
+      "Servicio profesional de trofeos platino para PS3, PS4 y PS5. Trophy boosting seguro, rápido y 100% legítimo. Expertos en juegos difíciles como Dark Souls, Elden Ring, Bloodborne. Más de 2500+ platinos completados.",
     siteName: "PeachyPlatinums",
     images: [
       {
-        url: "/images/peachy-logo.png",
+        url: "/images/games/logo.webp",
         width: 1200,
         height: 630,
-        alt: "PeachyPlatinums - PlayStation Trophy Services",
+        alt: "PeachyPlatinums - Servicio Profesional de Trofeos PlayStation",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "PeachyPlatinums - Professional PlayStation Trophy Services",
+    title: "PeachyPlatinums - Servicio Profesional de Trofeos Platino PlayStation",
     description:
-      "Expert PlayStation trophy services for PS3, PS4, and PS5. Fast, safe, and reliable trophy completion.",
-    images: ["/images/peachy-logo.png"],
+      "Trophy boosting profesional para PS3, PS4 y PS5. Servicio seguro, rápido y legítimo. 2500+ platinos completados.",
+    images: ["/images/games/logo.webp"],
   },
   alternates: {
-    canonical: "https://peachy-platinums.vercel.app",
+    canonical: "https://www.peachyplatinums.com",
+    languages: {
+      "es-ES": "https://www.peachyplatinums.com",
+      "en-US": "https://www.peachyplatinums.com",
+      "en-GB": "https://www.peachyplatinums.com",
+    },
   },
   verification: {
-    google: "tu-codigo-de-google-search-console-aqui", // 👈 Reemplaza con tu código de Search Console
+    google: "tu-codigo-de-google-search-console-aqui",
+  },
+  other: {
+    "google-site-verification": "tu-codigo-de-verificacion",
   },
 }
 
-// Reemplaza con tu Measurement ID de Google Analytics
-const GA_MEASUREMENT_ID = "G-T9TESKJTMB" // 👈 Reemplaza con tu ID real
+// Google Analytics ID
+const GA_MEASUREMENT_ID = "G-T9TESKJTMB"
 
 export default function RootLayout({
   children,
@@ -83,15 +166,25 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="es" suppressHydrationWarning>
       <head>
-        <link rel="canonical" href="https://peachy-platinums.vercel.app" />
+        <link rel="canonical" href="https://www.peachyplatinums.com" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#9333ea" />
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" href="/images/peachy-logo.png" />
 
-        {/* Schema.org structured data */}
+        {/* Favicon using PeachyPlatinums logo */}
+        <link rel="icon" type="image/games/webp" href="/images/games/logo.webp" />
+        <link rel="apple-touch-icon" href="/images/games/logo.webp" />
+        <link rel="manifest" href="/site.webmanifest" />
+
+        {/* Additional SEO meta tags */}
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="apple-mobile-web-app-title" content="PeachyPlatinums" />
+
+        {/* Schema.org structured data - Enhanced */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -99,18 +192,31 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
               name: "PeachyPlatinums",
-              description: "Professional PlayStation platinum trophy services for PS3, PS4, and PS5",
-              url: "https://peachy-platinums.vercel.app",
-              logo: "https://peachy-platinums.vercel.app/images/peachy-logo.png",
-              image: "https://peachy-platinums.vercel.app/images/peachy-logo.png",
+              description:
+                "Servicio profesional de trofeos platino para PlayStation PS3, PS4 y PS5. Trophy boosting seguro y legítimo.",
+              url: "https://www.peachyplatinums.com",
+              logo: "https://www.peachyplatinums.com/images/games/logo.webp",
+              image: "https://www.peachyplatinums.com/images/games/logo.webp",
               email: "Peachyplatinums@hotmail.com",
+              telephone: "+5491164716955",
+              priceRange: "£21-£250",
+              currenciesAccepted: "GBP, USD, EUR",
+              paymentAccepted: "PayPal, Credit Card",
               sameAs: [
                 "https://discord.com/users/peachyplatinums",
                 "https://psnprofiles.com/PeachyPlatinums",
                 "https://www.ebay.com/str/peachyplatinums",
               ],
-              serviceType: "Gaming Services",
+              serviceType: "Gaming Trophy Service",
               areaServed: "Worldwide",
+              availableLanguage: ["Spanish", "English"],
+              aggregateRating: {
+                "@type": "AggregateRating",
+                ratingValue: "4.9",
+                reviewCount: "1000",
+                bestRating: "5",
+                worstRating: "1",
+              },
               hasOfferCatalog: {
                 "@type": "OfferCatalog",
                 name: "PlayStation Trophy Services",
@@ -119,16 +225,24 @@ export default function RootLayout({
                     "@type": "Offer",
                     itemOffered: {
                       "@type": "Service",
-                      name: "PS4 Platinum Trophy Service",
-                      description: "Professional PS4 platinum trophy completion service",
+                      name: "PS5 Platinum Trophy Service",
+                      description: "Professional PS5 platinum trophy completion service for all games",
+                      provider: {
+                        "@type": "LocalBusiness",
+                        name: "PeachyPlatinums",
+                      },
                     },
                   },
                   {
                     "@type": "Offer",
                     itemOffered: {
                       "@type": "Service",
-                      name: "PS5 Platinum Trophy Service",
-                      description: "Professional PS5 platinum trophy completion service",
+                      name: "PS4 Platinum Trophy Service",
+                      description: "Expert PS4 platinum trophy completion including difficult games",
+                      provider: {
+                        "@type": "LocalBusiness",
+                        name: "PeachyPlatinums",
+                      },
                     },
                   },
                   {
@@ -136,11 +250,95 @@ export default function RootLayout({
                     itemOffered: {
                       "@type": "Service",
                       name: "PS3 Platinum Trophy Service",
-                      description: "Professional PS3 platinum trophy completion service",
+                      description: "Legacy PS3 platinum trophy completion service",
+                      provider: {
+                        "@type": "LocalBusiness",
+                        name: "PeachyPlatinums",
+                      },
+                    },
+                  },
+                  {
+                    "@type": "Offer",
+                    itemOffered: {
+                      "@type": "Service",
+                      name: "Trophy Boosting Service",
+                      description: "Professional trophy boosting for difficult PlayStation games",
+                      provider: {
+                        "@type": "LocalBusiness",
+                        name: "PeachyPlatinums",
+                      },
                     },
                   },
                 ],
               },
+            }),
+          }}
+        />
+
+        {/* BreadcrumbList Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                {
+                  "@type": "ListItem",
+                  position: 1,
+                  name: "Home",
+                  item: "https://www.peachyplatinums.com",
+                },
+                {
+                  "@type": "ListItem",
+                  position: 2,
+                  name: "Store",
+                  item: "https://www.peachyplatinums.com/store",
+                },
+                {
+                  "@type": "ListItem",
+                  position: 3,
+                  name: "Trophy Services",
+                  item: "https://www.peachyplatinums.com/playstation-trophy-service",
+                },
+              ],
+            }),
+          }}
+        />
+
+        {/* FAQ Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              mainEntity: [
+                {
+                  "@type": "Question",
+                  name: "¿Es seguro usar vuestro servicio de trofeos?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Sí, completamente seguro. Usamos métodos de juego legítimos, nunca hacks o cheats. Tratamos cada cliente con la máxima discreción.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "¿Cuánto tiempo tarda en completarse un servicio?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "El tiempo de completado varía según el juego. Proporcionamos una estimación de tiempo antes de comenzar el servicio y actualizaciones regulares durante el proceso.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "¿Qué necesito proporcionar?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Necesitarás proporcionar las credenciales de tu cuenta de PlayStation (correo electrónico y contraseña).",
+                  },
+                },
+              ],
             }),
           }}
         />
@@ -167,4 +365,3 @@ export default function RootLayout({
     </html>
   )
 }
-
