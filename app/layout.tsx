@@ -173,8 +173,8 @@ export default function RootLayout({
         <meta name="theme-color" content="#9333ea" />
 
         {/* Favicon using PeachyPlatinums logo */}
-        <link rel="icon" type="image/games/webp" href="/images/games/logo.webp" />
-        <link rel="apple-touch-icon" href="/images/games/logo.webp" />
+        <link rel="icon" type="image/games/ico" href="/images/games/logo.ico" />
+        <link rel="apple-touch-icon" href="/images/games/logo.ico" />
         <link rel="manifest" href="/site.webmanifest" />
 
         {/* Additional SEO meta tags */}
