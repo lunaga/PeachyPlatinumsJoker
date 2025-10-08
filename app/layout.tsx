@@ -127,7 +127,7 @@ export const metadata: Metadata = {
     siteName: "PeachyPlatinums",
     images: [
       {
-        url: "https://www.peachyplatinums.com/images/logo.webp",
+        url: "https://www.peachyplatinums.com/images/games/logo.webp",
         width: 1200,
         height: 630,
         alt: "PeachyPlatinums - Servicio Profesional de Trofeos PlayStation",
@@ -139,7 +139,7 @@ export const metadata: Metadata = {
     title: "PeachyPlatinums - Servicio Profesional de Trofeos Platino PlayStation",
     description:
       "Trophy boosting profesional para PS3, PS4 y PS5. Servicio seguro, rápido y legítimo. 2500+ platinos completados.",
-    images: ["https://www.peachyplatinums.com/images/logo.webp"],
+    images: ["https://www.peachyplatinums.com/images/games/logo.webp"],
   },
   alternates: {
     canonical: "https://www.peachyplatinums.com",
@@ -151,14 +151,14 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/images/logo.webp", sizes: "32x32", type: "image/webp" },
-      { url: "/images/logo.webp", sizes: "16x16", type: "image/webp" },
+      { url: "/images/games/logo.webp", sizes: "32x32", type: "image/webp" },
+      { url: "/images/games/logo.webp", sizes: "16x16", type: "image/webp" },
     ],
-    apple: [{ url: "/images/logo.webp", sizes: "180x180", type: "image/webp" }],
+    apple: [{ url: "/images/games/logo.webp", sizes: "180x180", type: "image/webp" }],
     other: [
       {
         rel: "icon",
-        url: "/images/logo.webp",
+        url: "/images/games/logo.webp",
       },
     ],
   },
@@ -186,10 +186,10 @@ export default function RootLayout({
         <meta name="theme-color" content="#9333ea" />
 
         {/* Favicon - PeachyPlatinums Logo */}
-        <link rel="icon" type="image/webp" href="/images/logo.webp" sizes="any" />
-        <link rel="icon" type="image/webp" href="/images/logo.webp" sizes="32x32" />
-        <link rel="icon" type="image/webp" href="/images/logo.webp" sizes="16x16" />
-        <link rel="apple-touch-icon" href="/images/logo.webp" sizes="180x180" />
+        <link rel="icon" type="image/webp" href="/images/games/logo.webp" sizes="any" />
+        <link rel="icon" type="image/webp" href="/images/games/logo.webp" sizes="32x32" />
+        <link rel="icon" type="image/webp" href="/images/games/logo.webp" sizes="16x16" />
+        <link rel="apple-touch-icon" href="/images/games/logo.webp" sizes="180x180" />
         <link rel="shortcut icon" href="/images/logo.webp" />
 
         {/* Web Manifest */}
@@ -203,7 +203,7 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-title" content="PeachyPlatinums" />
         <meta name="application-name" content="PeachyPlatinums" />
         <meta name="msapplication-TileColor" content="#9333ea" />
-        <meta name="msapplication-TileImage" content="/images/logo.webp" />
+        <meta name="msapplication-TileImage" content="/images/games/logo.webp" />
 
         {/* Schema.org structured data - Enhanced */}
         <script
@@ -216,8 +216,8 @@ export default function RootLayout({
               description:
                 "Servicio profesional de trofeos platino para PlayStation PS3, PS4 y PS5. Trophy boosting seguro y legítimo.",
               url: "https://www.peachyplatinums.com",
-              logo: "https://www.peachyplatinums.com/images/logo.webp",
-              image: "https://www.peachyplatinums.com/images/logo.webp",
+              logo: "https://www.peachyplatinums.com/images/games/logo.webp",
+              image: "https://www.peachyplatinums.com/images/games/logo.webp",
               email: "Peachyplatinums@hotmail.com",
               telephone: "+5491164716955",
               priceRange: "£21-£250",
