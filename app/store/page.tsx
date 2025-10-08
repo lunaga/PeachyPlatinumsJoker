@@ -261,6 +261,14 @@ const products = [
         category: "ps5",
         image: "images/games/184.jpeg",
     },
+    {
+        id: "1901",
+        name: "Death Stranding PS5 Platinum Trophy Service",
+        description: "Action adventure",
+        price: 120,
+        category: "ps5",
+        image: "images/games/186.jpeg",
+    },
 
     // PS4 Games (85 games) - Include all PS4 games from the original list
     {
@@ -1264,7 +1272,7 @@ const products = [
         description: "Survival horror",
         price: 65,
         category: "ps3",
-        image: "images/games/145.webp",
+        image: "images/games/196.jpeg",
     },
         {
         id: "146",
