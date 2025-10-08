@@ -2,11 +2,11 @@ import type { MetadataRoute } from "next"
 
 export default function robots(): MetadataRoute.Robots {
     return {
-        rules: {
+    rules: {
         userAgent: "*",
         allow: "/",
         disallow: "/private/",
-        },
-        sitemap: "https://peachy-platinums.vercel.app/sitemap.xml",
+    },
+    sitemap: "https://www.peachyplatinums.com/sitemap.xml",
     }
 }
