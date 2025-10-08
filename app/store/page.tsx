@@ -230,18 +230,10 @@ const products = [
         image: "images/games/144.webp",
     },
     {
-        id: "180",
-        name: "Ape Escape: On The Loose PS5 Platinum Trophy Service",
-        description: "Platforming adventure",
-        price: 35,
-        category: "ps5",
-        image: "images/games/180.webp",
-    },
-    {
         id: "181",
         name: "God of War: Ragnarok (+DLC) PS5 Platinum Trophy Service",
         description: "Action adventure",
-        price: 110,
+        price: 100,
         category: "ps5",
         image: "images/games/181.webp",
     },
@@ -251,7 +243,7 @@ const products = [
         description: "Platforming adventure",
         price: 30,
         category: "ps5",
-        image: "images/games/182.jpeg",
+        image: "images/games/129.webp",
     },
     {
         id: "183",
@@ -608,14 +600,6 @@ const products = [
         image: "images/games/77.webp",
     },
     {
-        id: "78",
-        name: "Shenmue 1+2 PS4 Platinum Trophy Service",
-        description: "Open world, action-adventure",
-        price: 80,
-        category: "ps4",
-        image: "images/games/78.webp",
-    },
-    {
         id: "83",
         name: "Cyberdimension Neptunia: 4 Goddess Online PS4 Platinum Trophy Service",
         description: "Anime-style RPG, Neptunia series",
@@ -829,7 +813,7 @@ const products = [
         description: "Remake of classic PSP platformer",
         price: 35,
         category: "ps4",
-        image: "images/games/136.webp",
+        image: "images/games/193.jpeg",
     },
     {
         id: "137",
@@ -846,14 +830,6 @@ const products = [
         price: 10,
         category: "ps4",
         image: "images/games/141.webp",
-    },
-    {
-        id: "153",
-        name: "Ape Escape: on the loose PS4/PS5 Platinum Trophy Service",
-        description: "Retro first-person platforming action",
-        price: 35,
-        category: "ps4",
-        image: "images/games/153.webp",
     },
     {
         id: "154",
@@ -886,7 +862,7 @@ const products = [
         description: "Platforming action",
         price: 60,
         category: "ps4",
-        image: "images/games/157.webp",
+        image: "images/games/15.webp",
     },
     {
         id: "158",
@@ -894,7 +870,7 @@ const products = [
         description: "Platforming action",
         price: 55,
         category: "ps4",
-        image: "images/games/158.webp",
+        image: "images/games/15.webp",
     },
     {
         id: "159",
@@ -902,7 +878,7 @@ const products = [
         description: "Platforming action",
         price: 55,
         category: "ps4",
-        image: "images/games/159.webp",
+        image: "images/games/15.webp",
     },
     {
         id: "160",
@@ -918,7 +894,7 @@ const products = [
         description: "Action adventure",
         price: 120,
         category: "ps4",
-        image: "images/games/161.webp",
+        image: "images/games/189.jpeg",
     },
     {
         id: "162",
@@ -958,7 +934,7 @@ const products = [
         description: "Platforming adventure",
         price: 30,
         category: "ps4",
-        image: "images/games/166.webp",
+        image: "images/games/129.webp",
     },
     {
         id: "167",
@@ -966,7 +942,7 @@ const products = [
         description: "Fighting anime crossover",
         price: 85,
         category: "ps4",
-        image: "images/games/167.webp",
+        image: "images/games/195.jpeg",
     },
     {
         id: "168",
@@ -974,7 +950,7 @@ const products = [
         description: "Action crime story",
         price: 65,
         category: "ps4",
-        image: "images/games/168.webp",
+        image: "images/games/197.jpeg",
     },
     {
         id: "169",
@@ -982,7 +958,7 @@ const products = [
         description: "Action RPG",
         price: 65,
         category: "ps4",
-        image: "images/games/169.webp",
+        image: "images/games/190.jpeg",
     },
     {
         id: "170",
@@ -998,7 +974,7 @@ const products = [
         description: "Co-op cooking chaos",
         price: 25,
         category: "ps4",
-        image: "images/games/171.webp",
+        image: "images/games/188.jpeg",
     },
     {
         id: "172",
@@ -1014,7 +990,7 @@ const products = [
         description: "Rhythm music game",
         price: 20,
         category: "ps4",
-        image: "images/games/173.webp",
+        image: "images/games/198.jpeg",
     },
     {
         id: "174",
@@ -1022,7 +998,7 @@ const products = [
         description: "Visual novel",
         price: 55,
         category: "ps4",
-        image: "images/games/174.webp",
+        image: "images/games/191.jpeg",
     },
     {
         id: "175",
@@ -1030,7 +1006,7 @@ const products = [
         description: "Survival horror",
         price: 100,
         category: "ps4",
-        image: "images/games/175.webp",
+        image: "images/games/185.jpeg",
     },
     {
         id: "176",
@@ -1054,7 +1030,7 @@ const products = [
         description: "Action drama",
         price: 135,
         category: "ps4",
-        image: "images/games/178.webp",
+        image: "images/games/192.jpeg",
     },
     {
         id: "179",
@@ -1062,7 +1038,15 @@ const products = [
         description: "Action drama",
         price: 100,
         category: "ps4",
-        image: "images/games/179.webp",
+        image: "images/games/194.jpeg",
+    },
+    {
+        id: "183",
+        name: "Resident Evil 7 (+DLC) PS4 Platinum Trophy Service",
+        description: "Survival horror",
+        price: 100,
+        category: "ps4",
+        image: "images/games/199.webp",
     },
 
     // PS3 Games (25 games) - Include all PS3 games from the original list
@@ -1148,11 +1132,11 @@ const products = [
     },
     {
         id: "91",
-        name: "InFamous PS3 Platinum Trophy Service",
+        name: "InFamous 2 PS3 Platinum Trophy Service",
         description: "Superpowered open world",
         price: 65,
         category: "ps3",
-        image: "images/games/91.webp",
+        image: "images/games/187.jpeg",
     },
     {
         id: "92",
@@ -1388,6 +1372,14 @@ const products = [
         price: 95,
         category: "bundles",
         image: "images/games/152.webp",
+    },
+    {
+        id: "78",
+        name: "Shenmue 1+2 PS4 Platinum Trophy Service",
+        description: "Open world, action-adventure",
+        price: 80,
+        category: "bundles",
+        image: "images/games/78.webp",
     },
     ]
 
