@@ -269,6 +269,15 @@ const products = [
         category: "ps5",
         image: "images/games/186.jpeg",
     },
+    {
+        id: "199",
+        name: "It Take Two PS5 Platinum Trophy Service",
+        description: "Adventure platformer",
+        price: 35,
+        category: "ps5",
+        image: "images/games/199.jpeg",
+    },
+
 
     // PS4 Games (85 games) - Include all PS4 games from the original list
     {
@@ -1056,6 +1065,30 @@ const products = [
         category: "ps4",
         image: "images/games/199.webp",
     },
+    {
+        id: "200",
+        name: "It Takes Two PS4 Platinum Trophy Service",
+        description: "Adventure plataformr",
+        price: 35,
+        category: "ps4",
+        image: "images/games/200.jpeg",
+    },
+    {
+        id: "203",
+        name: "A Way Out PS4 Platinum Trophy Service",
+        description: "Stori Aventure",
+        price: 20,
+        category: "ps4",
+        image: "images/games/203.jpeg",
+    },
+    {
+        id: "201",
+        name: "Game Of Thrones PS4 Platinum Trophy Service",
+        description: "Series game",
+        price: 25,
+        category: "ps4",
+        image: "images/games/201.jpeg",
+    },
 
     // PS3 Games (25 games) - Include all PS3 games from the original list
     {
@@ -1306,7 +1339,14 @@ const products = [
         category: "ps3",
         image: "images/games/149.webp",
     },
-
+    {
+        id: "201",
+        name: "Game Of Thrones PS4 Platinum Trophy Service",
+        description: "Series game",
+        price: 25,
+        category: "ps3",
+        image: "images/games/202.jpeg",
+    },
 
     // Bundles (9 bundles) - Include all bundles from the original list
     {
