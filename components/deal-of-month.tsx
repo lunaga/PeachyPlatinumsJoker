@@ -40,25 +40,25 @@ const dealProducts = [
         image: "images/games/129.webp",
     },
     {
-        id: "78",
-        name: "Shenmue 1+2 PS4 Platinum Trophy Service",
-        description: "Open world, action-adventure",
-        originalPrice: 80,
-        salePrice: 64,
-        discount: 20,
-        category: "ps4",
-        image: "images/games/78.webp",
-    },
-    {
-        id: "151",
-        name: "God of War Origins Collection Bundle PS3 Platinum Trophy Service",
-        description: "Epic action-adventure, Greek mythology",
-        originalPrice: 60,
-        salePrice: 48,
+        id: "87",
+        name: "LEGO Star Wars III: The Clone Wars PS3 Platinum Trophy Service",
+        description: "LEGO adventure, co-op",
+        originalPrice: 50,
+        salePrice: 40,
         discount: 20,
         category: "ps3",
-        image: "images/games/151.webp",
-    }
+        image: "images/games/87.webp",
+    },
+    {
+        id: "89",
+        name: "Dragon Quest Builders 2 PS4 Platinum Trophy Service",
+        description: "Building RPG, Dragon Quest spin-off",
+        originalPrice: 85,
+        salePrice: 70,
+        discount: 18,
+        category: "ps4",
+        image: "images/games/892.webp",
+    },
     ]
 
     export function DealOfMonth() {
