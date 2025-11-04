@@ -9,7 +9,11 @@ import { SearchBar } from "@/components/search-bar"
 import { Button } from "@/components/ui/button"
 import { Cart } from "@/components/cart"
 import { ContactButtons } from "@/components/contact-buttons"
-
+import { Badge } from "@/components/ui/badge"
+import { Sparkles } from "lucide-react"
+import Image from "next/image"
+import { Card, CardContent } from "@/components/ui/card"
+import { useCart } from "@/contexts/cart-context"
 // Move all the products array here
 const products = [
     // PS5 Games (31 games)
@@ -1429,18 +1433,172 @@ const products = [
         category: "bundles",
         image: "images/games/78.webp",
     },
-    ]
+    // Newly Added (16 added)
+    {
+        id: "204",
+        name: "AI Limit PS5 Platinum Trophy Service",
+        description: "Action-adventure, futuristic RPG",
+        price: 100,
+        category: "ps5",
+        image: "images/games/204.jpg",
+    },
+    {
+        id: "205",
+        name: "Coffee Talk PS4 Platinum Trophy Service",
+        description: "Visual novel, relaxing simulation",
+        price: 15,
+        category: "ps4",
+        image: "images/games/205.jpg",
+    },
+    {
+        id: "206",
+        name: "Coffee Talk: Episode 2 Hibiscus & Butterflies PS4 Platinum Trophy Service",
+        description: "Visual novel, relaxing simulation",
+        price: 35,
+        category: "ps4",
+        image: "images/games/206.jpg",
+    },
+    {
+        id: "207",
+        name: "Coffee Talk PS5 Platinum Trophy Service",
+        description: "Visual novel, relaxing simulation",
+        price: 15,
+        category: "ps5",
+        image: "images/games/207.jpg",
+    },
+    {
+        id: "208",
+        name: "Coffee Talk: Episode 2 Hibiscus & Butterflies PS5 Platinum Trophy Service",
+        description: "Visual novel, relaxing simulation",
+        price: 35,
+        category: "ps5",
+        image: "images/games/208.jpg",
+    },
+    {
+        id: "209",
+        name: "Ghost of Yōtei PS5 Platinum Trophy Service",
+        description: "Action-adventure, samurai open world",
+        price: 150,
+        category: "ps5",
+        image: "images/games/209.jpg",
+    },
+    {
+        id: "210",
+        name: "Maneater (+DLC) PS4 Platinum Trophy Service",
+        description: "Action RPG, open world shark mayhem",
+        price: 60,
+        category: "ps4",
+        image: "images/games/210.jpg",
+    },
+    {
+        id: "211",
+        name: "Maneater (+DLC) PS5 Platinum Trophy Service",
+        description: "Action RPG, open world shark mayhem",
+        price: 60,
+        category: "ps5",
+        image: "images/games/211.jpg",
+    },
+    {
+        id: "212",
+        name: "Mortal Kombat Legacy Kollection PS4 Platinum Trophy Service",
+        description: "Fighting, classic arcade action",
+        price: 85,
+        category: "ps4",
+        image: "images/games/212.jpg",
+    },
+    {
+        id: "213",
+        name: "Mortal Kombat Legacy Kollection PS5 Platinum Trophy Service",
+        description: "Fighting, classic arcade action",
+        price: 90,
+        category: "ps5",
+        image: "images/games/213.jpg",
+    },
+    {
+        id: "214",
+        name: "Patapon 1-2 Replay PS5 Platinum Trophy Service",
+        description: "Rhythm strategy, classic remaster",
+        price: 90,
+        category: "ps5",
+        image: "images/games/214.jpg",
+    },
+    {
+        id: "215",
+        name: "Plants vs Zombies: Garden Warfare PS3 Platinum Trophy Service",
+        description: "Third-person shooter, tower defense",
+        price: 85,
+        category: "ps3",
+        image: "images/games/215.jpg",
+    },
+    {
+        id: "216",
+        name: "Plants vs Zombies: Garden Warfare PS4 Platinum Trophy Service",
+        description: "Third-person shooter, tower defense",
+        price: 85,
+        category: "ps4",
+        image: "images/games/216.jpg",
+    },
+    {
+        id: "217",
+        name: "Resident Evil 0 PS4 Platinum Trophy Service",
+        description: "Survival horror, classic Resident Evil",
+        price: 65,
+        category: "ps4",
+        image: "images/games/217.jpg",
+    },
+    {
+        id: "218",
+        name: "Resident Evil Origins Bundle Platinum Trophy Service",
+        description: "Survival horror, classic remasters",
+        price: 105,
+        category: "ps4",
+        image: "images/games/218.jpg",
+    },
+    {
+        id: "219",
+        name: "Sonic X Shadow Generations PS5 Platinum Trophy Service",
+        description: "Platformer, action-adventure",
+        price: 90,
+        category: "ps5",
+        image: "images/games/219.jpg",
+    }
+]
 
-    export default function StorePage() {
+export default function StorePage() {
     const [selectedCategory, setSelectedCategory] = useState<string>("all")
     const [searchTerm, setSearchTerm] = useState<string>("")
+    const { addToCart } = useCart()
+
+    const newlyAddedGames = [
+        products.find((p) => p.id === "204"),
+        products.find((p) => p.id === "205"),
+        products.find((p) => p.id === "206"),
+        products.find((p) => p.id === "207"),
+        products.find((p) => p.id === "208"),
+        products.find((p) => p.id === "209"),
+        products.find((p) => p.id === "210"),
+        products.find((p) => p.id === "211"),
+        products.find((p) => p.id === "212"),
+        products.find((p) => p.id === "213"),
+        products.find((p) => p.id === "214"),
+        products.find((p) => p.id === "215"),
+        products.find((p) => p.id === "216"),
+        products.find((p) => p.id === "217"),
+        products.find((p) => p.id === "218"),
+        products.find((p) => p.id === "219"),
+    ].filter(Boolean)
+
+    const newlyAddedIds = newlyAddedGames.map((game) => game.id)
 
     const filteredProducts = useMemo(() => {
         let filtered = products
 
-        // Filter by category
         if (selectedCategory !== "all") {
-        filtered = filtered.filter((product) => product.category === selectedCategory)
+        if (selectedCategory === "newly-added") {
+            filtered = filtered.filter((product) => newlyAddedIds.includes(product.id))
+        } else {
+            filtered = filtered.filter((product) => product.category === selectedCategory)
+        }
         }
 
         // Filter by search term
@@ -1453,10 +1611,11 @@ const products = [
         }
 
         return filtered
-    }, [selectedCategory, searchTerm])
+    }, [selectedCategory, searchTerm, newlyAddedIds])
 
     const categories = [
         { id: "all", name: "All Games", count: products.length, icon: "🎮" },
+        { id: "newly-added", name: "Newly Added", count: newlyAddedGames.length, icon: "✨" },
         { id: "ps5", name: "PlayStation 5", count: products.filter((p) => p.category === "ps5").length, icon: "🎮" },
         { id: "ps4", name: "PlayStation 4", count: products.filter((p) => p.category === "ps4").length, icon: "🎮" },
         { id: "ps3", name: "PlayStation 3", count: products.filter((p) => p.category === "ps3").length, icon: "🎮" },
@@ -1475,20 +1634,22 @@ const products = [
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-pink-600/20 dark:from-purple-600/20 dark:to-pink-600/20 from-purple-200/40 to-pink-200/40 blur-3xl"></div>
                 <div className="relative z-10 max-w-4xl mx-auto">
                 <h1 className="hero-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-purple-400 via-pink-400 to-purple-600 bg-clip-text text-transparent px-2">
-                    PeachyPlatinums
+                    Trophy Store
                 </h1>
                 <p className="hero-subtitle text-base sm:text-lg md:text-xl lg:text-2xl text-purple-200 dark:text-purple-200 text-purple-700 mb-6 sm:mb-8 font-light px-4">
-                    PlayStation Platinum Trophy Services
+                    Professional PlayStation Platinum Trophy Services
                 </p>
                 <div className="w-24 sm:w-32 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto rounded-full shadow-lg shadow-purple-500/50"></div>
 
                 {/* SEO Content */}
                 <div className="mt-8 max-w-3xl mx-auto text-center">
                     <h2 className="text-lg sm:text-xl font-semibold text-purple-200 dark:text-purple-200 text-purple-700 mb-4">
-                    Welcome to PeachyPlatinums, where passion meets purpose!
+                    Expert PlayStation Trophy Completion Services
                     </h2>
                     <p className="text-sm sm:text-base text-purple-300 dark:text-purple-300 text-purple-600 leading-relaxed">
-                    Our Platinum trophy Services are designed to help make your gaming achievement goals a reality. With our safe, reliable and stress free services, you can add another coveted Platinum Trophy to your collection. Thanks for stopping by. We are Peachy Keen to share our journey with you!
+                    Get your PlayStation platinum trophies completed by professional gamers. We specialize in PS3, PS4,
+                    and PS5 trophy services including the most challenging games like Dark Souls, Sekiro, Elden Ring, and
+                    more. Fast, safe, and reliable trophy boosting with 100% completion guarantee.
                     </p>
                 </div>
                 </div>
@@ -1498,6 +1659,11 @@ const products = [
             <section className="py-6 sm:py-8 px-3 sm:px-4" aria-label="Game Search">
                 <div className="max-w-6xl mx-auto">
                 <SearchBar searchTerm={searchTerm} onSearchChange={setSearchTerm} placeholder="Search for games..." />
+                </div>
+            </section>
+
+            <section className="py-8 px-3 sm:px-4" aria-label="Newly Added Games">
+                <div className="max-w-7xl mx-auto">
                 </div>
             </section>
 
@@ -1562,11 +1728,17 @@ const products = [
                         {selectedCategory === "ps5" && "🎮 PlayStation 5 Trophy Services"}
                         {selectedCategory === "ps4" && "🎮 PlayStation 4 Trophy Services"}
                         {selectedCategory === "ps3" && "🎮 PlayStation 3 Trophy Services"}
+                        {selectedCategory === "newly-added" && "✨ Newly Added Trophy Services"}
                     </h2>
                     {selectedCategory === "bundles" && (
                         <p className="text-purple-300 dark:text-purple-300 text-purple-600 text-sm sm:text-base max-w-2xl mx-auto">
                         Save money with our specially curated game bundles! Get multiple platinum trophies at discounted
                         prices.
+                        </p>
+                    )}
+                    {selectedCategory === "newly-added" && (
+                        <p className="text-purple-300 dark:text-purple-300 text-purple-600 text-sm sm:text-base max-w-2xl mx-auto">
+                        Check out our latest trophy services! Fresh additions to our catalog.
                         </p>
                     )}
                     </div>
