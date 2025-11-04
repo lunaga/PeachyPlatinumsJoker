@@ -1502,7 +1502,7 @@ const products = [
         id: "212",
         name: "Mortal Kombat Legacy Kollection PS4 Platinum Trophy Service",
         description: "Fighting, classic arcade action",
-        price: 85,
+        price: 90,
         category: "ps4",
         image: "images/games/212.jpg",
     },
@@ -1558,7 +1558,7 @@ const products = [
         id: "219",
         name: "Sonic X Shadow Generations PS5 Platinum Trophy Service",
         description: "Platformer, action-adventure",
-        price: 90,
+        price: 80,
         category: "ps5",
         image: "images/games/219.jpg",
     }
