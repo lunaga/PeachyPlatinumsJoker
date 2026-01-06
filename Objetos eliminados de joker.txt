@@ -1,0 +1,11 @@
+Objetos eliminados de joker: 
+
+ 
+   {
+        id: "229",
+        name: "BioShock Collection Bundle PS4 Platinum Trophy Service",
+        description: "Complete BioShock trilogy bundle",
+        price: 115,
+        category: "bundles",
+        image: "images/games/229.jpeg",
+    },
