@@ -201,7 +201,7 @@ export default function HomePage() {
                         Browse Games
                         </Button>
                     </Link>
-                    <a href="https://discord.com/users/peachyplatinums" target="_blank" rel="noopener noreferrer">
+                    <a href="https://discord.gg/9ycQPSCdAZ" target="_blank" rel="noopener noreferrer">
                         <Button
                         variant="outline"
                         className="border-purple-500/50 text-purple-300 dark:text-purple-300 text-purple-700 hover:bg-purple-500/20 py-3 px-8 text-lg bg-transparent"

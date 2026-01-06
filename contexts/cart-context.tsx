@@ -1,6 +1,7 @@
 "use client"
 
 import { createContext, useContext, useReducer, type ReactNode } from "react"
+import { sendOrderNotification } from "@/lib/discord"
 
 interface Product {
     id: string
@@ -100,6 +101,9 @@ interface Product {
     clearCart: () => void
     generateWhatsAppMessage: () => string
     sendOrderToWhatsApp: () => void
+    generateOrderMessage: () => string
+    sendOrderToEmail: () => Promise<void>
+    sendOrderToDiscord: () => Promise<void>
     }
 
     const CartContext = createContext<CartContextType | undefined>(undefined)
@@ -123,7 +127,7 @@ interface Product {
         dispatch({ type: "CLEAR_CART" })
     }
 
-    const generateWhatsAppMessage = () => {
+    const generateOrderMessage = () => {
         const gamesList = state.items
         .map(
             (item) =>
@@ -143,6 +147,10 @@ interface Product {
     🏆 PeachyPlatinums - Platinum Trophy Experts`
     }
 
+    const generateWhatsAppMessage = () => {
+        return generateOrderMessage()
+    }
+
     const sendOrderToWhatsApp = () => {
         const message = generateWhatsAppMessage()
         const phoneNumber = "5491164716955" // +54 9 11 6471-6955
@@ -151,6 +159,66 @@ interface Product {
 
         // Abrir WhatsApp en una nueva ventana/pestaña
         window.open(whatsappUrl, "_blank")
+    }
+
+    const sendOrderToEmail = async () => {
+        try {
+        const customerName = prompt("Please enter your name:")
+        if (!customerName) return
+
+        const customerEmail = prompt("Please enter your email:")
+        if (!customerEmail) return
+
+        const response = await fetch("/api/send-email", {
+            method: "POST",
+            headers: {
+            "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+            customerName,
+            customerEmail,
+            items: state.items.map((item) => ({
+                name: item.name,
+                quantity: item.quantity,
+                price: item.price,
+            })),
+            total: state.total.toFixed(2),
+            }),
+        })
+
+        if (response.ok) {
+            alert("Order sent successfully via email!")
+            clearCart()
+        } else {
+            alert("Failed to send email. Please try another method.")
+        }
+        } catch (error) {
+        console.error("[v0] Error sending email:", error)
+        alert("Failed to send email. Please try another method.")
+        }
+    }
+
+    const sendOrderToDiscord = async () => {
+        try {
+        const orderDetails = {
+            items: state.items.map((item) => ({
+            name: item.name,
+            quantity: item.quantity,
+            price: item.price,
+            })),
+            total: state.total,
+        }
+
+        const success = await sendOrderNotification(orderDetails)
+        if (success) {
+            alert("Order sent to Discord successfully!")
+        } else {
+            alert("Failed to send order to Discord. Please try another method.")
+        }
+        } catch (error) {
+        console.error("Error sending order to Discord:", error)
+        alert("Failed to send order to Discord. Please try another method.")
+        }
     }
 
     return (
@@ -163,6 +231,9 @@ interface Product {
             clearCart,
             generateWhatsAppMessage,
             sendOrderToWhatsApp,
+            generateOrderMessage,
+            sendOrderToEmail,
+            sendOrderToDiscord,
         }}
         >
         {children}

@@ -105,7 +105,7 @@ export default function FAQPage() {
                 {/* Contact Buttons - Responsive Grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 max-w-2xl mx-auto">
                   <a
-                    href="https://discord.com/users/peachyplatinums"
+                    href="https://discord.gg/9ycQPSCdAZ"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-center space-x-2 bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105 text-sm sm:text-base"

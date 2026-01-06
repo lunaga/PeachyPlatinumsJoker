@@ -60,7 +60,7 @@ export function Footer() {
             <h4 className="text-lg font-semibold text-purple-200 dark:text-purple-200 text-purple-800 mb-4">Contact</h4>
             <div className="space-y-3">
               <a
-                href="https://discord.com/users/peachyplatinums"
+                href="https://discord.gg/9ycQPSCdAZ"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center md:justify-end space-x-2 text-purple-300 dark:text-purple-300 text-purple-700 hover:text-purple-100 dark:hover:text-purple-100 hover:text-purple-600 transition-colors duration-300 group"

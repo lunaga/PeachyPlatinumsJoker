@@ -14,7 +14,7 @@ export function ContactButtons() {
             <div className="mb-4 space-y-3 animate-in slide-in-from-bottom-2 duration-300">
             {/* Discord */}
             <a
-                href="https://discord.com/users/peachyplatinums"
+                href="https://discord.gg/9ycQPSCdAZ"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center space-x-3 bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-3 rounded-full shadow-lg transition-all duration-300 hover:scale-105"

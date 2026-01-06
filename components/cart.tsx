@@ -5,29 +5,25 @@ import { useCart } from "@/contexts/cart-context"
 import { Button } from "@/components/ui/button"
 import { CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { ShoppingCart, X, Plus, Minus, Phone } from "lucide-react"
+import { ShoppingCart, X, Plus, Minus, Phone, Mail, MessageSquare } from "lucide-react"
 import Image from "next/image"
 // Importar el componente OrderPreview
 import { OrderPreview } from "@/components/order-preview"
 
 export function Cart() {
-    const { state, removeItem, updateQuantity, clearCart, sendOrderToWhatsApp } = useCart()
+    const { state, removeItem, updateQuantity, clearCart, sendOrderToWhatsApp, sendOrderToEmail, sendOrderToDiscord } =
+        useCart()
     const [isOpen, setIsOpen] = useState(false)
 
-    const handleFinalizePurchase = () => {
+    const handleWhatsAppPurchase = () => {
         if (state.items.length === 0) {
         alert("Your cart is empty. Please add some games first.")
         return
         }
 
         try {
-        // Enviar orden a WhatsApp
         sendOrderToWhatsApp()
-
-        // Mostrar confirmación
         alert("✅ Redirecting to WhatsApp!\n📱 Your order details will be sent to PeachyPlatinums.")
-
-        // Limpiar carrito después de un pequeño delay para que el usuario vea la confirmación
         setTimeout(() => {
             clearCart()
             setIsOpen(false)
@@ -35,6 +31,42 @@ export function Cart() {
         } catch (error) {
         console.error("Error opening WhatsApp:", error)
         alert("❌ Error opening WhatsApp. Please make sure WhatsApp is installed on your device.")
+        }
+    }
+
+    const handleEmailPurchase = () => {
+        if (state.items.length === 0) {
+        alert("Your cart is empty. Please add some games first.")
+        return
+        }
+
+        try {
+        sendOrderToEmail()
+        alert("✅ Opening your email client!\n📧 Your order details will be sent to PeachyPlatinums@hotmail.com")
+        setTimeout(() => {
+            clearCart()
+            setIsOpen(false)
+        }, 1000)
+        } catch (error) {
+        console.error("Error opening email:", error)
+        alert("❌ Error opening email client. Please try another method.")
+        }
+    }
+
+    const handleDiscordPurchase = async () => {
+        if (state.items.length === 0) {
+        alert("Your cart is empty. Please add some games first.")
+        return
+        }
+
+        try {
+        await sendOrderToDiscord()
+        setTimeout(() => {
+            clearCart()
+            setIsOpen(false)
+        }, 1000)
+        } catch (error) {
+        console.error("Error sending to Discord:", error)
         }
     }
 
@@ -179,11 +211,27 @@ export function Cart() {
 
                     {/* Purchase Button */}
                     <Button
-                        onClick={handleFinalizePurchase}
+                        onClick={handleWhatsAppPurchase}
                         className="w-full bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-semibold py-3 shadow-lg shadow-green-500/30 hover:shadow-green-500/50 transition-all duration-300"
                     >
                         <Phone className="h-4 w-4 mr-2" />
                         Complete Purchase via WhatsApp
+                    </Button>
+
+                    <Button
+                        onClick={handleEmailPurchase}
+                        className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold py-3 shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50 transition-all duration-300"
+                    >
+                        <Mail className="h-4 w-4 mr-2" />
+                        Complete Purchase via Email
+                    </Button>
+
+                    <Button
+                        onClick={handleDiscordPurchase}
+                        className="w-full bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 text-white font-semibold py-3 shadow-lg shadow-indigo-500/30 hover:shadow-indigo-500/50 transition-all duration-300"
+                    >
+                        <MessageSquare className="h-4 w-4 mr-2" />
+                        Complete Purchase via Discord
                     </Button>
 
                     {/* Clear Cart Button */}
@@ -198,7 +246,7 @@ export function Cart() {
 
                     {/* Info Message */}
                     <div className="text-center text-xs text-purple-400 bg-purple-900/20 rounded-lg p-3 border border-purple-500/20">
-                    <p>📱 Clicking "Complete Purchase" will open WhatsApp with your order details</p>
+                    <p>Choose your preferred method to complete your purchase</p>
                     </div>
                 </div>
                 )}
