@@ -1,7 +1,7 @@
 "use client"
 
 import { createContext, useContext, useReducer, type ReactNode } from "react"
-import { sendOrderNotification } from "@/lib/discord"
+import { sendOrderNotification, generateOrderId } from "@/lib/discord"
 
 interface Product {
     id: string
@@ -200,6 +200,11 @@ interface Product {
 
     const sendOrderToDiscord = async () => {
         try {
+        const customerName = prompt("Please enter your Discord username or name:")
+        if (!customerName) return
+
+        const orderId = generateOrderId()
+
         const orderDetails = {
             items: state.items.map((item) => ({
             name: item.name,
@@ -207,11 +212,14 @@ interface Product {
             price: item.price,
             })),
             total: state.total,
+            customerName,
+            orderId,
         }
 
         const success = await sendOrderNotification(orderDetails)
         if (success) {
-            alert("Order sent to Discord successfully!")
+            alert(`Order sent to Discord successfully!\n\nYour Order ID: ${orderId}\n\nPlease save this ID for reference.`)
+            clearCart()
         } else {
             alert("Failed to send order to Discord. Please try another method.")
         }
