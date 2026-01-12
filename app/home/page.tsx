@@ -12,6 +12,7 @@ import { Cart } from "@/components/cart"
 import { ReviewsSection } from "@/components/reviews-section"
 import { DealOfMonth } from "@/components/deal-of-month"
 import { NewlyAdded } from "@/components/newly-added"
+import { DiscordGuide } from "@/components/discord-guide"
 import { Trophy, Shield, Zap, Users, Award } from "lucide-react"
 
 export default function HomePage() {
@@ -173,6 +174,9 @@ export default function HomePage() {
                 </div>
             </div>
             </section>
+
+            {/* Discord Guide Section */}
+            <DiscordGuide />
 
             {/* Newly Added Section */}
             <NewlyAdded />
