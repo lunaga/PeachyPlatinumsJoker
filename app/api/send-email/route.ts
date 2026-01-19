@@ -76,7 +76,7 @@ export async function POST(request: Request) {
             "Content-Type": "application/json",
         },
         body: JSON.stringify({
-            from: "PeachyPlatinums <orders@peachyplatinums.com>",
+            from: "PeachyPlatinums <onboarding@resend.dev>",
             to: ["PeachyPlatinums@hotmail.com"],
             reply_to: customerEmail,
             subject: `New Order from ${customerName} - £${total}`,
