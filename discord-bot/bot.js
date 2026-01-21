@@ -17,7 +17,8 @@ if (!TOKEN) {
     ]
     });
 
-    // 🔥 Fetch NATIVO
+
+    // 🔥 FETCH CORRECTO (tu API devuelve ARRAY)
     async function fetchProducts(category = null) {
     let url = API_URL;
 
@@ -26,10 +27,16 @@ if (!TOKEN) {
     }
 
     const res = await fetch(url);
-    return await res.json();
+    const data = await res.json();
+
+    console.log("API RESPONSE:", data); // debug
+
+    // 🔥 tu API devuelve array directo
+    return Array.isArray(data) ? data : [];
     }
 
-    // 🔥 Mostrar TODOS
+
+    // 🔥 MOSTRAR TODOS
     async function postProducts(channel, category = null) {
     const products = await fetchProducts(category);
 
@@ -42,14 +49,14 @@ if (!TOKEN) {
 
         const embeds = batch.map(p =>
         new EmbedBuilder()
-            .setTitle(p.title)
-            .setDescription(`🎮 Platform: **${p.platform}**`)
+            .setTitle(`🏆 ${p.name}`)
+            .setDescription("Platinum Trophy Service")
             .addFields(
-            { name: "💰 Price", value: `$${p.price}`, inline: true },
-            { name: "📦 Stock", value: p.stock ? "Available" : "Out of stock", inline: true }
+            { name: "💰 Price", value: `£${p.price}`, inline: true },
+            { name: "🎮 Platform", value: p.category.toUpperCase(), inline: true }
             )
-            .setImage(p.image)
-            .setColor("#ff9bd2")
+            .setThumbnail(`https://peachyplatinums.com/${p.image}`)
+            .setColor("#9333EA")
         );
 
         const row = new ActionRowBuilder().addComponents(
@@ -68,9 +75,11 @@ if (!TOKEN) {
     }
     }
 
+
     client.once("ready", () => {
     console.log(`✅ Bot online as ${client.user.tag}`);
     });
+
 
     client.on("messageCreate", async message => {
     if (message.author.bot) return;
@@ -93,7 +102,7 @@ if (!TOKEN) {
     !peachy ps4 → PS4 games  
     !peachy ps3 → PS3 games  
     `);
-  }
+    }
 });
 
 client.login(TOKEN);
