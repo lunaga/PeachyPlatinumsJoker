@@ -33,7 +33,7 @@ const client = new Client({
 });
 
     // Funcion para obtener productos de la API
-    async function fetchProducts(category = null, limit = null) {
+async function fetchProducts(category = null, limit = null) {
     try {
         let url = API_URL;
         const params = new URLSearchParams();
@@ -42,22 +42,30 @@ const client = new Client({
         if (limit) params.append('limit', limit.toString());
         
         if (params.toString()) {
-        url += '?' + params.toString();
+            url += '?' + params.toString();
         }
 
+        console.log("🔎 Fetching:", url);
+
         const response = await fetch(url);
-        const data = await response.json();
-        
-        if (!data.success) {
-        throw new Error('API returned unsuccessful response');
+        const raw = await response.text();
+
+        console.log("📦 RAW API RESPONSE:", raw);
+
+        const data = JSON.parse(raw);
+
+        if (!data.products) {
+            console.error("❌ API structure invalid");
+            return null;
         }
-        
+
         return data;
+
     } catch (error) {
-        console.error('Error fetching products:', error);
+        console.error('❌ Error fetching products:', error);
         return null;
     }
-    }
+}
 
     // Funcion para crear embed de producto
     function createProductEmbed(product, baseUrl) {
