@@ -8,7 +8,7 @@
  */
 
 require('dotenv').config();
-const fetch = require('node-fetch');
+
 
 
 const { Client, GatewayIntentBits, EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
@@ -35,7 +35,7 @@ const client = new Client({
 
     // Funcion para obtener productos de la API
 
-const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
+
 
 
 async function fetchProducts(category = null, limit = null) {
