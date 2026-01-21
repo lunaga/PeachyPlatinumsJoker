@@ -1,9 +1,7 @@
 require('dotenv').config();
 const { Client, GatewayIntentBits, EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
-const fetch = require('node-fetch');
 
 const TOKEN = process.env.DISCORD_BOT_TOKEN;
-const CHANNEL_ID = process.env.DISCORD_CHANNEL_ID || null;
 const API_URL = "https://peachyplatinums.com/api/products";
 
 if (!TOKEN) {
@@ -19,7 +17,7 @@ if (!TOKEN) {
     ]
     });
 
-    // 🔥 Obtener TODOS los productos
+    // 🔥 Fetch NATIVO
     async function fetchProducts(category = null) {
     let url = API_URL;
 
@@ -31,7 +29,7 @@ if (!TOKEN) {
     return await res.json();
     }
 
-    // 🔥 Publicar productos SIN límite
+    // 🔥 Mostrar TODOS
     async function postProducts(channel, category = null) {
     const products = await fetchProducts(category);
 
@@ -39,7 +37,6 @@ if (!TOKEN) {
         return channel.send("❌ No products found.");
     }
 
-    // Enviar en bloques para no romper Discord
     for (let i = 0; i < products.length; i += 5) {
         const batch = products.slice(i, i + 5);
 
@@ -71,7 +68,7 @@ if (!TOKEN) {
     }
     }
 
-    client.on("ready", () => {
+    client.once("ready", () => {
     console.log(`✅ Bot online as ${client.user.tag}`);
     });
 
@@ -82,21 +79,10 @@ if (!TOKEN) {
     const args = message.content.split(" ");
     const command = args[1];
 
-    if (command === "products") {
-        await postProducts(message.channel);
-    }
-
-    if (command === "ps5") {
-        await postProducts(message.channel, "ps5");
-    }
-
-    if (command === "ps4") {
-        await postProducts(message.channel, "ps4");
-    }
-
-    if (command === "ps3") {
-        await postProducts(message.channel, "ps3");
-    }
+    if (command === "products") await postProducts(message.channel);
+    if (command === "ps5") await postProducts(message.channel, "ps5");
+    if (command === "ps4") await postProducts(message.channel, "ps4");
+    if (command === "ps3") await postProducts(message.channel, "ps3");
 
     if (command === "help") {
         message.reply(`
@@ -107,7 +93,7 @@ if (!TOKEN) {
     !peachy ps4 → PS4 games  
     !peachy ps3 → PS3 games  
     `);
-    }
+  }
 });
 
 client.login(TOKEN);
