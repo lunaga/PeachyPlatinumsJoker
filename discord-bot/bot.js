@@ -18,7 +18,7 @@ if (!TOKEN) {
     });
 
 
-    // 🔥 FETCH CORRECTO (tu API devuelve ARRAY)
+    // 🔥 FETCH CORRECTO PARA TU API REAL
     async function fetchProducts(category = null) {
     let url = API_URL;
 
@@ -31,14 +31,17 @@ if (!TOKEN) {
 
     console.log("API RESPONSE:", data); // debug
 
-    // 🔥 tu API devuelve array directo
-    return Array.isArray(data) ? data : [];
+    // 🔥 FORMATO REAL
+    return {
+        products: data.products || [],
+        baseUrl: data.baseUrl || "https://www.peachyplatinums.com"
+    };
     }
 
 
     // 🔥 MOSTRAR TODOS
     async function postProducts(channel, category = null) {
-    const products = await fetchProducts(category);
+    const { products, baseUrl } = await fetchProducts(category);
 
     if (!products.length) {
         return channel.send("❌ No products found.");
@@ -50,12 +53,12 @@ if (!TOKEN) {
         const embeds = batch.map(p =>
         new EmbedBuilder()
             .setTitle(`🏆 ${p.name}`)
-            .setDescription("Platinum Trophy Service")
+            .setDescription(p.description)
             .addFields(
             { name: "💰 Price", value: `£${p.price}`, inline: true },
             { name: "🎮 Platform", value: p.category.toUpperCase(), inline: true }
             )
-            .setThumbnail(`https://peachyplatinums.com/${p.image}`)
+            .setThumbnail(`${baseUrl}/${p.image}`)
             .setColor("#9333EA")
         );
 
@@ -106,3 +109,4 @@ if (!TOKEN) {
 });
 
 client.login(TOKEN);
+
