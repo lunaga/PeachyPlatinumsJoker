@@ -248,14 +248,6 @@ const newlyAddedGames = [
     category: "ps5",
     image: "images/games/271.jpg",
     },
-    {
-    id: "272",
-    name: "Yakuza 20th Anniversary Bundle Platinum Trophy Service",
-    description: "Complete Yakuza collection",
-    price: 520,
-    category: "bundles",
-    image: "images/games/272.jpg",
-    },
 ]
 
     export function NewlyAdded() {

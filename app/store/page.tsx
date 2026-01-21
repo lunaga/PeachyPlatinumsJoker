@@ -2008,7 +2008,6 @@ export default function StorePage() {
         products.find((p) => p.id === "269"),
         products.find((p) => p.id === "270"),
         products.find((p) => p.id === "271"),
-        products.find((p) => p.id === "272"),
     ].filter(Boolean)
 
     const newlyAddedIds = newlyAddedGames.map((game) => game.id)
