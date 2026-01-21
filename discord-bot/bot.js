@@ -6,6 +6,7 @@
  * 
  * Uso: node bot.js
  */
+
 require('dotenv').config();
 const fetch = require('node-fetch');
 
@@ -33,6 +34,10 @@ const client = new Client({
 });
 
     // Funcion para obtener productos de la API
+
+const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
+
+
 async function fetchProducts(category = null, limit = null) {
     try {
         let url = API_URL;
