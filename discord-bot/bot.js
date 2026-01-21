@@ -28,8 +28,9 @@ const client = new Client({
     intents: [
         GatewayIntentBits.Guilds,
         GatewayIntentBits.GuildMessages,
+        GatewayIntentBits.MessageContent // 🔥 NECESARIO PARA LEER !peachy
     ]
-    });
+});
 
     // Funcion para obtener productos de la API
     async function fetchProducts(category = null, limit = null) {
