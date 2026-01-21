@@ -1,0 +1,22 @@
+{
+    "name": "peachyplatinums-discord-bot",
+    "version": "1.0.0",
+    "description": "Discord bot for PeachyPlatinums trophy service store",
+    "main": "bot.js",
+    "scripts": {
+        "start": "node bot.js",
+        "dev": "node --watch bot.js"
+    },
+    "dependencies": {
+        "discord.js": "^14.25.1",
+        "dotenv": "^17.2.3",
+        "node-fetch": "^3.3.2"
+    },
+    "engines": {
+        "node": ">=18.0.0"
+    },
+    "author": "PeachyPlatinums",
+    "license": "MIT",
+    "keywords": [],
+    "type": "commonjs"
+}
