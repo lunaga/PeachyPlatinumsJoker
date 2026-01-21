@@ -1967,7 +1967,7 @@ const products = [
         name: "Yakuza 20th Anniversary Bundle Platinum Trophy Service",
         description: "Complete Yakuza collection",
         price: 520,
-        category: "ps5",
+        category: "bundles",
         image: "images/games/272.jpg",
     },
 ]
