@@ -29,3 +29,6 @@ next-env.d.ts
 .Objetos eliminados de joker.ts
 
 .env
+
+*.exe
+public/images/games/*.exe
