@@ -1976,7 +1976,7 @@ const products = [
         description: "Survival horror",
         price: 85,
         category: "ps4",
-        image: "images/games/183.jpeg",
+        image: "images/games/183.wepb",
     },
 ]
 

@@ -87,7 +87,7 @@ const dealProducts = [
     salePrice: 85,
     discount: 15,
     category: "ps5",
-    image: "images/games/183.jpeg",
+    image: "images/games/183.webp",
 },
 
 
