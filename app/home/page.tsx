@@ -175,14 +175,18 @@ export default function HomePage() {
             </div>
             </section>
 
-            {/* Discord Guide Section */}
-            <DiscordGuide />
+            {/* Deal of the Month */}
+            <DealOfMonth />
 
             {/* Newly Added Section */}
             <NewlyAdded />
 
-            {/* Deal of the Month */}
-            <DealOfMonth />
+
+            {/* Discord Guide Section */}
+            <DiscordGuide />
+
+
+
 
             {/* Reviews Section */}
             <ReviewsSection />
