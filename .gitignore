@@ -32,3 +32,5 @@ next-env.d.ts
 
 *.exe
 public/images/games/*.exe
+
+/mes de marzo.txt
