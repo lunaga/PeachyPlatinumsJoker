@@ -1331,7 +1331,7 @@ const products = [
         id: "149",
         name: "InFamous PS3 Platinum Trophy Service",
         description: "Open-world superhero action",
-        price: 55,
+        price: 65,
         category: "ps3",
         image: "images/games/149.webp",
     },
