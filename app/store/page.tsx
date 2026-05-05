@@ -1702,7 +1702,7 @@ const products = [
         id: "240",
         name: "Tomb Raider: Anniversary PS4 Platinum Trophy Service",
         description: "Classic adventure remaster",
-        price: 45,
+        price: 30,
         category: "ps4",
         image: "images/games/240.jpeg",
     },
@@ -1710,7 +1710,7 @@ const products = [
         id: "241",
         name: "Tomb Raider: Anniversary PS5 Platinum Trophy Service",
         description: "Classic adventure remaster",
-        price: 45,
+        price: 30,
         category: "ps5",
         image: "images/games/241.jpeg",
     },
@@ -2010,10 +2010,6 @@ const products = [
         category: "ps5",
         image: "images/games/278.jpg",
     },
-
-
-
-    
     {
         id: "279",
         name: "Spongebob Squarepants: Battle for Bikini Bottom PS4 Platinum Trophy Service",
