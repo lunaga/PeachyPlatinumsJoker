@@ -30,16 +30,6 @@ const dealProducts = [
         image: "images/games/281.jpg",
     },
     {
-        id: "273",
-        name: "Resident Evil 4 Remake (+DLC) PS5 Platinum Trophy Service",
-        description: "Survival horror",
-        originalPrice: 100,
-        salePrice: 75,
-        discount: 25,
-        category: "ps5",
-        image: "images/games/183.webp",
-    },
-    {
         id: "274",
         name: "Resident Evil: Requiem PS5 Platinum Trophy Service",
         description: "Survival horror",
