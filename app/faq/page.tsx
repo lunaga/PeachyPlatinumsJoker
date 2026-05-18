@@ -40,7 +40,7 @@ const faqs = [
   {
     question: "Do you accept international payments?",
     answer:
-      "Yes, we accept payments from around the world through PayPal. Prices are displayed in USD but can be automatically converted.",
+      "Yes, we accept payments from around the world through PayPal. Prices are displayed in GBP but can be automatically converted.",
   },
   {
     question: "Do you work with accounts from all regions?",

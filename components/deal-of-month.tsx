@@ -88,7 +88,17 @@ const dealProducts = [
         discount: 15,
         category: "ps4",
         image: "images/games/52.webp",
-    }
+    },
+    {
+        id: "274",
+        name: "Resident Evil: Requiem PS5 Platinum Trophy Service",
+        description: "Survival horror",
+        originalPrice: 50,
+        salePrice: 45,
+        discount: 10,
+        category: "ps5",
+        image: "images/games/274.jpg",
+    },
 ]
 
 export function DealOfMonth() {
