@@ -30,16 +30,6 @@ const dealProducts = [
         image: "images/games/281.jpg",
     },
     {
-        id: "274",
-        name: "Resident Evil: Requiem PS5 Platinum Trophy Service",
-        description: "Survival horror",
-        originalPrice: 90,
-        salePrice: 67.5,
-        discount: 25,
-        category: "ps5",
-        image: "images/games/274.jpg",
-    },
-    {
         id: "6",
         name: "Bloodborne (+DLC) PS4 Platinum Trophy Service",
         description: "Souls-like / action RPG",

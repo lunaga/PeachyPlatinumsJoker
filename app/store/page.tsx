@@ -1357,7 +1357,7 @@ const products = [
         id: "24",
         name: "Resident Evil Remake Bundle PS4 or PS5 Platinum Trophy Service",
         description: "Horror remake bundle",
-        price: 170,
+        price: 195,
         category: "bundles",
         image: "images/games/24.webp",
     },
