@@ -2750,7 +2750,7 @@ const products = [
         description: "Action Adventure",
         price: 60,
         category: "ps3",
-        image: "images/games/372.png",
+        image: "images/games/372.jpg",
     },
     {
         id: "373",
