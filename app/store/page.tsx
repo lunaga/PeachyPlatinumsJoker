@@ -2599,14 +2599,6 @@ const products = [
         image: "images/games/354.jpeg",
     },
     {
-        id: "355",
-        name: "The Walking Dead: A New Frontier PS4 Platinum Trophy Service",
-        description: "Adventure",
-        price: 20,
-        category: "ps4",
-        image: "images/games/355.jpeg",
-    },
-    {
         id: "358",
         name: "The Walking Dead: The Final Season (Digital) PS4 🇪🇺🇺🇸 Platinum Trophy Service",
         description: "Adventure",
