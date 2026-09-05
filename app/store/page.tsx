@@ -1168,14 +1168,6 @@ const products = [
         image: "images/games/87.webp",
     },
     {
-        id: "91",
-        name: "InFamous 2 PS3 Platinum Trophy Service",
-        description: "Superpowered open world",
-        price: 65,
-        category: "ps3",
-        image: "images/games/187.jpeg",
-    },
-    {
         id: "92",
         name: "Tomb Raider: Anniversary PS3 Platinum Trophy Service",
         description: "Classic Lara Croft action-adventure",
@@ -2406,15 +2398,13 @@ const products = [
     },
 
 
-
-
     {
         id: "330",
         name: "Gotham Knights (+DLC) PS5 Platinum Trophy Service",
         description: "Action RPG",
         price: 150,
         category: "ps5",
-        image: "images/games/330.png",
+        image: "images/games/330.jpeg",
     },
     {
         id: "331",
@@ -2422,7 +2412,7 @@ const products = [
         description: "Action RPG",
         price: 100,
         category: "ps3",
-        image: "images/games/331.png",
+        image: "images/games/331.jpeg",
     },
     {
         id: "332",
@@ -2430,7 +2420,7 @@ const products = [
         description: "Action RPG",
         price: 100,
         category: "ps4",
-        image: "images/games/332.png",
+        image: "images/games/332.jpeg",
     },
     {
         id: "333",
@@ -2438,7 +2428,7 @@ const products = [
         description: "Action RPG",
         price: 80,
         category: "ps3",
-        image: "images/games/333.png",
+        image: "images/games/333.jpeg",
     },
     {
         id: "334",
@@ -2446,7 +2436,7 @@ const products = [
         description: "Platformer",
         price: 25,
         category: "ps4",
-        image: "images/games/334.png",
+        image: "images/games/334.jpeg",
     },
     {
         id: "335",
@@ -2454,7 +2444,7 @@ const products = [
         description: "Survival horror",
         price: 180,
         category: "ps3",
-        image: "images/games/335.png",
+        image: "images/games/335.jpeg",
     },
     {
         id: "336",
@@ -2462,7 +2452,7 @@ const products = [
         description: "Survival horror",
         price: 50,
         category: "ps3",
-        image: "images/games/336.png",
+        image: "images/games/335.jpeg",
     },
     {
         id: "337",
@@ -2470,7 +2460,7 @@ const products = [
         description: "Survival horror",
         price: 75,
         category: "ps5",
-        image: "images/games/337.png",
+        image: "images/games/337.jpeg",
     },
     {
         id: "338",
@@ -2478,7 +2468,7 @@ const products = [
         description: "Survival horror",
         price: 150,
         category: "ps5",
-        image: "images/games/338.png",
+        image: "images/games/338.jpeg",
     },
     {
         id: "339",
@@ -2486,15 +2476,15 @@ const products = [
         description: "Action RPG",
         price: 170,
         category: "ps4",
-        image: "images/games/339.png",
+        image: "images/games/339.jpeg",
     },
     {
         id: "340",
-        name: "Lies of P (+DLC) PS4 Platinum Trophy Service",
+        name: "Lies of P (+DLC) PS5 Platinum Trophy Service",
         description: "Action RPG",
         price: 170,
-        category: "ps4",
-        image: "images/games/340.png",
+        category: "ps5",
+        image: "images/games/340.jpeg",
     },
     {
         id: "341",
@@ -2502,7 +2492,7 @@ const products = [
         description: "Action RPG",
         price: 180,
         category: "ps5",
-        image: "images/games/341.png",
+        image: "images/games/341.jpeg",
     },
     {
         id: "342",
@@ -2510,7 +2500,7 @@ const products = [
         description: "Action RPG",
         price: 75,
         category: "ps4",
-        image: "images/games/342.png",
+        image: "images/games/342.jpeg",
     },
     {
         id: "343",
@@ -2518,7 +2508,7 @@ const products = [
         description: "Action RPG",
         price: 75,
         category: "ps5",
-        image: "images/games/343.png",
+        image: "images/games/343.jpeg",
     },
     {
         id: "344",
@@ -2526,7 +2516,7 @@ const products = [
         description: "Action RPG",
         price: 125,
         category: "ps4",
-        image: "images/games/344.png",
+        image: "images/games/344.jpeg",
     },
     {
         id: "345",
@@ -2534,7 +2524,7 @@ const products = [
         description: "Action RPG",
         price: 125,
         category: "ps5",
-        image: "images/games/345.png",
+        image: "images/games/345.jpeg",
     },
     {
         id: "346",
@@ -2542,7 +2532,7 @@ const products = [
         description: "Action RPG",
         price: 85,
         category: "ps4",
-        image: "images/games/346.png",
+        image: "images/games/346.jpeg",
     },
     {
         id: "347",
@@ -2550,7 +2540,7 @@ const products = [
         description: "Action RPG",
         price: 85,
         category: "ps5",
-        image: "images/games/347.png",
+        image: "images/games/347.jpeg",
     },
     {
         id: "348",
@@ -2558,7 +2548,7 @@ const products = [
         description: "Fighting",
         price: 150,
         category: "ps5",
-        image: "images/games/348.png",
+        image: "images/games/348.jpeg",
     },
     {
         id: "349",
@@ -2566,7 +2556,7 @@ const products = [
         description: "Survival horror",
         price: 200,
         category: "ps4",
-        image: "images/games/349.png",
+        image: "images/games/349.jpeg",
     },
     {
         id: "350",
@@ -2574,7 +2564,7 @@ const products = [
         description: "Survival horror",
         price: 200,
         category: "ps5",
-        image: "images/games/350.png",
+        image: "images/games/350.jpeg",
     },
     {
         id: "351",
@@ -2582,7 +2572,7 @@ const products = [
         description: "Racing",
         price: 100,
         category: "ps3",
-        image: "images/games/351.png",
+        image: "images/games/351.jpeg",
     },
     {
         id: "352",
@@ -2590,7 +2580,7 @@ const products = [
         description: "Adventure",
         price: 30,
         category: "ps4",
-        image: "images/games/352.png",
+        image: "images/games/352.jpeg",
     },
     {
         id: "353",
@@ -2598,15 +2588,15 @@ const products = [
         description: "Adventure",
         price: 20,
         category: "ps3",
-        image: "images/games/353.png",
+        image: "images/games/353.jpeg",
     },
     {
         id: "354",
-        name: "The Walking Dead: Michonne PS3 Platinum Trophy Service",
+        name: "The Walking Dead: Michonne PS4 Platinum Trophy Service",
         description: "Adventure",
         price: 20,
-        category: "ps3",
-        image: "images/games/354.png",
+        category: "ps4",
+        image: "images/games/354.jpeg",
     },
     {
         id: "355",
@@ -2614,23 +2604,7 @@ const products = [
         description: "Adventure",
         price: 20,
         category: "ps4",
-        image: "images/games/355.png",
-    },
-    {
-        id: "356",
-        name: "The Walking Dead: Season 2 PS3 Platinum Trophy Service",
-        description: "Adventure",
-        price: 20,
-        category: "ps3",
-        image: "images/games/356.png",
-    },
-    {
-        id: "357",
-        name: "The Walking Dead: Season 2 PS4 Platinum Trophy Service",
-        description: "Adventure",
-        price: 20,
-        category: "ps4",
-        image: "images/games/357.png",
+        image: "images/games/355.jpeg",
     },
     {
         id: "358",
@@ -2638,7 +2612,7 @@ const products = [
         description: "Adventure",
         price: 35,
         category: "ps4",
-        image: "images/games/358.png",
+        image: "images/games/358.jpeg",
     },
     {
         id: "359",
@@ -2646,7 +2620,7 @@ const products = [
         description: "Adventure",
         price: 130,
         category: "ps4",
-        image: "images/games/359.png",
+        image: "images/games/359.jpeg",
     },
     {
         id: "360",
@@ -2654,7 +2628,7 @@ const products = [
         description: "Adventure",
         price: 30,
         category: "other",
-        image: "images/games/360.png",
+        image: "images/games/360.jpeg",
     },
     {
         id: "361",
@@ -2662,7 +2636,7 @@ const products = [
         description: "Adventure",
         price: 25,
         category: "ps4",
-        image: "images/games/361.png",
+        image: "images/games/361.jpeg",
     },
     {
         id: "362",
@@ -2670,7 +2644,7 @@ const products = [
         description: "Adventure",
         price: 25,
         category: "ps3",
-        image: "images/games/362.png",
+        image: "images/games/362.jpeg",
     },
     {
         id: "363",
@@ -2678,7 +2652,7 @@ const products = [
         description: "Action Adventure",
         price: 85,
         category: "ps5",
-        image: "images/games/363.png",
+        image: "images/games/363.jpeg",
     },
     {
         id: "364",
@@ -2686,7 +2660,7 @@ const products = [
         description: "Card game",
         price: 50,
         category: "ps3",
-        image: "images/games/364.png",
+        image: "images/games/364.jpeg",
     },
     {
         id: "365",
@@ -2694,7 +2668,7 @@ const products = [
         description: "Action Adventure",
         price: 75,
         category: "ps3",
-        image: "images/games/365.png",
+        image: "images/games/365.jpeg",
     },
     {
         id: "366",
@@ -2702,7 +2676,7 @@ const products = [
         description: "Action Adventure",
         price: 100,
         category: "ps4",
-        image: "images/games/366.png",
+        image: "images/games/366.jpeg",
     },
     {
         id: "367",
@@ -2710,7 +2684,7 @@ const products = [
         description: "Action Adventure",
         price: 60,
         category: "ps4",
-        image: "images/games/367.png",
+        image: "images/games/367.jpeg",
     },
     {
         id: "368",
@@ -2718,7 +2692,7 @@ const products = [
         description: "Adventure",
         price: 80,
         category: "ps3",
-        image: "images/games/368.png",
+        image: "images/games/368.jpeg",
     },
     {
         id: "369",
@@ -2726,7 +2700,7 @@ const products = [
         description: "Adventure",
         price: 90,
         category: "ps4",
-        image: "images/games/369.png",
+        image: "images/games/369.jpeg",
     },
     {
         id: "370",
@@ -2734,7 +2708,7 @@ const products = [
         description: "Adventure",
         price: 90,
         category: "ps3",
-        image: "images/games/370.png",
+        image: "images/games/370.jpeg",
     },
     {
         id: "371",
@@ -2742,7 +2716,7 @@ const products = [
         description: "Adventure",
         price: 90,
         category: "ps4",
-        image: "images/games/371.png",
+        image: "images/games/371.jpeg",
     },
     {
         id: "372",
@@ -2758,7 +2732,7 @@ const products = [
         description: "Action RPG",
         price: 100,
         category: "ps4",
-        image: "images/games/373.png",
+        image: "images/games/373.jpeg",
     },
     {
         id: "374",
@@ -2766,7 +2740,7 @@ const products = [
         description: "Action RPG",
         price: 100,
         category: "ps5",
-        image: "images/games/374.png",
+        image: "images/games/374.jpeg",
     },
     {
         id: "375",
@@ -2774,7 +2748,7 @@ const products = [
         description: "Survival horror",
         price: 100,
         category: "ps3",
-        image: "images/games/375.png",
+        image: "images/games/375.jpeg",
     },
     {
         id: "376",
@@ -2782,9 +2756,8 @@ const products = [
         description: "Action Adventure",
         price: 45,
         category: "ps3",
-        image: "images/games/376.png",
+        image: "images/games/376.jpeg",
     },
-
 
 ]
 
