@@ -22,7 +22,7 @@ const newlyAddedGames = [
         description: "Action-adventure",
         price: 60,
         category: "ps5",
-        image: "images/games/378.webp",
+        image: "images/games/378.jpeg",
     },
 
     {
@@ -31,7 +31,7 @@ const newlyAddedGames = [
         description: "Action game",
         price: 60,
         category: "ps4",
-        image: "images/games/379.webp",
+        image: "images/games/379.jpeg",
     },
 
     {
@@ -40,7 +40,7 @@ const newlyAddedGames = [
         description: "Action hack and slash",
         price: 250,
         category: "ps5",
-        image: "images/games/380.webp",
+        image: "images/games/380.jpeg",
     },
 
     {
@@ -49,7 +49,7 @@ const newlyAddedGames = [
         description: "Survival horror",
         price: 80,
         category: "ps5",
-        image: "images/games/381.webp",
+        image: "images/games/381.jpeg",
     },
 
     {
@@ -58,7 +58,7 @@ const newlyAddedGames = [
         description: "Sci-fi survival horror",
         price: 80,
         category: "ps5",
-        image: "images/games/382.webp",
+        image: "images/games/382.jpeg",
     },
 ]
 
