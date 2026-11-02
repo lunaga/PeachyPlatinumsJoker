@@ -68,13 +68,7 @@ export function Footer() {
                 <MessageCircle className="h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
                 <span>Discord: @peachyplatinums</span>
               </a>
-              <a
-                href="mailto:Peachyplatinums@hotmail.com"
-                className="flex items-center justify-center md:justify-end space-x-2 text-purple-300 dark:text-purple-300 text-purple-700 hover:text-purple-100 dark:hover:text-purple-100 hover:text-purple-600 transition-colors duration-300 group"
-              >
-                <Mail className="h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
-                <span>Peachyplatinums@hotmail.com</span>
-              </a>
+
               <a
                 href="https://wa.me/5491164716955"
                 target="_blank"
