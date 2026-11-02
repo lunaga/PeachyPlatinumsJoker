@@ -9,56 +9,30 @@ import Link from "next/link"
 
 const newlyAddedGames = [
     {
-        id: "377",
-        name: "Batman: Arkham Asylum PS3 Platinum Trophy Service",
-        description: "Superhero stealth-action, Arkham series",
-        price: 35,
+        id: "383",
+        name: "SpongeBob SquarePants: Titans of the Tide PS5 Platinum Trophy Service",
+        description: "Platformer / Adventure",
+        price: 40,
+        category: "ps5",
+        image: "images/games/383.jpeg",
+    },
+
+    {
+        id: "384",
+        name: "Two Point Hospital (+DLC) PS4 Platinum Trophy Service",
+        description: "Hospital management / Simulation",
+        price: 275,
         category: "ps4",
-        image: "images/games/377.jpeg",
-    },
-    {
-        id: "378",
-        name: "Wolverine PS5 Platinum Trophy Service",
-        description: "Action-adventure",
-        price: 60,
-        category: "ps5",
-        image: "images/games/378.jpeg",
+        image: "images/games/384.jpeg",
     },
 
     {
-        id: "379",
-        name: "Deadpool PS4 Platinum Trophy Service",
-        description: "Action game",
-        price: 60,
-        category: "ps4",
-        image: "images/games/379.jpeg",
-    },
-
-    {
-        id: "380",
-        name: "Ninja Gaiden 4 (+DLC) Platinum Trophy Service",
-        description: "Action hack and slash",
-        price: 250,
+        id: "385",
+        name: "Phantom Blade Zero PS5 Platinum Trophy Service",
+        description: "Action RPG / Soulslike",
+        price: 90,
         category: "ps5",
-        image: "images/games/380.jpeg",
-    },
-
-    {
-        id: "381",
-        name: "Silent Hill Townfall PS5 Platinum Trophy Service",
-        description: "Survival horror",
-        price: 80,
-        category: "ps5",
-        image: "images/games/381.jpeg",
-    },
-
-    {
-        id: "382",
-        name: "Dead Space PS5 Platinum Trophy Service",
-        description: "Sci-fi survival horror",
-        price: 80,
-        category: "ps5",
-        image: "images/games/382.jpeg",
+        image: "images/games/385.jpeg",
     },
 ]
 

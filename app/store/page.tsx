@@ -21,7 +21,7 @@ const products = [
         id: "1",
         name: "Final Fantasy VII Remake (EU) (+DLC) PS5 Platinum Trophy Service",
         description: "RPG game",
-        price: 120,
+        price: 90,
         category: "ps5",
         image: "images/games/1.webp",
     },
@@ -448,7 +448,7 @@ const products = [
         id: "34",
         name: "Dark Souls III PS4 Platinum Trophy Service",
         description: "Souls-like / action RPG",
-        price: 90,
+        price: 100,
         category: "ps4",
         image: "images/games/34.webp",
     },
@@ -824,7 +824,7 @@ const products = [
         id: "137",
         name: "Spongebob Squarepants: The Cosmic Shake PS4 Platinum Trophy Service",
         description: "Cartoon platforming with Spongebob",
-        price: 30,
+        price: 40,
         category: "ps4",
         image: "images/games/137.webp",
     },
@@ -889,7 +889,7 @@ const products = [
         id: "160",
         name: "Dark Souls II: Scholar Of The First Sin PS4 Platinum Trophy Service",
         description: "Action RPG",
-        price: 75,
+        price: 100,
         category: "ps4",
         image: "images/games/160.webp",
     },
@@ -1107,7 +1107,7 @@ const products = [
         id: "63",
         name: "Dark Souls II PS3 Platinum Trophy Service",
         description: "Action RPG, Soulslike",
-        price: 75,
+        price: 100,
         category: "ps3",
         image: "images/games/63.webp",
     },
@@ -1357,7 +1357,7 @@ const products = [
         id: "39",
         name: "Dark Souls Trilogy Bundle PS4 Platinum Trophy Service",
         description: "Souls-like trilogy",
-        price: 180,
+        price: 215,
         category: "bundles",
         image: "images/games/39.webp",
     },
@@ -2248,7 +2248,7 @@ const products = [
         id: "314",
         name: "LEGO DC Super-Villains (+DLC) PS4 Platinum Trophy Service",
         description: "Action Adventure",
-        price: 60,
+        price: 75,
         category: "ps4",
         image: "images/games/314.jpg",
     },
@@ -2328,7 +2328,7 @@ const products = [
         id: "324",
         name: "Life is Strange: Reunion PS5 Platinum Trophy Service",
         description: "Adventure",
-        price: 60,
+        price: 30,
         category: "ps5",
         image: "images/games/324.jpg",
     },
@@ -2778,6 +2778,32 @@ const products = [
         category: "ps5",
         image: "images/games/382.jpeg",
     },
+    {
+        id: "383",
+        name: "SpongeBob SquarePants: Titans of the Tide PS5 Platinum Trophy Service",
+        description: "Platformer / Adventure",
+        price: 40,
+        category: "ps5",
+        image: "images/games/383.jpeg",
+    },
+
+    {
+        id: "384",
+        name: "Two Point Hospital (+DLC) PS4 Platinum Trophy Service",
+        description: "Hospital management / Simulation",
+        price: 275,
+        category: "ps4",
+        image: "images/games/384.jpeg",
+    },
+
+    {
+        id: "385",
+        name: "Phantom Blade Zero PS5 Platinum Trophy Service",
+        description: "Action RPG / Soulslike",
+        price: 90,
+        category: "ps5",
+        image: "images/games/385.jpeg",
+    },
 
 ]
 
@@ -2787,12 +2813,9 @@ export default function StorePage() {
     const { addToCart } = useCart()
 
     const newlyAddedGames = [
-        products.find((p) => p.id === "377"),
-        products.find((p) => p.id === "378"),
-        products.find((p) => p.id === "379"),
-        products.find((p) => p.id === "380"),
-        products.find((p) => p.id === "381"),
-        products.find((p) => p.id === "382"),
+        products.find((p) => p.id === "383"),
+        products.find((p) => p.id === "384"),
+        products.find((p) => p.id === "385"),
 
     ].filter(Boolean)
 
