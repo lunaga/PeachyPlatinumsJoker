@@ -11,7 +11,7 @@ import Image from "next/image"
 import { OrderPreview } from "@/components/order-preview"
 
 export function Cart() {
-    const { state, removeItem, updateQuantity, clearCart, sendOrderToWhatsApp, sendOrderToEmail, sendOrderToDiscord } =
+    const { state, removeItem, updateQuantity, clearCart, sendOrderToWhatsApp, sendOrderToDiscord } =
         useCart()
     const [isOpen, setIsOpen] = useState(false)
 
@@ -34,24 +34,6 @@ export function Cart() {
         }
     }
 
-    const handleEmailPurchase = () => {
-        if (state.items.length === 0) {
-        alert("Your cart is empty. Please add some games first.")
-        return
-        }
-
-        try {
-        sendOrderToEmail()
-        alert("✅ Opening your email client!\n📧 Your order details will be sent to PeachyPlatinums@hotmail.com")
-        setTimeout(() => {
-            clearCart()
-            setIsOpen(false)
-        }, 1000)
-        } catch (error) {
-        console.error("Error opening email:", error)
-        alert("❌ Error opening email client. Please try another method.")
-        }
-    }
 
     const handleDiscordPurchase = async () => {
         if (state.items.length === 0) {
@@ -218,13 +200,6 @@ export function Cart() {
                         Complete Purchase via WhatsApp
                     </Button>
 
-                    <Button
-                        onClick={handleEmailPurchase}
-                        className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold py-3 shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50 transition-all duration-300"
-                    >
-                        <Mail className="h-4 w-4 mr-2" />
-                        Complete Purchase via Email
-                    </Button>
 
                     <Button
                         onClick={handleDiscordPurchase}

@@ -153,7 +153,7 @@ interface Product {
 
     const sendOrderToWhatsApp = () => {
         const message = generateWhatsAppMessage()
-        const phoneNumber = "5491164716955" // +54 9 11 6471-6955
+        const phoneNumber = "5491173658732" // +54 9 11 7365-8732
         const encodedMessage = encodeURIComponent(message)
         const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`
 
@@ -161,42 +161,7 @@ interface Product {
         window.open(whatsappUrl, "_blank")
     }
 
-    const sendOrderToEmail = async () => {
-        try {
-        const customerName = prompt("Please enter your name:")
-        if (!customerName) return
 
-        const customerEmail = prompt("Please enter your email:")
-        if (!customerEmail) return
-
-        const response = await fetch("/api/send-email", {
-            method: "POST",
-            headers: {
-            "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-            customerName,
-            customerEmail,
-            items: state.items.map((item) => ({
-                name: item.name,
-                quantity: item.quantity,
-                price: item.price,
-            })),
-            total: state.total.toFixed(2),
-            }),
-        })
-
-        if (response.ok) {
-            alert("Order sent successfully via email!")
-            clearCart()
-        } else {
-            alert("Failed to send email. Please try another method.")
-        }
-        } catch (error) {
-        console.error("[v0] Error sending email:", error)
-        alert("Failed to send email. Please try another method.")
-        }
-    }
 
     const sendOrderToDiscord = async () => {
         try {
@@ -240,7 +205,6 @@ interface Product {
             generateWhatsAppMessage,
             sendOrderToWhatsApp,
             generateOrderMessage,
-            sendOrderToEmail,
             sendOrderToDiscord,
         }}
         >

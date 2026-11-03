@@ -2728,7 +2728,7 @@ const products = [
     },
     {
         id: "377",
-        name: "Batman: Arkham Asylum PS3 Platinum Trophy Service",
+        name: "Batman: Arkham Asylum PS4 Platinum Trophy Service",
         description: "Superhero stealth-action, Arkham series",
         price: 35,
         category: "ps4",

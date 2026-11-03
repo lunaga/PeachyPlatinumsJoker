@@ -70,7 +70,7 @@ export function Footer() {
               </a>
 
               <a
-                href="https://wa.me/5491164716955"
+                href="https://wa.me/5491173658732"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center md:justify-end space-x-2 text-purple-300 dark:text-purple-300 text-purple-700 hover:text-purple-100 dark:hover:text-purple-100 hover:text-purple-600 transition-colors duration-300 group"

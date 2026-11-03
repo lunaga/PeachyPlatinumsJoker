@@ -76,7 +76,7 @@ export function OrderPreview() {
                 </div>
 
                 <p className="text-xs text-purple-400 text-center mt-3">
-                    This message will be sent to: +54 9 11 6471-6955
+                    This message will be sent to: +54 9 11 7365-8732
                 </p>
                 </CardContent>
             </Card>

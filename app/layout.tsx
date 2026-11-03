@@ -218,7 +218,6 @@ export default function RootLayout({
               url: "https://www.peachyplatinums.com",
               logo: "https://www.peachyplatinums.com/images/games/logo.webp",
               image: "https://www.peachyplatinums.com/images/games/logo.webp",
-              email: "Peachyplatinums@hotmail.com",
               telephone: "+5491164716955",
               priceRange: "£21-£250",
               currenciesAccepted: "GBP, USD, EUR",
